@@ -244,6 +244,56 @@ section.sec{padding-block:96px}
 .work.feat .pic{height:100%;min-height:280px;background-size:cover;background-position:center}
 @media (max-width:760px){.work.feat{grid-template-columns:1fr}.work.feat .pic{min-height:210px;order:-1}}
 
+/* students */
+.stfeat{display:grid;grid-template-columns:1.05fr 1fr;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--night-3),var(--night));color:#eef1fb;margin-bottom:26px;box-shadow:var(--shadow)}
+.stfeat .pics{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;min-height:340px}
+.stfeat .pics button{border:0;padding:0;cursor:zoom-in;overflow:hidden;background:#0a1130}
+.stfeat .pics button:first-child{grid-row:1/3}
+.stfeat .pics img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.stfeat .pics button:hover img{transform:scale(1.06)}
+.stfeat .tx{padding:30px 30px 28px;display:flex;flex-direction:column;gap:14px}
+.stfeat h3{font-family:var(--display);font-weight:400;font-size:clamp(24px,3vw,34px);line-height:1.35;color:#fff}
+.stfeat p{margin:0;color:#c3cae6;font-size:15px}
+.ladder{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:10px}
+.ladder li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center}
+.ladder .st{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;font-weight:600;color:#1a1405;background:linear-gradient(135deg,var(--gold-hi),var(--gold))}
+.ladder b{display:block;color:#fff;font-size:15.5px}
+.ladder span{font-size:13.5px;color:#aab3d6}
+.stfeat .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.dbtn{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;padding:7px 13px;border-radius:9px;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--surface);transition:background .2s,border-color .2s}
+.dbtn:hover{border-color:var(--accent);background:var(--surface-2)}
+.dbtn svg{width:15px;height:15px}
+.stfeat .dbtn{border-color:rgba(246,216,143,.45);color:#f3e6c2;background:rgba(255,255,255,.05)}
+.stgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.stc{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.stc:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.stc .stack{position:relative;aspect-ratio:4/3;border:0;padding:0;cursor:zoom-in;background:var(--surface-2);overflow:hidden}
+.stc .stack img{position:absolute;left:10px;top:10px;width:calc(100% - 24px);height:calc(100% - 24px);object-fit:cover;object-position:top;border-radius:8px;box-shadow:0 6px 18px -6px rgba(0,0,0,.35);transition:transform .35s}
+.stc .stack img:nth-child(2){transform:rotate(3deg) translate(6px,2px);z-index:0}
+.stc .stack img:first-child{z-index:1}
+.stc .stack:hover img:nth-child(2){transform:rotate(6deg) translate(12px,4px)}
+.stc .nb{position:absolute;z-index:2;right:10px;bottom:10px;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(10,17,48,.82);color:#f6d88f}
+.stc .m{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.stc .t{font-weight:600;line-height:1.5;font-size:15.5px}
+.stc .s{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+@media (max-width:760px){.stfeat{grid-template-columns:1fr}.stfeat .pics{min-height:260px}}
+
+/* projects */
+.pjgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.pj{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.pj:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pj .cv{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--night-3),var(--night));overflow:hidden}
+.pj .cv img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s}
+.pj:hover .cv img{transform:scale(1.05)}
+.pj .cv .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:42px;color:rgba(246,216,143,.5)}
+.pj .tg{position:absolute;left:12px;top:12px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;color:#1a1405;background:linear-gradient(135deg,var(--gold-hi),var(--gold))}
+.pj .m{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pj .role{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.04em}
+.pj h3{font-size:18px;font-weight:700;line-height:1.45}
+.pj p{margin:0;font-size:14.5px;color:var(--ink-2)}
+.pj .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.pj .nod{font-size:13px;color:var(--ink-2);font-style:italic}
+
 /* gallery */
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
 .masonry{columns:3 280px;column-gap:16px}
@@ -319,6 +369,8 @@ footer .pr{font-family:var(--mono);font-size:12.5px;letter-spacing:.2em;color:rg
       <li><a class="l" href="#awards">รางวัล</a></li>
       <li><a class="l" href="#speaker">วิทยากร</a></li>
       <li><a class="l" href="#works">นวัตกรรม</a></li>
+      <li><a class="l" href="#students">ผลงานนักเรียน</a></li>
+      <li><a class="l" href="#projects">โครงการ</a></li>
       <li><a class="l" href="#gallery">ภาพกิจกรรม</a></li>
       <li><a class="l" href="#docs">เอกสาร</a></li>
     </ul>
@@ -411,6 +463,22 @@ footer .pr{font-family:var(--mono);font-size:12.5px;letter-spacing:.2em;color:rg
   </div>
 </section>
 
+<section class="sec" id="students">
+  <div class="wrap">
+    <div class="shead rv"><div><div class="kick">ผลงานนักเรียน</div><h2>ผลงานนักเรียนที่ฝึกสอน</h2><p>รางวัลของนักเรียนโรงเรียนบ้านทุ่งใหญ่ที่ครูจิรพงศ์เป็นผู้ฝึกซ้อมและครูที่ปรึกษา แตะที่ภาพเพื่อดูเกียรติบัตร</p></div></div>
+    <div id="stFeat"></div>
+    <div class="stgrid" id="stList"></div>
+  </div>
+</section>
+
+<section class="sec alt" id="projects">
+  <div class="wrap">
+    <div class="shead rv"><div><div class="kick">โครงการและรายงาน</div><h2>งานที่รับผิดชอบและรายงานผล</h2><p>โครงการ กิจกรรม และรายงานการปฏิบัติงานในรอบปี กดปุ่มเพื่อเปิดเอกสาร PDF ฉบับเต็ม</p></div>
+      <div class="count" id="pjcount"></div></div>
+    <div class="pjgrid" id="pjList"></div>
+  </div>
+</section>
+
 <section class="sec" id="gallery">
   <div class="wrap">
     <div class="shead rv"><div><div class="kick">ภาพกิจกรรม</div><h2>ภาพการปฏิบัติงาน</h2><p>การจัดการเรียนรู้ การเป็นวิทยากร และกิจกรรมพัฒนาผู้เรียน</p></div></div>
@@ -453,6 +521,7 @@ footer .pr{font-family:var(--mono);font-size:12.5px;letter-spacing:.2em;color:rg
 <script>
 document.documentElement.classList.add("js");
 const AWARDS = [
+  ["a38",2569,"nat","โล่ประกาศเกียรติคุณ โรงเรียนต้นแบบส่งเสริมกิจกรรมทางกาย ระดับประเทศ","กรมอนามัย กระทรวงสาธารณสุข · รับโล่ในงาน Child Health 2026 · 8 พ.ค. 2569"],
   ["a24",2569,"nat","รางวัลระดับทอง Best Practice ประเภทผู้ใช้สื่อเทคโนโลยีดิจิทัล","OBEC Content Center · สพฐ."],
   ["a22",2569,"nat","โรงเรียนอุ่นใจ (ครู)","AIS ร่วมกับหน่วยงานการศึกษา"],
   ["a23",2569,"nat","โรงเรียนอุ่นใจ (โรงเรียน)","AIS ร่วมกับหน่วยงานการศึกษา"],
@@ -463,6 +532,7 @@ const AWARDS = [
   ["a30",2569,"reg","นวัตกรรมสร้างสรรค์คนดี ด้านการจัดการเรียนการสอน ระดับดีเยี่ยม","โครงการโรงเรียนคุณธรรม สพฐ. เขตตรวจราชการที่ 10"],
   ["a28",2569,"reg","ครูดีในดวงใจ ครั้งที่ 23","เขตตรวจราชการที่ 10"],
   ["a31",2569,"reg","Finalist Award นวัตกรรม 4D-SEQ ระบบลำดับสื่อดิจิทัล 4 มิติ","ED Quality Share and Learn Fair 2026 · คณะศึกษาศาสตร์ มหาวิทยาลัยขอนแก่น"],
+  ["a39",2569,"dist","โล่รางวัลชนะเลิศ ระดับทอง Best Practice ประเภทผู้ใช้สื่อเทคโนโลยีดิจิทัล OBEC Content Center","สพป.อุดรธานี เขต 3 · 17 มิ.ย. 2569"],
   ["a37",2569,"dist","ชนะเลิศ ระดับทอง Best Practice ประเภทผู้ใช้สื่อเทคโนโลยีดิจิทัล OBEC Content Center","สพป.อุดรธานี เขต 3 · 12 มิ.ย. 2569"],
   ["a34",2569,"dist","ชนะเลิศ ระดับดีมาก Good Practice ด้านการใช้สื่อและเทคโนโลยี","สพป.อุดรธานี เขต 3"],
   ["a32",2568,"dist","ชนะเลิศ เหรียญทอง ครูดีในดวงใจ ครั้งที่ 23","สพป.อุดรธานี เขต 3"],
@@ -503,6 +573,7 @@ const SPEAKER = [
   ["s11",2569,"sp","วิทยากรอบรม AI และ OBEC CC · กลุ่มโรงเรียนหนองหาน 4","ระดับเขตพื้นที่"],
   ["s04",2568,"sp","วิทยากร พสน.",""],
   ["s03",2566,"sp","วิทยากรและ Coach ผลิตสื่อด้วย Canva และ CapCut","กลุ่มโรงเรียนทุ่งฝน"],
+  ["s24",2569,"cm","คณะกรรมการดำเนินงานขับเคลื่อนการยกระดับโรงเรียนคุณธรรม สพฐ. ระดับ 3 ดาว","สพป.อุดรธานี เขต 3 · 18 ก.ย. 2569"],
   ["s21",2569,"cm","คณะกรรมการคัดกรองสื่อ ระบบ CVS คลังสื่อ OBEC Content Center","สพป.อุดรธานี เขต 3"],
   ["s17",2569,"cm","คณะกรรมการคัดเลือกผลงานคุรุชนคนคุณธรรม","ระดับเขตพื้นที่"],
   ["s22",2569,"cm","คณะทำงานแนะแนว","ระดับเขตพื้นที่"],
@@ -555,6 +626,51 @@ const CLASS_DOCS = [
   ["รายงานค่าความเที่ยงตรง (IOC)","ผลการตรวจสอบคุณภาพเครื่องมือโดยผู้เชี่ยวชาญ","https://drive.google.com/file/d/1V0S1rM9afVaXH80-Gj22DPql-UIw099L/view"],
   ["รายงานผลการปฏิบัติงานตามข้อตกลง (PA) ปีงบประมาณ 2569","ฉบับเต็ม","https://drive.google.com/file/d/1JKArwuLcoU1n5cQS8j3kDSxQ9iUYQPq3/view"],
 ];
+const DOC2="https://jirapongjoke.github.io/docs2/";
+// ผลงานนักเรียน: {t, lv, yr, sub, n: จำนวนนักเรียน, imgs:[...], feat}
+const STUDENTS = [
+  {t:"ชนะเลิศ การประกวดวิทยากรประชาธิปไตย ระดับประเทศ",lv:"nat",yr:2569,n:4,feat:1,
+   sub:"สำนักงานคณะกรรมการการเลือกตั้ง · ระดับมัธยมศึกษาตอนต้นและประถมศึกษา (ขยายโอกาส) · 15 ส.ค. 2569",
+   path:[["จังหวัดอุดรธานี","ชนะเลิศ (ยอดเยี่ยม)","24 มิ.ย. 2569"],["ภาคตะวันออกเฉียงเหนือ","ชนะเลิศ 292 คะแนน จาก 20 ทีม","21 ก.ค. 2569"],["ประเทศ","ชนะเลิศ รับโล่ กกต.","15 ส.ค. 2569"]],
+   imgs:["st01","st02","st03","st04"],docs:[["รายงานผลระดับจังหวัด",DOC2+"democracy-province.pdf"],["รายงานผลระดับภาค",DOC2+"democracy-region.pdf"]]},
+  {t:"ผู้พัฒนาโครงงานคุณธรรมเฉลิมพระเกียรติ \"เยาวชนไทย ทำดี ถวายในหลวง\" ระดับประเทศ",lv:"nat",yr:2567,n:7,
+   sub:"สพฐ. · ปีที่ 19 · โครงงาน ใบไม้สร้างคุณค่า พลิกความชุ่มชื่น คืนความสมบูรณ์ · 1 เม.ย. 2568",imgs:["k16","k17","k18","k19","k20","k21","k22"]},
+  {t:"เหรียญทอง ประกวดภาพยนตร์สั้น Soft Power สาขาภาพยนตร์ ละคร และซีรีส์ ป.1–6",lv:"dist",yr:2567,n:5,
+   sub:"ศิลปหัตถกรรมนักเรียน ครั้งที่ 72 · สพป.อุดรธานี เขต 3 · 27 ธ.ค. 2567",imgs:["k01","k02","k03","k04","k05"]},
+  {t:"ระดับดีมาก ประกวดสื่อสร้างสรรค์ภาพยนตร์สั้นต่อต้านการทุจริต ป.1–6",lv:"dist",yr:2567,n:5,
+   sub:"โครงการเสริมสร้างคุณธรรม จริยธรรมและธรรมาภิบาลในสถานศึกษา · สพป.อุดรธานี เขต 3 · 26 ก.ค. 2567",imgs:["k11","k12","k13","k14","k15"]},
+  {t:"เหรียญทอง รองชนะเลิศอันดับ 1 ประกวดภาพยนตร์สั้น ป.1–6",lv:"dist",yr:2566,n:5,
+   sub:"ศิลปหัตถกรรมนักเรียน ครั้งที่ 71 · สพป.อุดรธานี เขต 3 · 30 พ.ย. 2566",imgs:["k06","k07","k08","k09","k10"]},
+  {t:"เหรียญเงิน การแข่งขันต่อสมการคณิตศาสตร์ (เอแม็ท) ป.1–6",lv:"dist",yr:2566,n:2,
+   sub:"ศิลปหัตถกรรมนักเรียน ครั้งที่ 71 · สพป.อุดรธานี เขต 3 · 30 พ.ย. 2566",imgs:["k23","k24"]},
+];
+// โครงการและรายงานการปฏิบัติงาน: {t, role, d, img, yr, docs:[[label,url]]}
+const PROJECTS = [
+  {t:"Smart Memo AI ระบบลดภาระงานครู",role:"ผู้พัฒนา",yr:2569,img:"pj01",tag:"Best Practice",
+   d:"ระบบอ่าน สรุป จำแนก และแจ้งเตือนหนังสือราชการอัตโนมัติ เพื่อลดภาระงานครูและงานซ้ำซ้อนในสถานศึกษา",docs:[["รายงาน Best Practice",DOC2+"smart-memo-ai.pdf"]]},
+  {t:"โรงเรียนต้นแบบส่งเสริมกิจกรรมทางกาย ระดับประเทศ",role:"ผู้ประสานงาน",yr:2569,img:"pj02",tag:"กรมอนามัย",
+   d:"ประสานงานจนโรงเรียนได้รับคัดเลือกเป็นต้นแบบระดับประเทศ และเป็นผู้แทนรับโล่ในงาน Child Health 2026 เมื่อ 25 มิ.ย. 2569",docs:[["หนังสือรายงานผลการรับโล่",DOC2+"physical-activity-report.pdf"]]},
+  {t:"ฝึกซ้อมทีมวิทยากรประชาธิปไตย",role:"ครูผู้ฝึกซ้อม / ผู้ประสานงาน",yr:2569,img:"st03",tag:"กกต.",
+   d:"ฝึกทีมนักเรียน 4 คน จนชนะเลิศระดับจังหวัด ระดับภาคตะวันออกเฉียงเหนือ และระดับประเทศ",docs:[["รายงานผลระดับจังหวัด",DOC2+"democracy-province.pdf"],["รายงานผลระดับภาค",DOC2+"democracy-region.pdf"]]},
+  {t:"การนิเทศ ติดตาม สร้างภูมิคุ้มกันยาเสพติดและพัฒนาทักษะสมอง (EF)",role:"ผู้รายงาน",yr:2569,img:"pj09",tag:"ป.1–3",
+   d:"รายงานการกำกับ ติดตาม และสรุปผลการพัฒนาทักษะชีวิตและทักษะสมอง (Executive Functions) ในสถานศึกษา",docs:[["ฉบับของครู",DOC2+"ef-report-teacher.pdf"],["ฉบับของสถานศึกษา",DOC2+"ef-report-school.pdf"]]},
+  {t:"ความปลอดภัยในสถานศึกษา",role:"ผู้จัดทำแผนและรายงาน",yr:2569,img:"pj05",tag:"แผน + ฝึกซ้อม",
+   d:"แผนปฏิบัติการเชิงพื้นที่ด้านความปลอดภัย และรายงานการฝึกนักเรียนเผชิญเหตุแผ่นดินไหวและภัยพิบัติ",docs:[["แผนปฏิบัติการ 2569",DOC2+"safety-plan-2569.pdf"],["รายงานการฝึกเผชิญเหตุ",DOC2+"safety-drill-report.pdf"]]},
+  {t:"โรงเรียนคุณธรรม สพฐ. ระดับ 3 ดาว",role:"คณะกรรมการขับเคลื่อน",yr:2569,img:"pj10",tag:"โรงเรียนคุณธรรม",
+   d:"แบบรายงานการดำเนินกิจกรรมโครงการโรงเรียนคุณธรรม \"โรงเรียนดี ต้องมีที่ยืน\"",docs:[["แบบรายงานการดำเนินกิจกรรม",DOC2+"moral-school-report.pdf"]]},
+  {t:"TO BE NUMBER ONE เป็นหนึ่งโดยไม่พึ่งยาเสพติด",role:"ผู้รับผิดชอบกิจกรรม",yr:2569,img:"pj03",tag:"ยาเสพติด",
+   d:"กิจกรรมส่งเสริมการออกกำลังกายเต้นแอโรบิก พร้อมเชิญวิทยากรจากโรงเรียนเครือข่าย",docs:[["หนังสือเชิญวิทยากร",DOC2+"tobenumberone-letter.pdf"]]},
+  {t:"วันต่อต้านยาเสพติดโลก 2569",role:"ผู้จัดกิจกรรม",yr:2569,img:"pj04",tag:"กิจกรรม",
+   d:"กิจกรรมรณรงค์ต่อต้านยาเสพติดของนักเรียนทั้งโรงเรียน",docs:[]},
+  {t:"พัฒนาคุณภาพผู้เรียนด้าน ICT และ AI",role:"ผู้จัดกิจกรรม",yr:2569,img:"pj06",tag:"ICT",
+   d:"อบรมเชิงปฏิบัติการความปลอดภัยในการใช้เทคโนโลยีดิจิทัลและการใช้ปัญญาประดิษฐ์ในการเรียนอย่างเหมาะสม",docs:[]},
+  {t:"วันวิทยาศาสตร์แห่งชาติ 2569",role:"ผู้จัดกิจกรรม",yr:2569,img:"pj07",tag:"กิจกรรม",
+   d:"กิจกรรมวันวิทยาศาสตร์ 18 สิงหาคม 2569 ระดับปฐมวัยถึง ป.6",docs:[]},
+  {t:"ฝึกซ้อมนักเรียนแข่งขันซูโดกุ",role:"ครูผู้ฝึกซ้อม",yr:2569,img:"pj11",tag:"ศิลปหัตถกรรม",
+   d:"ชุดฝึกซูโดกุระดับเริ่มต้นและพื้นฐาน สำหรับเตรียมนักเรียนแข่งขันศิลปหัตถกรรมนักเรียน 2569",docs:[["ชุดฝึก 1",DOC2+"sudoku-set-01.pdf"],["ชุดฝึก 2",DOC2+"sudoku-set-02.pdf"]]},
+  {t:"รายงานการนำส่งเงินค่าบำรุงลูกเสือ 2569",role:"ผู้รายงาน",yr:2569,img:null,tag:"งานลูกเสือ",
+   d:"บันทึกรายงานผลการนำส่งเงินค่าบำรุงลูกเสือและผู้บังคับบัญชาลูกเสือ ประจำปี 2569",docs:[["บันทึกรายงาน",DOC2+"scout-fee-report.pdf"]]},
+];
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -579,7 +695,7 @@ const MEDAL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 const natWins=AWARDS.filter(a=>a[2]==="nat"&&!isPart(a)).length;
 const regWins=AWARDS.filter(a=>a[2]==="reg"&&!isPart(a)).length;
 const spk=SPEAKER.filter(s=>s[2]==="sp").length, cm=SPEAKER.filter(s=>s[2]==="cm").length;
-$("#stats").innerHTML=[[AWARDS.length,"รางวัลและเกียรติบัตร"],[natWins,"รางวัลระดับประเทศ"],[spk,"ครั้งที่เป็นวิทยากร"],[cm,"กรรมการ / คณะทำงาน"]]
+$("#stats").innerHTML=[[AWARDS.length,"รางวัลและเกียรติบัตร"],[natWins,"รางวัลระดับประเทศ"],[STUDENTS.length,"รางวัลผลงานนักเรียน"],[spk,"ครั้งที่เป็นวิทยากร"]]
   .map(([n,l])=>`<div class="stat"><b data-n="${n}">${n}</b><span>${l}</span></div>`).join("");
 if(!RM){
   const els=[...document.querySelectorAll(".stat b")], t0=performance.now();
@@ -708,6 +824,24 @@ $("#works-list").innerHTML=WORKS.map((w,i)=>i===0?
  `<article class="work feat rv"><div class="tx"><span class="aw">${MEDAL}${esc(w.a)}</span><h3>${esc(w.t)}</h3><p>${esc(w.d)}</p><a class="go" href="${w.u}" target="_blank" rel="noopener"><span>เปิดเอกสาร PDF</span>${ARROW}</a></div><div class="pic" style="background-image:url(img/ph01.jpg)" role="img" aria-label="ภาพการสอนเรื่องจำนวนเฉพาะ"></div></article>`:
  `<article class="work rv"><span class="aw">${MEDAL}${esc(w.a)}</span><h3>${esc(w.t)}</h3><p>${esc(w.d)}</p><a class="go" href="${w.u}" target="_blank" rel="noopener"><span>เปิดเอกสาร PDF</span>${ARROW}</a></article>`).join("");
 document.querySelectorAll(".work").forEach(w=>w.addEventListener("pointermove",e=>{const b=w.getBoundingClientRect();w.style.setProperty("--mx",e.clientX-b.left+"px");w.style.setProperty("--my",e.clientY-b.top+"px")}));
+
+/* students */
+const DOCI='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>';
+const dbtns=ds=>ds.map(([l,u])=>`<a class="dbtn" href="${u}" target="_blank" rel="noopener">${DOCI}${esc(l)}</a>`).join("");
+STUDENTS.forEach((s,i)=>{LISTS["st"+i]=s.imgs.map(id=>[id,s.yr,s.lv,s.t,s.sub])});
+(function(){const f=STUDENTS.findIndex(s=>s.feat),s=STUDENTS[f];
+  $("#stFeat").innerHTML=`<article class="stfeat rv"><div class="pics">${s.imgs.slice(0,3).map((id,j)=>`<button data-list="st${f}" data-i="${j}" aria-label="ดูภาพ"><img loading="lazy" src="img/${id}.jpg" alt="${esc(s.t)}"></button>`).join("")}</div>
+  <div class="tx"><span class="ribbon" style="position:static;align-self:flex-start">${MEDAL}ชนะเลิศ 3 ระดับ · ${s.yr}</span><h3>${esc(s.t)}</h3><p>ทีมนักเรียน ${s.n} คน · ${esc(s.sub)}</p>
+  <ol class="ladder">${s.path.map((p,j)=>`<li><span class="st">${j+1}</span><span><b>${esc(p[0])} — ${esc(p[1])}</b><span>${esc(p[2])}</span></span></li>`).join("")}</ol>
+  <div class="btns">${dbtns(s.docs||[])}</div></div></article>`;
+  $("#stList").innerHTML=STUDENTS.map((s,i)=>i===f?"":`<article class="stc rv"><button class="stack" data-list="st${i}" data-i="0" aria-label="ดูเกียรติบัตร">${s.imgs.slice(0,2).map(id=>`<img loading="lazy" src="img/${id}.jpg" alt="เกียรติบัตร ${esc(s.t)}">`).join("")}<span class="nb">นักเรียน ${s.n} คน · ${s.imgs.length} ใบ</span></button>
+   <div class="m"><div class="t">${esc(s.t)}</div><div class="s">${esc(s.sub)}</div><div class="tags"><span class="tag ${s.lv}">${LVS[s.lv]}</span><span class="tag yr">${s.yr}</span></div></div></article>`).join("");
+})();
+
+/* projects */
+$("#pjcount").textContent=`${PROJECTS.length} โครงการ · ${PROJECTS.reduce((n,p)=>n+p.docs.length,0)} เอกสาร`;
+$("#pjList").innerHTML=PROJECTS.map(p=>`<article class="pj rv"><div class="cv">${p.img?`<img loading="lazy" src="img/${p.img}.jpg" alt="${esc(p.t)}">`:`<span class="ph">✦</span>`}<span class="tg">${esc(p.tag)}</span></div>
+ <div class="m"><div class="role">${esc(p.role)} · ${p.yr}</div><h3>${esc(p.t)}</h3><p>${esc(p.d)}</p><div class="btns">${p.docs.length?dbtns(p.docs):`<span class="nod">ดูภาพกิจกรรมในแฟ้มผลงาน Google Drive</span>`}</div></div></article>`).join("");
 
 /* gallery */
 const GT=[["all","ทั้งหมด"],["cls","ในชั้นเรียน"],["spk","วิทยากร"],["act","กิจกรรมผู้เรียน"],["rec","รางวัลและเผยแพร่"]];
