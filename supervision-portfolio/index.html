@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="แฟ้มสะสมผลงาน ศน.พัชรียาพร ห้วยทราย ศึกษานิเทศก์ชำนาญการพิเศษ สพป.อุดรธานี เขต ๓ — นวัตกรรม UDON3 Smart Coaching Model">
+<meta property="og:title" content="Smart Supervision Portfolio · ศน.พัชรียาพร ห้วยทราย">
+<meta property="og:description" content="นิเทศด้วยหัวใจ พัฒนาคุณภาพการศึกษา — นวัตกรรม UDON3 รางวัล และผลงาน ปี ๒๕๖๙">
+<meta property="og:image" content="https://jirapongjoke.github.io/supervision-portfolio/assets/portrait.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b1232">
+<title>พัชรียาพร Smart Supervision Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+Thai:wght@400;600;700;800&display=swap">
+<style>
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: a ceremonial dossier — deep กรมท่า/ม่วง hero framed in gold hairlines like a certificate,
+   then white "folio" pages, each labelled by the real Drive folder (แฟ้ม ๑–๖) it comes from. */
+:root{
+  --navy:#14204a; --navy-deep:#0b1232; --purple:#4a2a7a; --violet:#6c47a9;
+  --gold:#c9a24a; --gold-hi:#ecd48f; --gold-ink:#8a6a1c;
+  --paper:#ffffff; --mist:#f6f3fb; --ink:#1a1c3c; --muted:#5a5c7a; --line:#e6e0f0;
+  --accent-ink:#4a2a7a; --card:#ffffff; --shadow:0 18px 40px -24px rgba(20,32,74,.45);
+  --f-display:"Noto Serif Thai","Sarabun",Georgia,serif;
+  --f-body:"Anuphan","Sarabun","Leelawadee UI",system-ui,sans-serif;
+  --f-latin:"Cormorant Garamond","Noto Serif Thai",Georgia,serif;
+  --wrap:1180px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0c1230; --mist:#121a40; --ink:#eef0fb; --muted:#a8acc9; --line:#262e5c;
+  --gold-ink:#e2c477; --accent-ink:#c3a9f0; --card:#141c45; --shadow:0 18px 40px -24px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0c1230; --mist:#121a40; --ink:#eef0fb; --muted:#a8acc9; --line:#262e5c;
+  --gold-ink:#e2c477; --accent-ink:#c3a9f0; --card:#141c45; --shadow:0 18px 40px -24px rgba(0,0,0,.8); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.75;font-weight:400;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.35;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+
+/* ───────── top bar ───────── */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(11,18,50,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,162,74,.35);color:#fff}
+.bar .wrap{display:flex;align-items:center;gap:20px;min-height:62px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.seal{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold-hi);font-family:var(--f-display);font-weight:700;font-size:18px;background:radial-gradient(circle at 30% 25%,#2b2a6a,#120f38)}
+.brand b{display:block;font-family:var(--f-latin);font-weight:600;font-size:17px;letter-spacing:.06em;line-height:1.1;color:var(--gold-hi)}
+.brand small{display:block;font-size:12px;opacity:.75;line-height:1.3}
+.nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;text-decoration:none;font-size:14.5px;padding:8px 12px;border-radius:999px;color:#dfe2f5;transition:background .2s,color .2s}
+.nav a:hover{background:rgba(201,162,74,.16);color:var(--gold-hi)}
+@media (max-width:860px){.brand small{display:none}.bar .wrap{gap:12px}}
+
+/* ───────── hero ───────── */
+.hero{position:relative;color:#fff;overflow:hidden;
+  background:
+    radial-gradient(900px 500px at 85% 10%,rgba(108,71,169,.55),transparent 60%),
+    radial-gradient(700px 500px at 0% 100%,rgba(74,42,122,.6),transparent 60%),
+    linear-gradient(160deg,#0b1232 0%,#14204a 45%,#2a1d5a 100%)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.13;pointer-events:none;
+  background-image:
+    linear-gradient(45deg,transparent 46%,#c9a24a 46% 54%,transparent 54%),
+    linear-gradient(-45deg,transparent 46%,#c9a24a 46% 54%,transparent 54%);
+  background-size:44px 44px;mask-image:linear-gradient(90deg,transparent,#000 70%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 70%)}
+.hero .frame{position:relative;margin-block:clamp(20px,3vw,36px);border:1px solid rgba(201,162,74,.55);padding:clamp(22px,4vw,56px);
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:center}
+.hero .frame::after{content:"";position:absolute;inset:7px;border:1px solid rgba(201,162,74,.25);pointer-events:none}
+.corner{position:absolute;width:22px;height:22px;border:2px solid var(--gold)}
+.corner.tl{top:-2px;left:-2px;border-right:0;border-bottom:0}.corner.tr{top:-2px;right:-2px;border-left:0;border-bottom:0}
+.corner.bl{bottom:-2px;left:-2px;border-right:0;border-top:0}.corner.br{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.eyebrow{font-family:var(--f-latin);letter-spacing:.22em;text-transform:uppercase;font-size:14px;font-weight:600;color:var(--gold-hi);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.eyebrow .th{font-family:var(--f-body);letter-spacing:.02em;text-transform:none;font-weight:500;font-size:15px}
+.eyebrow i{display:inline-block;width:38px;height:1px;background:var(--gold)}
+.hero h1{margin-top:18px;font-weight:800;font-size:clamp(38px,6.2vw,76px);line-height:1.18;letter-spacing:-.005em}
+.hero h1 span{display:block;background:linear-gradient(100deg,#f6e3a6,#c9a24a 45%,#f3dc96 70%,#b88a2e);-webkit-background-clip:text;background-clip:text;color:transparent;
+  background-size:200% 100%;animation:sheen 7s ease-in-out infinite}
+@keyframes sheen{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+.hero .lede{margin-top:22px;max-width:36em;color:#d9dcf2;font-size:clamp(16px,1.6vw,18.5px);font-weight:300}
+.who{margin-top:30px;padding-top:22px;border-top:1px solid rgba(201,162,74,.35);display:grid;gap:4px}
+.who .name{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,2.8vw,32px)}
+.who .role{color:var(--gold-hi);font-weight:500}
+.who .org{color:#c5c9e6;font-size:15.5px}
+.cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15.5px;transition:transform .2s,box-shadow .2s,background .2s;border:0;cursor:pointer;font-family:inherit}
+.btn.gold{background:linear-gradient(135deg,#f0d78f,#c9a24a 60%,#a9802c);color:#1a1440;box-shadow:0 10px 24px -12px rgba(201,162,74,.9)}
+.btn.ghost{border:1px solid rgba(236,212,143,.6);color:#f3e5b8;background:transparent}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+
+.portrait{position:relative;justify-self:center;width:min(100%,400px)}
+.arch{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:200px 200px 14px 14px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 0 0 8px rgba(11,18,50,.6),0 0 0 9px rgba(201,162,74,.45),0 40px 80px -30px rgba(0,0,0,.8)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block}
+.medal{position:absolute;left:-14px;bottom:28px;background:linear-gradient(150deg,#1b2457,#3a2470);border:1px solid var(--gold);border-radius:14px;padding:12px 16px;max-width:230px;box-shadow:0 20px 40px -20px #000}
+.medal small{display:block;color:var(--gold-hi);font-size:12.5px;letter-spacing:.04em}
+.medal b{display:block;font-family:var(--f-display);font-size:16px;line-height:1.4;margin-top:2px}
+@media (max-width:860px){
+  .hero .frame{grid-template-columns:1fr}
+  .portrait{order:-1;width:min(78%,320px)}
+  .medal{left:50%;right:auto;transform:translateX(-50%);bottom:-26px;max-width:none;width:max-content;text-align:center}
+  .portrait{margin-bottom:26px}
+}
+
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid rgba(201,162,74,.35);margin-bottom:clamp(20px,3vw,36px)}
+.stat{padding:22px 12px;text-align:center;border-right:1px solid rgba(201,162,74,.18)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--f-latin);font-weight:600;font-size:clamp(34px,4vw,50px);line-height:1;color:var(--gold-hi)}
+.stat span{display:block;margin-top:8px;font-size:14px;color:#cfd3ee;line-height:1.45}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{border-bottom:1px solid rgba(201,162,74,.18)}.stat:nth-child(2n){border-right:0}.stat:last-child{grid-column:1/-1}}
+
+/* ───────── sections ───────── */
+section.folio{padding-block:clamp(64px,8vw,110px)}
+section.folio.alt{background:var(--mist)}
+.head{display:grid;gap:12px;margin-bottom:clamp(30px,4vw,50px);max-width:760px}
+.tag{font-family:var(--f-body);font-size:13.5px;font-weight:600;letter-spacing:.14em;color:var(--gold-ink);display:flex;align-items:center;gap:12px}
+.tag::before{content:"";width:30px;height:1px;background:var(--gold)}
+.head h2{font-size:clamp(30px,4vw,46px);font-weight:700;color:var(--ink)}
+.head h2 em{font-style:normal;color:var(--accent-ink)}
+.head p{color:var(--muted);font-size:17.5px;max-width:62ch}
+.ornament{display:flex;align-items:center;gap:10px;color:var(--gold)}
+.ornament::before,.ornament::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ornament svg{width:20px;height:20px}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:900px){.about{grid-template-columns:1fr}}
+.facts{display:grid;gap:0;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted);font-size:15px}
+.facts dd{margin:0;font-weight:500}
+@media (max-width:480px){.facts div{grid-template-columns:1fr;gap:2px}}
+.quote{margin-top:30px;padding:28px 28px 26px;background:linear-gradient(150deg,var(--navy),var(--purple));color:#fff;border-radius:4px;position:relative}
+.quote::before{content:"“";position:absolute;top:-12px;left:18px;font-family:var(--f-latin);font-size:96px;line-height:1;color:var(--gold)}
+.quote p{font-family:var(--f-display);font-size:clamp(19px,2.2vw,23px);line-height:1.6;font-weight:600}
+.quote small{display:block;margin-top:12px;color:var(--gold-hi);font-size:14px}
+.duties{display:grid;gap:22px}
+.duty h3{font-size:19px;color:var(--accent-ink);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.duty h3::before{content:"";width:9px;height:9px;transform:rotate(45deg);background:var(--gold);flex-shrink:0}
+.duty ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.duty li{padding:12px 16px;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{font-size:14px;padding:5px 12px;border-radius:999px;border:1px solid var(--gold);color:var(--gold-ink)}
+.principle{margin-top:22px;padding:18px 20px;border-left:3px solid var(--gold);background:var(--mist);font-family:var(--f-display);font-weight:600;font-size:17.5px}
+section.alt .principle{background:var(--card)}
+
+/* dossier index */
+.index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.index{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.index{grid-template-columns:1fr}}
+.folder{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;padding:20px;border:1px solid var(--line);background:var(--card);border-radius:10px;text-decoration:none;transition:border-color .2s,transform .2s,box-shadow .2s}
+.folder:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow)}
+.folder .n{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:24px;color:var(--gold-hi);background:linear-gradient(150deg,var(--navy),var(--purple));border:1px solid var(--gold)}
+.folder b{display:block;font-family:var(--f-display);font-size:17.5px;font-weight:600;line-height:1.45}
+.folder small{color:var(--muted);font-size:14px}
+
+/* innovation */
+.udon{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+@media (max-width:980px){.udon{grid-template-columns:1fr}}
+.step{padding:26px 22px;border-right:1px solid var(--line);position:relative}
+.step:last-child{border-right:0}
+@media (max-width:980px){.step{border-right:0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:70px minmax(0,1fr);gap:4px 16px}.step:last-child{border-bottom:0}.step .L{grid-row:span 3}}
+.step .L{font-family:var(--f-latin);font-weight:600;font-size:64px;line-height:.9;background:linear-gradient(160deg,var(--violet),var(--navy));-webkit-background-clip:text;background-clip:text;color:transparent}
+:root[data-theme="dark"] .step .L{background:linear-gradient(160deg,#ecd48f,#c9a24a);-webkit-background-clip:text;background-clip:text}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step .L{background:linear-gradient(160deg,#ecd48f,#c9a24a);-webkit-background-clip:text;background-clip:text}}
+.step h3{font-family:var(--f-latin);font-size:20px;font-weight:600;margin-top:12px;color:var(--gold-ink);letter-spacing:.02em}
+@media (max-width:980px){.step h3{margin-top:0}}
+.step h4{font-size:16.5px;margin-top:2px}
+.step p{font-size:15px;color:var(--muted);margin-top:8px;line-height:1.65}
+.step.out{background:linear-gradient(160deg,var(--navy),var(--purple));color:#fff}
+.step.out .L{background:linear-gradient(160deg,#f3dc96,#c9a24a);-webkit-background-clip:text;background-clip:text}
+.step.out h3{color:var(--gold-hi)}.step.out p{color:#d5d8f0}
+
+.subhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:clamp(48px,6vw,72px) 0 20px}
+.subhead h3{font-size:clamp(22px,2.6vw,28px)}
+.subhead small{color:var(--muted);font-size:15px}
+
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;position:relative}
+.path::before{content:"";position:absolute;top:22px;left:4%;right:4%;height:1px;background:linear-gradient(90deg,var(--gold),var(--violet))}
+@media (max-width:900px){.path{grid-template-columns:1fr}.path::before{top:0;bottom:0;left:22px;right:auto;width:1px;height:auto}}
+.phase{position:relative;display:grid;gap:6px;align-content:start}
+@media (max-width:900px){.phase{padding-left:62px}}
+.phase .dot{width:44px;height:44px;border-radius:50%;background:var(--paper);border:2px solid var(--gold);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;color:var(--gold-ink);position:relative;z-index:1}
+section.alt .phase .dot{background:var(--mist)}
+@media (max-width:900px){.phase .dot{position:absolute;left:0;top:0}}
+.phase .when{margin-top:10px;font-size:13.5px;letter-spacing:.06em;color:var(--gold-ink);font-weight:600}
+@media (max-width:900px){.phase .when{margin-top:0}}
+.phase b{font-family:var(--f-display);font-size:18px;line-height:1.45}
+.phase p{font-size:15px;color:var(--muted)}
+.phase .big{font-family:var(--f-latin);font-size:30px;font-weight:600;color:var(--accent-ink);line-height:1.1}
+
+.outcomes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:860px){.outcomes{grid-template-columns:1fr}}
+.outcome{padding:24px;border-top:3px solid var(--gold);background:var(--card);border-radius:0 0 10px 10px;box-shadow:var(--shadow)}
+.outcome small{font-family:var(--f-latin);font-size:16px;font-weight:600;letter-spacing:.06em;color:var(--gold-ink)}
+.outcome h4{font-size:19px;margin:4px 0 8px}
+.outcome p{font-size:15.5px;color:var(--muted)}
+
+.covers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:860px){.covers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.covers{grid-template-columns:1fr}}
+.cover{display:grid;gap:12px;text-decoration:none}
+.cover .img{aspect-ratio:3/4;max-width:100%;overflow:hidden;border-radius:6px;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--mist)}
+.cover img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s}
+.cover:hover img{transform:scale(1.03)}
+.cover b{font-family:var(--f-display);font-weight:600;font-size:16.5px;line-height:1.5}
+.cover small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.open{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--gold-ink);font-weight:600}
+
+/* honors */
+.honor-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center}
+@media (max-width:900px){.honor-top{grid-template-columns:1fr}}
+.ceremony{position:relative;border-radius:10px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.ceremony img{display:block;width:100%}
+.ceremony figcaption{position:absolute;inset:auto 0 0 0;padding:40px 18px 14px;background:linear-gradient(transparent,rgba(11,18,50,.92));color:#fff;font-size:14.5px}
+.ceremony figcaption b{color:var(--gold-hi);font-weight:500}
+.lead-award{display:grid;gap:14px}
+.lead-award .lvl{font-family:var(--f-display);font-size:clamp(28px,3.4vw,40px);font-weight:800;color:var(--accent-ink);line-height:1.3}
+.lead-award p{color:var(--muted)}
+
+.awards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:clamp(36px,5vw,56px)}
+@media (max-width:1000px){.awards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.awards{grid-template-columns:1fr}}
+.award{display:grid;grid-template-rows:auto 1fr;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-align:left;padding:0;cursor:zoom-in;font:inherit;color:inherit;transition:transform .25s,box-shadow .25s,border-color .25s}
+.award:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold)}
+.award .img{aspect-ratio:4/3;max-width:100%;overflow:hidden;background:var(--mist);border-bottom:1px solid var(--line)}
+.award img{width:100%;height:100%;object-fit:cover;display:block}
+.award .body{padding:16px 18px 18px;display:grid;gap:6px;align-content:start}
+.scope{font-size:12.5px;font-weight:600;letter-spacing:.1em;color:var(--gold-ink)}
+.award b{font-family:var(--f-display);font-weight:600;font-size:16px;line-height:1.5}
+.award small{color:var(--muted);font-size:14px;line-height:1.55}
+.pill{justify-self:start;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;padding:3px 12px;border-radius:999px;white-space:nowrap}
+.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.p-gold{background:#f7ecc8;color:#7a5a10}.p-silver{background:#e9ebf2;color:#4a5068}.p-bronze{background:#f3e1d3;color:#8a4b22}
+.p-top{background:#ece3fa;color:#4a2a7a}.p-merit{background:#e6edf6;color:#2c4a72}
+:root[data-theme="dark"] .pill{filter:saturate(1.1) brightness(.95)}
+
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{width:100%;border-collapse:collapse;min-width:640px;font-size:15.5px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;font-size:13.5px;letter-spacing:.06em;color:var(--muted);background:var(--mist)}
+tr:last-child td{border-bottom:0}
+tr.me td{background:color-mix(in srgb,var(--gold) 12%,transparent)}
+td.yr{font-family:var(--f-latin);font-weight:600;font-size:18px;color:var(--gold-ink)}
+.tally{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+
+/* galleries */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{font:inherit;font-size:15px;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.tabs button span{font-family:var(--f-latin);font-weight:600;color:var(--gold-ink)}
+.tabs button[aria-selected="true"]{background:linear-gradient(135deg,var(--navy),var(--purple));color:#fff;border-color:transparent}
+.tabs button[aria-selected="true"] span{color:var(--gold-hi)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.grid.news{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.tile{display:grid;gap:10px;padding:0;border:0;background:none;text-align:left;font:inherit;color:inherit;cursor:zoom-in}
+.tile .img{aspect-ratio:4/3;max-width:100%;overflow:hidden;border-radius:8px;border:1px solid var(--line);background:var(--mist)}
+.grid.news .tile .img{aspect-ratio:1/1}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
+.tile:hover img{transform:scale(1.04)}
+.tile b{font-weight:500;font-size:15.5px;line-height:1.5}
+.tile small{display:block;color:var(--muted);font-size:13.5px}
+.tile .d{font-size:13px;font-weight:600;color:var(--gold-ink);letter-spacing:.04em}
+
+.docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.docs{grid-template-columns:1fr}}
+.doc{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;transition:border-color .2s,box-shadow .2s}
+.doc:hover{border-color:var(--gold);box-shadow:var(--shadow)}
+.doc .ic{width:44px;height:52px;border-radius:4px 12px 4px 4px;background:linear-gradient(160deg,var(--navy),var(--purple));display:grid;place-items:center;color:var(--gold-hi);font-family:var(--f-latin);font-weight:600;font-size:13px;letter-spacing:.06em}
+.doc b{font-weight:500;font-size:15.5px;line-height:1.5;display:block}
+.doc small{color:var(--muted);font-size:13.5px}
+.doc .arrow{color:var(--gold-ink)}
+.doc .arrow svg{width:20px;height:20px}
+
+.pa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.pa{grid-template-columns:1fr}}
+.pa-col{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:12px;align-content:start}
+.pa-col h3{font-size:19px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.pa-col h3 small{font-family:var(--f-body);font-size:13.5px;color:var(--muted);font-weight:400}
+.yrs{display:grid;gap:8px}
+.yrs a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-radius:8px;background:var(--mist);text-decoration:none;transition:background .2s}
+.yrs a:hover{background:color-mix(in srgb,var(--gold) 18%,var(--mist))}
+.yrs a b{font-family:var(--f-latin);font-size:22px;font-weight:600;color:var(--accent-ink);line-height:1}
+.yrs a span{font-size:14.5px;color:var(--muted);flex:1}
+
+/* closing */
+.closing{background:linear-gradient(160deg,#0b1232,#14204a 50%,#2a1d5a);color:#fff;text-align:center;padding-block:clamp(70px,9vw,120px);position:relative;overflow:hidden}
+.closing::before{content:"";position:absolute;inset:18px;border:1px solid rgba(201,162,74,.35);pointer-events:none}
+.closing h2{font-size:clamp(30px,4.6vw,54px);font-weight:800}
+.closing h2 span{color:var(--gold-hi)}
+.closing p{color:#cdd1ec;margin:16px auto 0;max-width:40em}
+.closing .cta{justify-content:center}
+.contact{margin-top:28px;display:inline-flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;font-size:15px;color:#cdd1ec}
+.contact code{font-family:var(--f-body);background:rgba(255,255,255,.08);border:1px solid rgba(201,162,74,.35);padding:6px 12px;border-radius:999px;color:#fff;user-select:all}
+.contact button{font:inherit;font-size:13.5px;background:none;border:1px solid rgba(236,212,143,.5);color:var(--gold-hi);border-radius:999px;padding:6px 12px;cursor:pointer}
+footer{background:#080d26;color:#9ea3c6;font-size:13.5px;padding-block:22px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* lightbox */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(1100px,96vw);width:100%;color:#fff}
+dialog.lb::backdrop{background:rgba(6,9,28,.9);backdrop-filter:blur(4px)}
+.lb-in{display:grid;gap:12px}
+.lb-img{background:#0b1232;border:1px solid rgba(201,162,74,.5);border-radius:8px;display:grid;place-items:center;max-height:78vh;overflow:hidden}
+.lb-img img{max-height:78vh;width:auto;max-width:100%;object-fit:contain;display:block}
+.lb-bar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.lb-cap{min-width:0;flex:1}
+.lb-cap b{font-family:var(--f-display);font-weight:600;display:block;line-height:1.5}
+.lb-cap small{color:#c3c7e6}
+.lb-ctl{display:flex;gap:8px}
+.lb-ctl button,.lb-ctl a{font:inherit;font-size:14px;background:rgba(255,255,255,.08);border:1px solid rgba(201,162,74,.5);color:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;text-decoration:none;white-space:nowrap}
+</style>
+
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="กลับด้านบน">
+      <span class="seal">พ</span>
+      <span><b>SMART SUPERVISION</b><small>แฟ้มสะสมผลงาน ศน.พัชรียาพร</small></span>
+    </a>
+    <nav class="nav" aria-label="หมวดหลัก">
+      <a href="#about">ประวัติ</a>
+      <a href="#innovation">นวัตกรรม</a>
+      <a href="#honors">รางวัล</a>
+      <a href="#projects">โครงการ</a>
+      <a href="#news">ภาพกิจกรรม</a>
+      <a href="#growth">พัฒนาวิชาชีพ</a>
+      <a href="#pa">PA</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- ───────── HERO ───────── -->
+<section class="hero">
+  <div class="wrap">
+    <div class="frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <div>
+        <div class="eyebrow"><i></i>Smart Supervision Portfolio <span class="th">· ปีงบประมาณ ๒๕๖๙</span></div>
+        <h1>นิเทศด้วยหัวใจ<span>พัฒนาคุณภาพการศึกษา</span></h1>
+        <p class="lede">เปลี่ยนการนิเทศจากการกำกับติดตาม สู่การเป็น “โค้ชเพื่อการพัฒนา” ด้วยนวัตกรรม UDON3 ที่ใช้ข้อมูล เทคโนโลยีดิจิทัล และชุมชนการเรียนรู้ทางวิชาชีพ ยกระดับครู ผู้เรียน และสถานศึกษาทั้งเขตพื้นที่</p>
+        <div class="who">
+          <span class="name">นางสาวพัชรียาพร ห้วยทราย</span>
+          <span class="role">ศึกษานิเทศก์ วิทยฐานะ ศึกษานิเทศก์ชำนาญการพิเศษ</span>
+          <span class="org">สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุดรธานี เขต ๓ · สพฐ.</span>
+        </div>
+        <div class="cta">
+          <a class="btn gold" href="#innovation">ชมนวัตกรรม UDON3
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn ghost" href="https://drive.google.com/drive/folders/1JoFbUlvg00MbafR2yuexqnSC8WVDuBfs" target="_blank" rel="noopener">แฟ้มต้นฉบับ Google Drive</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <div class="arch"><img src="assets/portrait.jpg" alt="นางสาวพัชรียาพร ห้วยทราย ในชุดปกติขาว"></div>
+        <div class="medal"><small>รางวัลระดับประเทศ สพฐ. ๒๕๖๙</small><b>ระดับเงิน · ผู้สร้างนวัตกรรมการนิเทศ</b></div>
+      </div>
+    </div>
+    <div class="stats num">
+      <div class="stat"><b>200</b><span>โรงเรียนในเขตพื้นที่<br>ที่ขับเคลื่อนด้วย UDON3</span></div>
+      <div class="stat"><b>2,067</b><span>ครูผู้สอน<br>ได้รับการพัฒนา</span></div>
+      <div class="stat"><b>218</b><span>ผู้บริหารสถานศึกษา<br>ร่วมกระบวนการ</span></div>
+      <div class="stat"><b>13</b><span>รางวัลระดับประเทศ<br>ของเครือข่าย ๒๕๖๖–๒๕๖๙</span></div>
+      <div class="stat"><b>16</b><span>ปีแห่งการรับราชการ<br>ด้วยหัวใจนักพัฒนา</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── ABOUT ───────── -->
+<section class="folio" id="about">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">ประวัติและภาระงาน</span>
+      <h2>ผู้นิเทศ <em>ผู้ส่งเสริม</em> และผู้ร่วมพัฒนาครู</h2>
+      <p>ทำงานบนหลัก “พัฒนาครู คือ พัฒนาผู้เรียน และพัฒนาคุณภาพการศึกษา” ลงพื้นที่จริง รับฟังปัญหาของครู และติดตามผลจนเห็นการเปลี่ยนแปลงในห้องเรียน</p>
+    </div>
+    <div class="about">
+      <div>
+        <dl class="facts">
+          <div><dt>ชื่อ-สกุล</dt><dd>นางสาวพัชรียาพร ห้วยทราย</dd></div>
+          <div><dt>ตำแหน่ง</dt><dd>ศึกษานิเทศก์</dd></div>
+          <div><dt>วิทยฐานะ</dt><dd>ศึกษานิเทศก์ชำนาญการพิเศษ</dd></div>
+          <div><dt>สังกัด</dt><dd>สพป.อุดรธานี เขต ๓ อำเภอหนองหาน จังหวัดอุดรธานี</dd></div>
+          <div><dt>อายุราชการ</dt><dd class="num">16 ปี 3 เดือน (ณ สิงหาคม ๒๕๖๙)</dd></div>
+          <div><dt>กลุ่มโรงเรียนที่รับผิดชอบ</dt><dd>กลุ่มโรงเรียนอำเภอกู่แก้ว</dd></div>
+        </dl>
+        <div class="quote">
+          <p>เข้าใจบริบทก่อนพัฒนา ใช้ข้อมูลก่อนตัดสินใจ และสะท้อนผลเพื่อปรับปรุง</p>
+          <small>หลักการทำงานนิเทศ · ศน.พัชรียาพร ห้วยทราย</small>
+        </div>
+      </div>
+      <div class="duties">
+        <div class="duty">
+          <h3>งานที่ได้รับมอบหมาย</h3>
+          <ul>
+            <li>ปฏิบัติหน้าที่ผู้อำนวยการกลุ่มส่งเสริมการศึกษาทางไกล เทคโนโลยีสารสนเทศ และการสื่อสาร (DLICT)</li>
+            <li>หัวหน้ากลุ่มงานสื่อ นวัตกรรม และเทคโนโลยีทางการศึกษา</li>
+            <li>กลุ่มงานส่งเสริมและพัฒนาการประกันคุณภาพการศึกษา</li>
+            <li>กลุ่มงานส่งเสริม สนับสนุน พัฒนาหลักสูตรการศึกษาขั้นพื้นฐาน หลักสูตรการศึกษาปฐมวัย และหลักสูตรการศึกษาพิเศษ</li>
+          </ul>
+        </div>
+        <div class="duty">
+          <h3>งานส่งเสริมการจัดการศึกษา</h3>
+          <ul>
+            <li>กลุ่มสาระการเรียนรู้ภาษาไทย</li>
+            <li>กลุ่มสาระการเรียนรู้ศิลปศึกษา
+              <div class="chips"><span class="chip">นาฏศิลป์</span><span class="chip">ดนตรี</span><span class="chip">ทัศนศิลป์</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── DOSSIER INDEX ───────── -->
+<section class="folio alt" id="dossier">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">สารบัญแฟ้มสะสมผลงาน</span>
+      <h2>หลักฐานเชิงประจักษ์ <em>๖ แฟ้ม</em></h2>
+      <p>ทุกภาพและเอกสารในเว็บไซต์นี้มาจากแฟ้มต้นฉบับบน Google Drive เปิดดูเอกสารฉบับเต็มได้จากทุกการ์ด</p>
+    </div>
+    <div class="index" id="folderIndex"></div>
+  </div>
+</section>
+
+<!-- ───────── INNOVATION ───────── -->
+<section class="folio" id="innovation">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">นวัตกรรมการนิเทศ · แฟ้ม ๔</span>
+      <h2>UDON3 <em>Smart Coaching Model</em></h2>
+      <p>นวัตกรรมการนิเทศแบบโค้ชชิ่งดิจิทัล เพื่อส่งเสริมการจัดการเรียนรู้แบบ STEM Education และพัฒนาทักษะ Soft Skills ผ่านระบบคลังสื่อเทคโนโลยีดิจิทัล OBEC Content Center บูรณาการ Developmental Supervision, Coaching, PLC, Active Learning และ AI</p>
+    </div>
+
+    <div class="udon">
+      <div class="step"><div class="L">U</div><h3>Understand</h3><h4>เข้าใจบริบทและปัญหา</h4><p>วิเคราะห์สารสนเทศของสถานศึกษา สำรวจความต้องการจำเป็นของครู (TNA) และร่วมกำหนดประเด็นการพัฒนา</p></div>
+      <div class="step"><div class="L">D</div><h3>Design</h3><h4>ออกแบบการพัฒนา</h4><p>ออกแบบแผนการนิเทศ เครื่องมือ และแนวทางใช้สื่อดิจิทัลผ่าน OBEC Content Center ให้ตรงบริบทของแต่ละโรงเรียน</p></div>
+      <div class="step"><div class="L">O</div><h3>Online/Onsite Coaching</h3><h4>นิเทศแบบโค้ชชิ่งดิจิทัล</h4><p>โค้ช เป็นพี่เลี้ยง ให้คำปรึกษา สะท้อนผล และให้ข้อมูลย้อนกลับ ทั้งลงพื้นที่และออนไลน์</p></div>
+      <div class="step"><div class="L">N</div><h3>Network</h3><h4>สร้างเครือข่ายการเรียนรู้</h4><p>PLC, Best Practice และ Coaching Network ให้ครู ผู้บริหาร และศึกษานิเทศก์เรียนรู้และพัฒนางานร่วมกัน</p></div>
+      <div class="step out"><div class="L">3</div><h3>3 Outcomes</h3><h4>ผลลัพธ์ ๓ ระดับ</h4><p>คุณภาพครู คุณภาพผู้เรียน และคุณภาพสถานศึกษา ติดตามด้วย UDON3 Smart Monitoring Dashboard และวงจร PDCA</p></div>
+    </div>
+
+    <div class="subhead"><h3>เส้นทางการพัฒนาและขยายผล</h3><small>ทดลองใช้ก่อน ปรับปรุง แล้วจึงขยายผล</small></div>
+    <div class="path">
+      <div class="phase"><span class="dot">๑</span><span class="when">ภาคเรียนที่ ๑/๒๕๖๘</span><b>ทดลองใช้ (Try Out)</b><span class="big num">3 โรงเรียน</span><p>บ้านทุ่งใหญ่ บ้านพังซ่อน และบ้านโนนสมบูรณ์ นำผลสะท้อนกลับมาปรับรูปแบบ เครื่องมือ และคู่มือ</p></div>
+      <div class="phase"><span class="dot">๒</span><span class="when">ภาคเรียนที่ ๒/๒๕๖๘</span><b>ใช้จริงกับกลุ่มเป้าหมาย</b><span class="big num">11 โรงเรียน · 100 ครู</span><p>กลุ่มโรงเรียนอำเภอกู่แก้ว นิเทศต่อเนื่องตลอดภาคเรียน พร้อมติดตามและสะท้อนผล</p></div>
+      <div class="phase"><span class="dot">๓</span><span class="when">ปีการศึกษา ๒๕๖๙</span><b>ขยายผลสู่เครือข่าย</b><span class="big num">12 กลุ่ม + 6 โรงเรียน</span><p>อบรมสร้างสื่อด้วย AI และ OBEC Content Center สู่ Best Practice โดยมีครูแกนนำเป็นวิทยากร</p></div>
+      <div class="phase"><span class="dot">๔</span><span class="when">ทั้งเขตพื้นที่</span><b>ยกระดับทั้งระบบ</b><span class="big num">200 โรงเรียน</span><p>ศน. 14 คน ผู้บริหาร 218 คน และครู 2,067 คน ใช้รูปแบบเดียวกัน มี Dashboard ติดตามแบบเรียลไทม์</p></div>
+    </div>
+
+    <div class="subhead"><h3>ผลลัพธ์ ๓ ระดับ</h3></div>
+    <div class="outcomes">
+      <div class="outcome"><small>Teacher Outcome</small><h4>ครู</h4><p>เข้าถึง คัดเลือก ประยุกต์ใช้ และสร้างสื่อผ่าน OBEC Content Center ออกแบบการเรียนรู้แบบ STEM ได้อย่างมั่นใจในยุคดิจิทัล</p></div>
+      <div class="outcome"><small>Student Outcome</small><h4>ผู้เรียน</h4><p>เรียนรู้เชิงรุก พัฒนาการคิดวิเคราะห์ การแก้ปัญหา การสื่อสาร และการทำงานร่วมกัน ผู้เรียนผ่านการคัดเลือก IMSO ระดับประเทศ</p></div>
+      <div class="outcome"><small>School Outcome</small><h4>สถานศึกษา</h4><p>มีระบบนิเทศภายในที่ใช้ข้อมูลเป็นฐาน เกิด PLC และแนวปฏิบัติที่เป็นเลิศ จนได้รับรางวัลระดับเขตและระดับประเทศ</p></div>
+    </div>
+
+    <div class="subhead"><h3>เอกสารนวัตกรรมฉบับเต็ม</h3><small>เปิดอ่านใน Google Drive</small></div>
+    <div class="covers" id="innovationDocs"></div>
+    <div class="docs" style="margin-top:22px" id="innovationMore"></div>
+  </div>
+</section>
+
+<!-- ───────── HONORS ───────── -->
+<section class="folio alt" id="honors">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">รางวัลและการยอมรับ · แฟ้ม ๔</span>
+      <h2>เกียรติยศที่ได้รับใน <em>ปี ๒๕๖๙</em></h2>
+      <p>ผลงานได้รับการยอมรับครบทุกระดับ ตั้งแต่จังหวัด ภูมิภาค จนถึงระดับประเทศ</p>
+    </div>
+    <div class="honor-top">
+      <figure class="ceremony" style="margin:0">
+        <img src="assets/ceremony.jpg" alt="พิธีมอบเกียรติบัตร วันเกียรติยศ สำนักงานศึกษาธิการจังหวัดอุดรธานี">
+        <figcaption><b>“วันเกียรติยศ”</b> พิธีมอบโล่รางวัลและเกียรติบัตร Best Practice ระดับจังหวัด · ๑๕ กันยายน ๒๕๖๙ · โรงแรมสยามแกรนด์ อุดรธานี</figcaption>
+      </figure>
+      <div class="lead-award">
+        <span class="scope">ระดับประเทศ · สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน</span>
+        <div class="lvl">รางวัลระดับเงิน<br>ผู้สร้างนวัตกรรมการนิเทศ</div>
+        <p>ผลงานที่มีผลการปฏิบัติที่เป็นเลิศ (Best Practice) ระบบคลังสื่อเทคโนโลยีดิจิทัล ระดับการศึกษาขั้นพื้นฐาน (OBEC Content Center) ประจำปีงบประมาณ พ.ศ. ๒๕๖๙ ลงวันที่ ๙ กรกฎาคม ๒๕๖๙</p>
+        <div class="ornament"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"/></svg></div>
+      </div>
+    </div>
+    <div class="awards" id="ownAwards"></div>
+
+    <div class="subhead"><h3>ผลสัมฤทธิ์ของเครือข่ายที่นิเทศ</h3><small>Best Practice OBEC Content Center ระดับประเทศ ๒๕๖๖–๒๕๖๙</small></div>
+    <div class="tally" id="tally"></div>
+    <div class="tablebox"><table>
+      <thead><tr><th>ปี พ.ศ.</th><th>ผู้ได้รับรางวัล</th><th>หน่วยงาน</th><th>ประเภท</th><th>ระดับ</th></tr></thead>
+      <tbody id="networkRows"></tbody>
+    </table></div>
+
+    <div class="subhead"><h3>เกียรติบัตรครูและสถานศึกษาในการนิเทศ</h3><small>แตะภาพเพื่อขยาย</small></div>
+    <div class="grid" id="teacherCerts"></div>
+    <div class="subhead"><h3>ผลงานนักเรียน</h3><small>ระดับประเทศและระดับมหาวิทยาลัย</small></div>
+    <div class="grid" id="studentCerts"></div>
+  </div>
+</section>
+
+<!-- ───────── PROJECTS ───────── -->
+<section class="folio" id="projects">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">โครงการ รายงาน และคู่มือ · แฟ้ม ๑–๒</span>
+      <h2>ขับเคลื่อนอย่าง <em>เป็นระบบ</em></h2>
+      <p>โครงการที่ออกแบบและรับผิดชอบในปีงบประมาณ ๒๕๖๘–๒๕๖๙ ครอบคลุมการอ่าน RT/NT ระบบคลังสื่อ และการสอนภาษาไทยด้วยเทคโนโลยีดิจิทัล</p>
+    </div>
+    <div class="docs" id="projectDocs"></div>
+    <div class="subhead"><h3>รายงานและคู่มือที่จัดทำ</h3></div>
+    <div class="covers" id="manuals"></div>
+  </div>
+</section>
+
+<!-- ───────── NEWS ───────── -->
+<section class="folio alt" id="news">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">ภาพถ่ายและจดหมายข่าว · แฟ้ม ๓</span>
+      <h2>ลงพื้นที่ <em>ขยายผล</em> และแลกเปลี่ยนเรียนรู้</h2>
+      <p>จดหมายข่าวประชาสัมพันธ์การขยายผลคลังสื่อ การอบรมสร้างสื่อด้วย AI และการประชุมกลุ่มนิเทศ</p>
+    </div>
+    <div class="grid news" id="newsGrid"></div>
+  </div>
+</section>
+
+<!-- ───────── GROWTH ───────── -->
+<section class="folio" id="growth">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">การพัฒนาตนเองและวิชาชีพ · แฟ้ม ๕</span>
+      <h2>ผู้ให้ความรู้ และ <em>ผู้เรียนรู้ตลอดชีวิต</em></h2>
+      <p>เป็นวิทยากรถ่ายทอดการสร้างสื่อด้วยปัญญาประดิษฐ์และ OBEC Content Center ทั่วเขตพื้นที่ ทำหน้าที่คณะกรรมการ และพัฒนาตนเองอย่างต่อเนื่อง</p>
+    </div>
+    <div class="tabs" role="tablist" id="growthTabs"></div>
+    <div class="grid" id="growthGrid" role="tabpanel"></div>
+  </div>
+</section>
+
+<!-- ───────── PA ───────── -->
+<section class="folio alt" id="pa">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">PA ผลการปฏิบัติงาน · แฟ้ม ๖</span>
+      <h2>ข้อตกลงในการพัฒนางาน <em>และรายงานผล</em></h2>
+      <p>เอกสาร PA ต่อเนื่องตั้งแต่ปี ๒๕๖๖ พร้อมรายงานผลการปฏิบัติงานรอบปีงบประมาณ ๒๕๖๙</p>
+    </div>
+    <div class="pa" id="paCols"></div>
+  </div>
+</section>
+
+<!-- ───────── CLOSING ───────── -->
+<section class="closing">
+  <div class="wrap">
+    <h2>นิเทศด้วยหัวใจ <span>พัฒนาคุณภาพการศึกษา</span></h2>
+    <p>ขอบพระคุณผู้บริหาร คณะศึกษานิเทศก์ ครู และนักเรียนทุกโรงเรียนในสังกัด สพป.อุดรธานี เขต ๓ ที่ร่วมเดินทางพัฒนาไปด้วยกัน</p>
+    <div class="cta">
+      <a class="btn gold" href="https://drive.google.com/drive/folders/1JoFbUlvg00MbafR2yuexqnSC8WVDuBfs" target="_blank" rel="noopener">เปิดแฟ้มสะสมผลงานฉบับเต็ม</a>
+    </div>
+    <div class="contact">ติดต่อ <code id="mail">patchareeya@udonthani3.go.th</code><button type="button" id="copyMail">คัดลอก</button></div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>Smart Supervision Portfolio · นางสาวพัชรียาพร ห้วยทราย</span><span>สพป.อุดรธานี เขต ๓ · ปีงบประมาณ ๒๕๖๙</span></div></footer>
+
+<dialog class="lb" id="lb" aria-label="ภาพขยาย">
+  <div class="lb-in">
+    <div class="lb-img"><img id="lbImg" alt=""></div>
+    <div class="lb-bar">
+      <div class="lb-cap"><b id="lbTitle"></b><small id="lbSub"></small></div>
+      <div class="lb-ctl">
+        <button type="button" id="lbPrev" aria-label="ภาพก่อนหน้า">‹ ก่อนหน้า</button>
+        <button type="button" id="lbNext" aria-label="ภาพถัดไป">ถัดไป ›</button>
+        <a id="lbOpen" target="_blank" rel="noopener">ต้นฉบับ</a>
+        <button type="button" id="lbClose">ปิด ✕</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const D = id => `https://drive.google.com/file/d/${id}/view`;
+const F = id => `https://drive.google.com/drive/folders/${id}`;
+const A = id => `assets/${id}.jpg`;
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+
+const folders = [
+  ['๑','โครงการและรายงาน','4 โครงการ · 1 รายงาน','1bIyAXoZ2faeL2ZeB3x76wjnMRv973Tw3','#projects'],
+  ['๒','คู่มือ','2 คู่มือการแข่งขันและประกวด','1caLwX5bpJEd9D4kwHoGFkKNkDEjrQNbB','#projects'],
+  ['๓','ภาพถ่าย-จดหมายข่าว','8 จดหมายข่าวและภาพกิจกรรม','1b-YOwkgd06W4znqGelLmXQCaAGsAYTV5','#news'],
+  ['๔','รางวัลและการยอมรับ','4 ผลงาน · 21 เกียรติบัตรและโล่','1du6CJAr4Rb-p0Plrt37QKfwN1rbxdYSR','#honors'],
+  ['๕','การพัฒนาตนเองและวิชาชีพ','วิทยากร 11 · กรรมการ 4 · อบรม 6','19sEEDFOKHWydYGkwJXY-MNnr62NGGIY9','#growth'],
+  ['๖','PA ผลการปฏิบัติงาน','PA ปี 2566–2569 · รายงาน 5 ฉบับ','1XlkbbIy1Opa-vGTRa8AEBIl3hnZll9hK','#pa'],
+];
+document.getElementById('folderIndex').innerHTML = folders.map(([n,t,s,id,h]) =>
+  `<a class="folder" href="${h}"><span class="n">${n}</span><span><b>${t}</b><small>${s}</small></span></a>`).join('');
+
+/* innovation documents */
+const innov = [
+  ['1AMGgLXLGPY28A464CoGyOT50PSUd2af_','UDON3 Smart Coaching Model','วิธีปฏิบัติที่เป็นเลิศ ด้านการนิเทศ ติดตาม และประเมินผล · STEM Education & Soft Skills'],
+  ['1vs7eykWjUZCgvR7cSe87N65a2xVCwJvM','ประเภทผู้สร้างนวัตกรรมการนิเทศ','Best Practice OBEC Content Center ระดับประเทศ · รางวัลระดับเงิน'],
+  ['1BBNfityY-w7qQ4y2nOywTmDp16u-tM8A','UDON3 Digital Coaching','แบบเสนอรับรางวัลครูดีศรี สกสค. จังหวัดอุดรธานี ๒๕๖๙ · ด้านสื่อนวัตกรรม'],
+];
+document.getElementById('innovationDocs').innerHTML = innov.map(([id,t,s]) =>
+  `<a class="cover" href="${D(id)}" target="_blank" rel="noopener"><span class="img"><img loading="lazy" src="${A(id)}" alt="ปกเอกสาร ${t}"></span><span><b>${t}</b><small>${s}</small></span><span class="open">เปิดเอกสาร ${arrow.replace('<svg','<svg width="16" height="16"')}</span></a>`).join('');
+
+const docCard = ([id,t,s,k='PDF']) => `<a class="doc" href="${D(id)}" target="_blank" rel="noopener"><span class="ic">${k}</span><span><b>${t}</b><small>${s}</small></span><span class="arrow">${arrow}</span></a>`;
+document.getElementById('innovationMore').innerHTML = [
+  ['12Bo9HwImorHWmuKGotmshK8NdsYTkWVx','แนวปฏิบัติที่เป็นเลิศ นวัตกรรมด้านการนิเทศ ๒๕๖๙','ส่งประกวด สมาคมศึกษานิเทศก์ภาคตะวันออกเฉียงเหนือ'],
+  ['14tKqwG8LCu10I44WBRDcqotKC3Hg7onZ','UDON3 Digital Learning Ecosystem Model','รายงานผลการปฏิบัติที่เป็นเลิศ (OBEC Content Center) สพป.อุดรธานี เขต ๓'],
+].map(d=>docCard(d)).join('');
+
+/* lightbox collections */
+const groups = {};
+function tiles(key, el, items, opts={}){
+  groups[key] = items;
+  document.getElementById(el).innerHTML = items.map((it,i) =>
+    `<button type="button" class="tile" data-g="${key}" data-i="${i}"><span class="img"><img loading="lazy" src="${A(it.id)}" alt="${it.t}"></span><span>${it.d?`<span class="d">${it.d}</span>`:''}<b>${it.t}</b>${it.s?`<small>${it.s}</small>`:''}</span></button>`).join('');
+}
+
+/* own awards */
+const own = [
+  {id:'1Hj_wSrHmFrtGTQZyYxd0B3GoHMFK2V2V',sc:'ระดับประเทศ · สพฐ.',t:'Best Practice ประเภทผู้สร้างนวัตกรรมการนิเทศ',s:'ระบบคลังสื่อ OBEC Content Center · ๙ ก.ค. ๒๕๖๙',p:['p-silver','ระดับเงิน']},
+  {id:'1x8QhMTNFtSpEh9-tvu4GSQqZSmCtoMXd',sc:'ระดับประเทศ · สพฐ.',t:'โล่รางวัล ผู้ขับเคลื่อนระบบคลังสื่อ ประเภทสำนักงานเขตพื้นที่',s:'รางวัลของ สพป.อุดรธานี เขต ๓ · ๙ ก.ค. ๒๕๖๙',p:['p-top','ยอดเยี่ยม']},
+  {id:'1Nt1V9nqvTAl56QrWiN38yKSh0vLbkIOC',sc:'ระดับภูมิภาค · สมาคม ศน.ภาคอีสาน',t:'ประกวดผลงานหรือนวัตกรรมด้านการนิเทศการศึกษา ๒๕๖๙',s:'งานสัมมนา “การนิเทศวิถีใหม่ นวัตกรรมก้าวไกล” · ๑ ก.ย. ๒๕๖๙',p:['p-gold','ดีมาก']},
+  {id:'1VLIO2U6NVOwPFrVyI1JraFTCezUy86lY',sc:'ระดับจังหวัด · ศธจ.อุดรธานี',t:'Best Practice ด้านนิเทศ ติดตาม และประเมินผล',s:'STEM Education & Soft Skill · โครงการ IFTE · ๑๔ ก.ย. ๒๕๖๙',p:['p-top','ยอดเยี่ยม']},
+];
+groups.own = own;
+document.getElementById('ownAwards').innerHTML = own.map((a,i)=>
+  `<button type="button" class="award" data-g="own" data-i="${i}"><span class="img"><img loading="lazy" src="${A(a.id)}" alt="${a.t}"></span><span class="body"><span class="scope">${a.sc}</span><b>${a.t}</b><small>${a.s}</small><span class="pill ${a.p[0]}">${a.p[1]}</span></span></button>`).join('');
+
+/* network awards (from แบบเสนอครูดีศรี ส่วนที่ 3.2) */
+const lv = {'ทอง':'p-gold','เงิน':'p-silver','ทองแดง':'p-bronze','ยอดเยี่ยม':'p-top','ชมเชย':'p-merit'};
+const net = [
+  ['2569','นายจิรพงศ์ ชนะสะแบง','โรงเรียนบ้านทุ่งใหญ่','ผู้ใช้สื่อเทคโนโลยีดิจิทัล','ทอง'],
+  ['2569','นายดนัย อ้อมกอกุล','โรงเรียนบ้านทุ่งใหญ่','ผู้สร้างสื่อเทคโนโลยีดิจิทัล','เงิน'],
+  ['2569','นางสาวพัชรียาพร ห้วยทราย','สพป.อุดรธานี เขต ๓','ผู้สร้างนวัตกรรมการนิเทศ','เงิน',1],
+  ['2569','นายพิศัลย์ คำล้วน','โรงเรียนบ้านโนนสมบูรณ์','ผู้ขับเคลื่อนสถานศึกษา','ทองแดง'],
+  ['2569','สพป.อุดรธานี เขต ๓','สำนักงานเขตพื้นที่การศึกษา','ผู้ขับเคลื่อนสำนักงานเขตพื้นที่','ยอดเยี่ยม',1],
+  ['2568','นางสาวบุรีรัตน์ สอนสิงห์ไชย','โรงเรียนบ้านหันน้อย','ผู้ใช้สื่อเทคโนโลยีดิจิทัล','ทอง'],
+  ['2568','ว่าที่ร้อยโท อนุวัฒน์ ทาสีดำ','โรงเรียนบ้านพังซ่อน','ผู้ขับเคลื่อนสถานศึกษา','ทอง'],
+  ['2568','นายดนัย อ้อมกอกุล','โรงเรียนบ้านทุ่งใหญ่','ผู้สร้างสื่อเทคโนโลยีดิจิทัล','ชมเชย'],
+  ['2568','สพป.อุดรธานี เขต ๓','สำนักงานเขตพื้นที่การศึกษา','ผู้ขับเคลื่อนสำนักงานเขตพื้นที่','ชมเชย',1],
+  ['2567','นางสาวสุภาภักดิ์ รักษาเงิน','โรงเรียนอนุบาลหนองหาน','ผู้ใช้สื่อเทคโนโลยีดิจิทัล','ทองแดง'],
+  ['2567','นางสาวศิริรัตน์ วรรณพฤษ์','โรงเรียนบ้านโนนสะอาด','ผู้สร้างสื่อเทคโนโลยีดิจิทัล','ทองแดง'],
+  ['2567','นางอนุธิดา จันทร์งาม','โรงเรียนบ้านธาตุน้อยฯ','ผู้ขับเคลื่อนสถานศึกษา','ทองแดง'],
+  ['2566','นางสาวปัทมา ปาระจูม','โรงเรียนอนุบาลศรีสุทโธ','ผู้สร้างสื่อเทคโนโลยีดิจิทัล','ทอง'],
+];
+document.getElementById('networkRows').innerHTML = net.map(([y,n,o,t,l,me])=>
+  `<tr${me?' class="me"':''}><td class="yr num">${y}</td><td>${n}</td><td>${o}</td><td>${t}</td><td><span class="pill ${lv[l]}">${l}</span></td></tr>`).join('');
+const count = {}; net.forEach(r=>count[r[4]]=(count[r[4]]||0)+1);
+document.getElementById('tally').innerHTML = ['ยอดเยี่ยม','ทอง','เงิน','ทองแดง','ชมเชย'].filter(k=>count[k]).map(k=>`<span class="pill ${lv[k]} num">${k} ${count[k]}</span>`).join('');
+
+tiles('teacher','teacherCerts',[
+  {id:'1WX4c71ZbA4CJqasClLbmigQR1-1uqgq_',t:'นายจิรพงศ์ ชนะสะแบง · ระดับทอง',s:'ผู้ใช้สื่อเทคโนโลยีดิจิทัล · สพฐ. ๒๕๖๙'},
+  {id:'1SiDeN6uhjlMj4CWp_VJQfOwYZgQqOmNX',t:'นายดนัย อ้อมกอกุล · ระดับเงิน',s:'ผู้สร้างสื่อเทคโนโลยีดิจิทัล · สพฐ. ๒๕๖๙'},
+  {id:'1aU02tBGkvQ-h0U7vTPhRUSVn99hiyCgK',t:'โรงเรียนบ้านโนนสมบูรณ์ · ระดับทองแดง',s:'ผู้ขับเคลื่อนระบบคลังสื่อ ประเภทสถานศึกษา · สพฐ. ๒๕๖๙'},
+  {id:'1ebnWbgg5DqPMPNnCNXSlNpQk_9Zn9eIw',t:'สพป.อุดรธานี เขต ๓ · ระดับยอดเยี่ยม',s:'ผู้ขับเคลื่อนระบบคลังสื่อ ประเภทสำนักงานเขตพื้นที่ · สพฐ. ๒๕๖๙'},
+  {id:'1YsGKyDAgUO4e8UeycRVpZNmrodH8GJNz',t:'นางสาวสุนิตา โพธิ์สาริ · ชนะเลิศ',s:'Best Practice นวัตกรรมพัฒนาทักษะการอ่านด้วย AI ครูภาษาไทย · ระดับเขต'},
+  {id:'17Lav12VqaM9jGyHWHwtRQRhmK1NVOcD6',t:'นางสาวยุภา แสงเดือน · รองชนะเลิศอันดับ ๑',s:'Best Practice นวัตกรรมพัฒนาทักษะการอ่านด้วย AI ครูภาษาไทย · ระดับเขต'},
+  {id:'16yMpyuScbN9JCM7zKzx0PQYA7Bp3fzWB',t:'นายวรากร ธรรมโหร · รองชนะเลิศอันดับ ๒',s:'Best Practice นวัตกรรมพัฒนาทักษะการอ่านด้วย AI ครูภาษาไทย · ระดับเขต'},
+]);
+tiles('student','studentCerts',[
+  {id:'1Njgw4QZxMuHBIG7K3jKtLG10ix2s8wP7',d:'ระดับประเทศ',t:'ด.ญ.นลินนิภา พรมจารย์ · รองชนะเลิศอันดับ ๒',s:'ตอบคำถามวรรณคดีไทย ช่วงชั้นที่ ๒ · สัปดาห์วันภาษาไทยแห่งชาติ ๒๕๖๙'},
+  {id:'1N40oMgKFC8_9DP_y1D7BATxmVq5DeTIV',d:'ระดับประเทศ',t:'ด.ญ.จิดาพร เหตุเกษ · รางวัลชมเชย',s:'การแต่งคำประพันธ์ ช่วงชั้นที่ ๒ · สัปดาห์วันภาษาไทยแห่งชาติ ๒๕๖๙'},
+  {id:'1-YdNuO2Js_8Lz1MUTLoSyrve00evrOJ2',d:'มหาวิทยาลัยราชภัฏอุดรธานี',t:'ด.ญ.จิราพร · เหรียญเงิน',s:'หนังสือเล่มเล็ก “หนังสือเล่มเล็กกับท้องถิ่นของเรา”'},
+  {id:'1CaiN5GAHPvS68BRWXrzn9NfXRwZzgOk3',d:'มหาวิทยาลัยราชภัฏอุดรธานี',t:'ด.ญ.พรญาณี · เหรียญเงิน',s:'หนังสือเล่มเล็ก “หนังสือเล่มเล็กกับท้องถิ่นของเรา”'},
+  {id:'16YN-Qxy8HaWWLtbrQ6oEhOdtHuQXgqp-',d:'มหาวิทยาลัยราชภัฏอุดรธานี',t:'ด.ญ.เกศกนก · เหรียญเงิน',s:'หนังสือเล่มเล็ก “หนังสือเล่มเล็กกับท้องถิ่นของเรา”'},
+  {id:'1lN9sejz9UYX7fiF9YkdyBJwZibaUll-Z',d:'มหาวิทยาลัยราชภัฏอุดรธานี',t:'ด.ญ.มาณิสรา · เหรียญเงิน',s:'หนังสือเล่มเล็ก “หนังสือเล่มเล็กกับท้องถิ่นของเรา”'},
+]);
+
+/* projects + manuals */
+document.getElementById('projectDocs').innerHTML = [
+  ['1KLmIzYQiz4OLW63VnqxvCX7tntUDJ59i','โครงการยกระดับผลการประเมิน RT และ NT ปี ๒๕๖๘','โรงเรียนคุณภาพ'],
+  ['1g47hGOb3mNtxkvDjoGaVeqEdqPmnqQ6Q','โครงการขับเคลื่อนระบบคลังสื่อ ปี ๒๕๖๙','OBEC Content Center'],
+  ['1mBRTEl6zFnRcKJzz6B6ZrDtvl6PBRkSj','โครงการพัฒนาคุณภาพการจัดการเรียนการสอนภาษาไทย','และส่งเสริม พัฒนาสื่อ นวัตกรรมและเทคโนโลยีดิจิทัลทางการศึกษา ๒๕๖๙'],
+  ['1yosRY_TTCi202JhBe5PAJ1o5DpZwbLIE','โครงการยกระดับผลการประเมิน RT ปี ๒๕๖๘','โรงเรียน กพด. (ตามพระราชดำริ)'],
+].map(d=>docCard(d)).join('');
+document.getElementById('manuals').innerHTML = [
+  ['14tKqwG8LCu10I44WBRDcqotKC3Hg7onZ','รายงาน Best Practice ระบบคลังสื่อ','UDON3 Digital Learning Ecosystem Model · ๒๕๖๙'],
+  ['1eNTSqroMlWqXyKvTSPyGXwUHWtXs_aSR','คู่มือการแข่งขันทักษะภาษาไทย','โครงการรักษ์ภาษาไทย ปีการศึกษา ๒๕๖๙'],
+  ['1KsN-oHNd64TxQJlVNAETbZQ4cg4_i7gy','คู่มือการประกวดผลงานการปฏิบัติที่เป็นเลิศ','ด้านนวัตกรรมพัฒนาทักษะการอ่านด้วย AI สำหรับครูภาษาไทย'],
+].map(([id,t,s])=>`<a class="cover" href="${D(id)}" target="_blank" rel="noopener"><span class="img"><img loading="lazy" src="${A(id)}" alt="ปก ${t}"></span><span><b>${t}</b><small>${s}</small></span><span class="open">เปิดเอกสาร</span></a>`).join('');
+
+tiles('news','newsGrid',[
+  {id:'1R4rx4B6k9AGdNicbkWGuMpp4qZG8me7y',d:'๒ มิ.ย. ๒๕๖๙',t:'ขยายผลคลังสื่อ โรงเรียนบ้านนาทรายน้ำรอด',s:'อบรมสร้างสื่อด้วย AI และ OBEC Content Center สู่ Best Practice'},
+  {id:'1sXPgvHLua5yE6kF55wDrSHvR8tYbGqTj',d:'๓ มิ.ย. ๒๕๖๙',t:'ขยายผลคลังสื่อ กลุ่มดงเย็น',s:'การอบรมเชิงปฏิบัติการสร้างสื่อด้วย AI'},
+  {id:'1Kv_Sj0P-knY1X8IAC0OwLQy1seP5hWLZ',d:'๘ มิ.ย. ๒๕๖๙',t:'ขยายผลคลังสื่อ โรงเรียนบ้านทุ่งใหญ่',s:'สร้างสื่อด้วย AI เพื่อการเรียนรู้สู่การปฏิบัติที่เป็นเลิศ'},
+  {id:'16zXcHONp-CeOF2aXS8U_r1_hvDlb6HWV',d:'๑๖ มิ.ย. ๒๕๖๙',t:'ขยายผลคลังสื่อ โรงเรียนบ้านโพธิ์เหล่าวิชาสรรค์',s:'ข่าวประชาสัมพันธ์ สพป.อุดรธานี เขต ๓'},
+  {id:'1iP7_oHBJa9AJrqueRGpgYnBQerNBClQY',d:'ปีการศึกษา ๒๕๖๙',t:'การแข่งขันทักษะภาษาไทย',s:'ภาพกิจกรรม สัปดาห์วันภาษาไทยแห่งชาติ'},
+  {id:'1uJtCqgIxZ0duPUocqEwwpVzUZrQkafNX',d:'๒๕๖๙',t:'ประชุมคณะกรรมการร่วมคัดเลือกสถานศึกษา',s:'IQA AWARD ระบบประกันคุณภาพภายใน'},
+  {id:'1rU8dbim3SEEkB5XWBYn9CY8yxnB77Pjt',d:'ครั้งที่ ๓/๒๕๖๙',t:'ประชุมกลุ่มนิเทศ ติดตาม และประเมินผล',s:'จดหมายข่าวประชาสัมพันธ์'},
+  {id:'1u5ed0pSFhsypAq8SXDJnBiAUz3_bC2NI',d:'๒๕๖๙',t:'อบรมด้านเทคโนโลยี สพฐ.',s:'ร่วมพัฒนากับเครือข่ายศึกษานิเทศก์'},
+]);
+
+/* growth tabs */
+const growth = {
+  'วิทยากร':[
+    {id:'1sF3aMb3b6JUUfHFYvOzbFkSwH7mJ_vsi',d:'๑๗–๓๐ เม.ย. ๒๕๖๙',t:'วิทยากรให้ความรู้นักศึกษาฝึกประสบการณ์',s:'วิชาชีพการบริหารการศึกษา'},
+    {id:'1Qg5f75eObaU_r-nWB7llansEErDRERM4',d:'๔ มี.ค. ๒๕๖๙',t:'วิทยากรคลังสื่อ กลุ่มโรงเรียนกู่แก้ว',s:'สร้างสื่อด้วย AI และ OBEC Content Center'},
+    {id:'1EJYQG0xGpBs-HgcMeeZZ3DEjttGwZe7H',d:'๑๗ พ.ค. ๒๕๖๙',t:'พัฒนาการอ่านด้วยสื่อนวัตกรรมและ AI',s:'สำหรับครูภาษาไทย (ออนไลน์)'},
+    {id:'1vNHcgcMtqCB-myP7LYsTMHDvlUAUG2na',d:'๒๓ พ.ค. ๒๕๖๙',t:'ออกแบบ EBOOK ด้วย AI สำหรับครูภาษาไทย',s:'อบรมเชิงปฏิบัติการออนไลน์'},
+    {id:'1Ir7ITd8_0k1ftn2PxfmNUIIxp81nOn9I',d:'๒๔ พ.ค. ๒๕๖๙',t:'การเรียนรู้แบบ BBL (Brain-Based Learning)',s:'อบรมเชิงปฏิบัติการออนไลน์'},
+    {id:'16nQFPWF_aArJfnr1ESRurbjA_JUlkYiQ',d:'๒๘–๒๙ พ.ค. ๒๕๖๙',t:'สร้างสื่อด้วย AI และ OBEC Content Center',s:'สู่การปฏิบัติที่เป็นเลิศ (Best Practice)'},
+    {id:'1VAuCQrT8UhzX-Z6SUgDhEacFOUNDw7P_',d:'๒ มิ.ย. ๒๕๖๙',t:'ทีมวิทยากร โรงเรียนบ้านนาทรายน้ำรอด',s:'สร้างสื่อด้วย AI สู่ Best Practice'},
+    {id:'1qf2SHDuSEGN2oRahggIZAObdsBSDeaLb',d:'๘ มิ.ย. ๒๕๖๙',t:'วิทยากร โรงเรียนบ้านทุ่งใหญ่',s:'สร้างสื่อด้วย AI และ OBEC Content Center'},
+    {id:'1GIvSjkjrfFbzTxomfaZU7hT8uV22X1CK',d:'๑๖ มิ.ย. ๒๕๖๙',t:'วิทยากร โรงเรียนบ้านโพธิ์เหล่าวิชาสรรค์',s:'สร้างสื่อด้วย AI และ OBEC Content Center'},
+    {id:'1hi-mqRuEM70XG8DI4DtW6ohKS3R68Ps7',d:'๒๕ มิ.ย. ๒๕๖๙',t:'วิทยากรอบรมสร้างสื่อด้วย AI',s:'ขยายผลคลังสื่อสู่กลุ่มโรงเรียน'},
+    {id:'1b51nL404JkUQeYCaUh9uANjwD1h-U2QS',d:'๒๖ มิ.ย. ๒๕๖๙',t:'วิทยากรอบรมสร้างสื่อด้วย AI',s:'ขยายผลคลังสื่อสู่กลุ่มโรงเรียน'},
+  ],
+  'คณะกรรมการ':[
+    {id:'1x2l5C-bb-yBdr0nL4otlFeMcSJ1gFujQ',d:'๑๐ เม.ย. ๒๕๖๙',t:'กรรมการประเมินสถานศึกษาสีขาว',s:'ปลอดยาเสพติดและอบายมุข'},
+    {id:'1TmrUVwrZvEFDagXKdbJ2C5rACmn7W5eg',d:'๑๘ มิ.ย. ๒๕๖๙',t:'คณะกรรมการดำเนินงาน การแข่งขันทักษะภาษาไทย',s:'สัปดาห์วันภาษาไทย ปีการศึกษา ๒๕๖๙'},
+    {id:'1pTSzAJYiQSFrFEVgUTbiRml0eboC3XgK',d:'๓ ก.ค. ๒๕๖๙',t:'คณะกรรมการดำเนินงาน โรงเรียน กพด.',s:'ประกวดหนังสือเล่มเล็ก · ดงดารา'},
+    {id:'1PDx-kZjUJgrKwdPqFGdotpRFVaF9PotV',d:'๒๕๖๙',t:'ร่วมสนับสนุนโครงการ “อิ่มอุ่น”',s:'ในฐานะผู้อำนวยการกลุ่ม DLICT'},
+  ],
+  'อบรม/ประชุม':[
+    {id:'1xZHVgpzgtxiZaSiE38T4WNQmUbeRHQ-b',d:'๑๔ ก.พ. ๒๕๖๙',t:'ประยุกต์ใช้สื่อดิจิทัลยกระดับภาษาไทย (RT & NT)',s:'ร่วมกับ สยามอินโนเวชั่นมีเดีย'},
+    {id:'12gKgwSIWSVKfhVou6DQt7iOjJk-Xvai3',d:'๒๗ ก.พ.–๒ มี.ค. ๒๕๖๙',t:'อบรมหลักสูตรการศึกษาขั้นพื้นฐาน',s:'ช่วงชั้นที่ ๔–๖ · สพฐ.'},
+    {id:'1HB4xlhGiHbXVRA3RrXW_cKFJi9pIQpoT',d:'๑๓ มี.ค. ๒๕๖๙',t:'พัฒนาการเรียนรู้ด้วยสื่อเทคโนโลยีดิจิทัล',s:'ผ่านระบบ OBEC Content Center · สพฐ.'},
+    {id:'1fJdmiO_9-zd260f0yVoeoL8cu9UphT_G',d:'๑ พ.ค. ๒๕๖๙',t:'อบรมออนไลน์ การพัฒนาอย่างเข้มครูผู้ช่วย',s:'สพม.ราชบุรี · ผ่านเกณฑ์ร้อยละ ๘๐'},
+    {id:'1XPsBmV9z7Uq4I9wqeccT54zHZQ581Lza',d:'๑๑ ส.ค. ๒๕๖๙',t:'ประชุม ศน. การจัดการเรียนรู้บูรณาการแหล่งเรียนรู้ท้องถิ่น',s:'สพฐ.'},
+    {id:'1XxuXt2UAVPiCEg9CF1I-IoTvcItl9oyh',d:'๒ ก.ย. ๒๕๖๙',t:'สัมมนาวิชาการ “การนิเทศวิถีใหม่ นวัตกรรมก้าวไกล”',s:'สมาคมศึกษานิเทศก์ภาคตะวันออกเฉียงเหนือ'},
+  ],
+};
+const tabsEl = document.getElementById('growthTabs');
+function showGrowth(k){
+  tabsEl.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected', b.dataset.k===k));
+  tiles('growth','growthGrid',growth[k]);
+  try{localStorage.setItem('growthTab',k)}catch(e){}
+}
+tabsEl.innerHTML = Object.keys(growth).map(k=>`<button type="button" role="tab" data-k="${k}">${k} <span class="num">${growth[k].length}</span></button>`).join('');
+tabsEl.addEventListener('click',e=>{const b=e.target.closest('button'); if(b) showGrowth(b.dataset.k)});
+let startTab='วิทยากร'; try{const s=localStorage.getItem('growthTab'); if(s&&growth[s]) startTab=s}catch(e){}
+showGrowth(startTab);
+
+/* PA */
+const pa = [
+  ['PA 1 ข้อตกลงในการพัฒนางาน','4 ปีต่อเนื่อง',[
+    ['2566','1c4PCOiNYN7upKUVAvGrc-HJ0H82t_qmw'],['2567','1KXYSbpTPOTYv3afDTaq7-SCuOY7s3mxk'],['2568','1cXgB2XJqUosow-Br75hOrhFCgQMgjz8L'],['2569','19Vae9PbukElErAyNwqvQcPxVEP3zfic-']]],
+  ['รายงานผลการดำเนินงานตาม PA','3 ฉบับ',[
+    ['2567','14kG3exDcBRc2y10Iqrja3w2he_Idr8SU'],['2568','1If1u6pA_qKq8viCQ6ttOIj4exZ5O_Rye'],['2569','1nG2jdwZYGR3VRtgbpRCP1GPl96b5ikIP']]],
+  ['รายงานผลการปฏิบัติงาน','ปีงบประมาณ ๒๕๖๙',[
+    ['รอบ 1','1OG_bIc87WdvuXdYR1t6i6eLUzPuBLGOD','๑ ต.ค. ๒๕๖๘ – ๓๑ มี.ค. ๒๕๖๙'],['รอบ 2','1J_1tGWHHSsK3aLjDj23rAFm_LzZXVWJG','๑ เม.ย. – ๓๐ ก.ย. ๒๕๖๙']]],
+];
+document.getElementById('paCols').innerHTML = pa.map(([h,s,rows])=>
+  `<div class="pa-col"><h3>${h}<small>${s}</small></h3><div class="yrs">${rows.map(([y,id,n])=>
+    `<a href="${D(id)}" target="_blank" rel="noopener"><b class="num">${y}</b><span>${n||'ปีงบประมาณ '+y}</span><span class="open">${arrow.replace('<svg','<svg width="16" height="16"')}</span></a>`).join('')}</div></div>`).join('');
+
+/* lightbox */
+const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
+let cur={g:null,i:0};
+function show(){
+  const it=groups[cur.g][cur.i];
+  lbImg.src=A(it.id); lbImg.alt=it.t;
+  document.getElementById('lbTitle').textContent=it.t;
+  document.getElementById('lbSub').textContent=[it.d||it.sc,it.s].filter(Boolean).join(' · ');
+  document.getElementById('lbOpen').href=D(it.id);
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-g]'); if(!t) return;
+  cur={g:t.dataset.g,i:+t.dataset.i}; show();
+  if(lb.showModal) lb.showModal(); else lb.setAttribute('open','');
+});
+const step=d=>{const n=groups[cur.g].length; cur.i=(cur.i+d+n)%n; show()};
+document.getElementById('lbPrev').onclick=()=>step(-1);
+document.getElementById('lbNext').onclick=()=>step(1);
+document.getElementById('lbClose').onclick=()=>lb.close();
+lb.addEventListener('click',e=>{if(e.target===lb) lb.close()});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+
+/* copy email */
+document.getElementById('copyMail').addEventListener('click',async e=>{
+  const btn=e.currentTarget, txt=document.getElementById('mail').textContent;
+  try{await navigator.clipboard.writeText(txt); btn.textContent='คัดลอกแล้ว'}
+  catch(err){const r=document.createRange(); r.selectNodeContents(document.getElementById('mail')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent='เลือกข้อความแล้ว'}
+  setTimeout(()=>btn.textContent='คัดลอก',2000);
+});
+</script>
+
+</body>
+</html>
