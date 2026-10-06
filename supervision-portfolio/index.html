@@ -312,6 +312,21 @@ dialog.lb::backdrop{background:rgba(6,9,28,.9);backdrop-filter:blur(4px)}
 .lb-cap small{color:#c3c7e6}
 .lb-ctl{display:flex;gap:8px}
 .lb-ctl button,.lb-ctl a{font:inherit;font-size:14px;background:rgba(255,255,255,.08);border:1px solid rgba(201,162,74,.5);color:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;text-decoration:none;white-space:nowrap}
+
+/* background music */
+.bgm{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:10px;
+  padding:8px 16px 8px 8px;border-radius:999px;border:1px solid var(--gold);background:linear-gradient(150deg,#141c4a,#3a2470);color:#f3e5b8;font:500 14px/1 var(--f-body);cursor:pointer;
+  box-shadow:0 14px 30px -14px rgba(0,0,0,.7);transition:transform .2s}
+.bgm:hover{transform:translateY(-2px)}
+.bgm .disc{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#f0d78f 0 18%,#c9a24a 19% 22%,#1a1440 23%);border:1px solid var(--gold)}
+.bgm .eq{display:flex;gap:2px;align-items:flex-end;height:14px}
+.bgm .eq i{width:3px;height:4px;background:var(--gold-hi);border-radius:1px}
+.bgm.on .eq i{animation:eq 1s ease-in-out infinite}
+.bgm.on .eq i:nth-child(2){animation-delay:-.3s}.bgm.on .eq i:nth-child(3){animation-delay:-.6s}.bgm.on .eq i:nth-child(4){animation-delay:-.15s}
+.bgm.on .disc{animation:spin 6s linear infinite}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:520px){.bgm .lbl{display:none}.bgm{padding:6px 12px 6px 6px}}
 </style>
 
 </head>
@@ -567,6 +582,14 @@ dialog.lb::backdrop{background:rgba(6,9,28,.9);backdrop-filter:blur(4px)}
 </main>
 <footer><div class="wrap"><span>Smart Supervision Portfolio · นางสาวพัชรียาพร ห้วยทราย</span><span>สพป.อุดรธานี เขต ๓ · ปีงบประมาณ ๒๕๖๙</span></div></footer>
 
+
+<audio id="bgmAudio" src="assets/theme.mp3" loop preload="auto"></audio>
+<button type="button" class="bgm" id="bgmBtn" aria-pressed="false" aria-label="เปิดเพลงประกอบ">
+  <span class="disc" aria-hidden="true"></span>
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span class="lbl" id="bgmLbl">เปิดเพลง “ร้อยรวมพลังสู่อนาคต”</span>
+</button>
+
 <dialog class="lb" id="lb" aria-label="ภาพขยาย">
   <div class="lb-in">
     <div class="lb-img"><img id="lbImg" alt=""></div>
@@ -780,6 +803,41 @@ document.getElementById('copyMail').addEventListener('click',async e=>{
   catch(err){const r=document.createRange(); r.selectNodeContents(document.getElementById('mail')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent='เลือกข้อความแล้ว'}
   setTimeout(()=>btn.textContent='คัดลอก',2000);
 });
+
+/* background music: 30% volume; starts on load if the browser allows, otherwise on the first click/tap */
+(function(){
+  const VOL=0.3, audio=document.getElementById('bgmAudio'), btn=document.getElementById('bgmBtn'), lbl=document.getElementById('bgmLbl');
+  let ctx=null, gain=null, muted=false;
+  try{muted=localStorage.getItem('bgm')==='off'}catch(e){}
+  function setupGain(){
+    if(ctx) return;
+    try{
+      const AC=window.AudioContext||window.webkitAudioContext; if(!AC) throw 0;
+      ctx=new AC(); gain=ctx.createGain(); gain.gain.value=VOL;
+      ctx.createMediaElementSource(audio).connect(gain).connect(ctx.destination);
+      audio.volume=1;
+    }catch(e){ctx=null; audio.volume=VOL}
+  }
+  audio.volume=VOL;
+  function ui(on){btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on);
+    lbl.textContent=on?'กำลังเล่น “ร้อยรวมพลังสู่อนาคต”':'เปิดเพลง “ร้อยรวมพลังสู่อนาคต”';
+    btn.setAttribute('aria-label',on?'ปิดเพลงประกอบ':'เปิดเพลงประกอบ')}
+  function play(){setupGain(); if(ctx&&ctx.state==='suspended') ctx.resume().catch(()=>{});
+    return audio.play().then(()=>ui(true)).catch(()=>ui(false))}
+  function stop(){audio.pause(); ui(false)}
+  btn.addEventListener('click',()=>{
+    if(audio.paused){muted=false; try{localStorage.setItem('bgm','on')}catch(e){} play()}
+    else{muted=true; try{localStorage.setItem('bgm','off')}catch(e){} stop()}
+  });
+  function firstGesture(e){
+    if(btn.contains(e.target)) return;
+    ['pointerdown','keydown','touchend'].forEach(t=>removeEventListener(t,firstGesture,true));
+    if(!muted && (audio.paused || (ctx&&ctx.state!=='running'))) play();
+  }
+  ['pointerdown','keydown','touchend'].forEach(t=>addEventListener(t,firstGesture,true));
+  audio.addEventListener('pause',()=>ui(false)); audio.addEventListener('play',()=>ui(true));
+  if(!muted) audio.play().then(()=>ui(true)).catch(()=>ui(false));
+})();
 </script>
 
 </body>
