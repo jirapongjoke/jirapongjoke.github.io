@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="th">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>พอร์ตโฟลิโอ ราตรี พิมพ์ศักดิ์</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+/* Layout: navy ceremonial masthead with arched portrait; content on white "paper" with gold hairlines, 7-tab sticky nav, gallery per indicator */
+:root{
+  --navy:#0B1F3A; --navy-2:#132C50; --ink:#071428;
+  --gold:#A8812F; --gold-2:#D4B26A; --gold-soft:#F3E9D2;
+  --bg:#F7F8FB; --paper:#FFFFFF; --fg:#14213A; --muted:#5B6782; --line:#E2E5EE;
+  --on-navy:#F4F1E8; --on-navy-muted:#B9C3D8;
+  --shadow:0 1px 2px rgba(11,31,58,.06),0 8px 28px rgba(11,31,58,.08);
+  --f-display:"Noto Serif Thai","Cormorant Garamond",Georgia,serif;
+  --f-body:"IBM Plex Sans Thai","Sarabun",system-ui,sans-serif;
+  --f-num:"Cormorant Garamond","Noto Serif Thai",Georgia,serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --navy:#0A1830; --navy-2:#11264A; --ink:#050E1E;
+  --gold:#D6B66A; --gold-2:#E6CB8A; --gold-soft:#2A2A22;
+  --bg:#06101F; --paper:#0D1B33; --fg:#E9EDF5; --muted:#9AA6BF; --line:#1E2E4C;
+  --on-navy:#F4F1E8; --on-navy-muted:#AAB6CF;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --navy:#0A1830; --navy-2:#11264A; --ink:#050E1E;
+  --gold:#D6B66A; --gold-2:#E6CB8A; --gold-soft:#2A2A22;
+  --bg:#06101F; --paper:#0D1B33; --fg:#E9EDF5; --muted:#9AA6BF; --line:#1E2E4C;
+  --on-navy:#F4F1E8; --on-navy-muted:#AAB6CF;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0}
+img{max-width:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.35}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:4px}
+
+/* Masthead + nav */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--ink);color:var(--on-navy);border-bottom:1px solid rgba(212,178,106,.35)}
+.top .wrap{display:flex;align-items:center;gap:18px;min-height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
+.seal{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:20px;color:var(--ink);background:radial-gradient(circle at 35% 30%,#F3DFA6,#C49A45 60%,#8E6A22);box-shadow:0 0 0 2px var(--ink),0 0 0 3px rgba(212,178,106,.7)}
+.brand b{display:block;font-family:var(--f-display);font-weight:600;font-size:15px;line-height:1.2}
+.brand small{display:block;font-size:11.5px;color:var(--on-navy-muted);letter-spacing:.02em;line-height:1.3}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-left:auto;min-width:0}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{flex:none;text-decoration:none;padding:9px 13px;border-radius:999px;font-size:14px;color:var(--on-navy-muted);white-space:nowrap;transition:color .2s,background .2s}
+nav.tabs a:hover{color:var(--on-navy)}
+nav.tabs a[aria-current="page"]{color:var(--ink);background:linear-gradient(180deg,#EBD08F,#C9A24E);font-weight:600}
+nav.tabs a .n{font-family:var(--f-num);font-size:16px;margin-right:4px}
+@media (max-width:860px){.top .wrap{flex-wrap:wrap;gap:6px;padding-block:8px}nav.tabs{margin-left:0;width:100%}.brand small{display:none}}
+
+/* Hero */
+.hero{position:relative;background:var(--navy);color:var(--on-navy);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;opacity:.18;background:
+  repeating-radial-gradient(circle at 78% 40%,transparent 0 22px,rgba(212,178,106,.55) 22px 23px),
+  linear-gradient(180deg,transparent 60%,var(--ink));pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:center;padding-block:64px 72px}
+.eyebrow{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--gold-2)}
+.hero h1{font-size:clamp(34px,5.2vw,58px);font-weight:600;margin-top:18px;letter-spacing:-.005em}
+.hero h1 span{display:block;color:var(--gold-2);font-weight:500;font-size:.5em;margin-top:8px;letter-spacing:.01em}
+.hero .role{margin-top:20px;font-size:17px;color:var(--on-navy);max-width:34em}
+.hero .role em{font-style:normal;color:var(--on-navy-muted);display:block;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:36px;border-top:1px solid rgba(212,178,106,.35);border-bottom:1px solid rgba(212,178,106,.35)}
+.stat{padding:16px 14px;border-left:1px solid rgba(212,178,106,.2)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-family:var(--f-num);font-weight:600;font-size:40px;line-height:1;color:var(--gold-2);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--on-navy-muted);line-height:1.4;display:block;margin-top:6px}
+.portrait{justify-self:center;position:relative;width:min(340px,100%)}
+.arch{aspect-ratio:3/4;border-radius:999px 999px 14px 14px;overflow:hidden;border:2px solid var(--gold-2);box-shadow:0 0 0 8px rgba(212,178,106,.12),0 30px 60px rgba(0,0,0,.4);background:#fff}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block}
+.plate{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);background:linear-gradient(180deg,#EBD08F,#C49A45);color:var(--ink);font-family:var(--f-display);font-weight:600;font-size:13.5px;padding:7px 18px;border-radius:4px;white-space:nowrap;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:40px 56px}.portrait{order:-1;width:min(240px,70%)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(3){border-left:0;padding-left:0}.stat:nth-child(n+3){border-top:1px solid rgba(212,178,106,.2)}}
+
+/* Sections */
+main{padding-block:0 80px}
+.sec{padding-block:64px 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.sec-head h2{font-size:clamp(26px,3.2vw,36px);font-weight:600;color:var(--fg)}
+.sec-head .kicker{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px}
+.sec-head p{margin:0;color:var(--muted);max-width:44em;font-size:15px}
+
+/* Awards */
+.honors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.honor{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:zoom-in;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;padding:0;transition:transform .25s,box-shadow .25s,border-color .25s}
+.honor:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--gold-2)}
+.honor .img{aspect-ratio:4/3;background:var(--gold-soft);overflow:hidden;border-bottom:1px solid var(--line)}
+.honor .img{display:grid;place-items:center;padding:14px;background:linear-gradient(160deg,var(--gold-soft),var(--paper))}
+.honor .img img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s;filter:drop-shadow(0 6px 14px rgba(11,31,58,.18))}
+.honor:hover .img img{transform:scale(1.03)}
+.honor .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.lvl{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.06em;padding:3px 10px;border-radius:999px;border:1px solid var(--gold);color:var(--gold)}
+.lvl.nat{background:linear-gradient(180deg,#EBD08F,#C49A45);color:#0B1F3A;border-color:transparent}
+.honor h3{font-size:17px;font-weight:600;line-height:1.45}
+.honor .meta{margin-top:auto;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:8px;border-top:1px dashed var(--line)}
+.honors .feature{grid-column:span 1}
+@media (min-width:980px){.honors .feature:first-child{grid-column:span 2;flex-direction:row}.honors .feature:first-child .img{aspect-ratio:auto;flex:1.2;border-bottom:0;border-right:1px solid var(--line)}.honors .feature:first-child .body{flex:1;padding:28px;justify-content:center}.honors .feature:first-child h3{font-size:24px}}
+@media (max-width:860px){.honors{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.honors{grid-template-columns:1fr}}
+
+/* Development */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chip{font:inherit;font-size:14px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--fg);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.chip .c{font-family:var(--f-num);font-weight:600;margin-left:6px;color:var(--gold)}
+.dev{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.devc{background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:zoom-in;font:inherit;color:inherit;text-align:left;padding:0;display:flex;flex-direction:column;transition:box-shadow .25s,border-color .25s}
+.devc:hover{box-shadow:var(--shadow);border-color:var(--gold-2)}
+.devc .img{aspect-ratio:4/3;overflow:hidden;background:var(--gold-soft)}
+.devc .img img{width:100%;height:100%;object-fit:cover;display:block}
+.devc .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
+.devc .tag{font-size:11.5px;letter-spacing:.08em;color:var(--gold);font-weight:600}
+.devc h3{font-family:var(--f-body);font-size:15px;font-weight:500;line-height:1.5}
+.devc .d{font-size:12.5px;color:var(--muted)}
+@media (max-width:980px){.dev{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:680px){.dev{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Challenge issues */
+.issues{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;counter-reset:i}
+.issue{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:4px 4px 6px 6px;padding:22px 22px 24px;min-width:0}
+.issue .no{font-family:var(--f-num);font-size:44px;line-height:1;color:var(--gold);font-weight:600}
+.issue h3{font-size:17.5px;font-weight:600;margin-top:10px;line-height:1.5}
+.issue p{margin:10px 0 0;color:var(--muted);font-size:14.5px}
+.issue ul{margin:12px 0 0;padding-left:18px;font-size:14px;color:var(--fg)}
+.issue li{margin-top:4px}
+@media (max-width:860px){.issues{grid-template-columns:1fr}}
+
+/* Domain banner */
+.banner{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;opacity:.14;background:repeating-radial-gradient(circle at 92% 50%,transparent 0 18px,rgba(212,178,106,.6) 18px 19px);pointer-events:none}
+.banner .wrap{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:32px;align-items:center;padding-block:48px}
+.banner .big{font-family:var(--f-display);font-size:clamp(64px,9vw,112px);line-height:.9;color:var(--gold-2);font-weight:500}
+.banner h1{font-size:clamp(24px,3.4vw,38px);font-weight:600}
+.banner p{margin:10px 0 0;color:var(--on-navy-muted);font-size:15px;max-width:46em}
+.banner .meta{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+.banner .meta b{font-family:var(--f-num);font-size:22px;color:var(--gold-2);margin-right:6px}
+.banner .meta a{color:var(--gold-2);text-underline-offset:3px}
+@media (max-width:600px){.banner .wrap{grid-template-columns:1fr;gap:6px}}
+
+/* Indicator index + blocks */
+.toc{display:flex;flex-wrap:wrap;gap:8px;padding-block:22px 0}
+.toc a{text-decoration:none;font-size:14px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.toc a:hover{border-color:var(--gold)}
+.toc a b{font-family:var(--f-num);color:var(--gold);margin-right:6px;font-size:16px}
+.ind{padding-block:48px 0;scroll-margin-top:120px}
+.ind-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:start;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.code{font-family:var(--f-num);font-weight:600;font-size:34px;line-height:1;color:var(--gold);min-width:2.2em}
+.ind-head h2{font-family:var(--f-body);font-size:17px;font-weight:500;line-height:1.6}
+.ind-head .count{font-size:13px;color:var(--muted);margin-top:4px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);white-space:nowrap;background:transparent}
+.btn:hover{background:var(--gold);color:var(--paper)}
+.btn svg{width:14px;height:14px}
+@media (max-width:640px){.ind-head{grid-template-columns:auto minmax(0,1fr)}.ind-head .btn{grid-column:1/-1;justify-self:start}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.ph{position:relative;aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:var(--gold-soft);border:1px solid var(--line);cursor:zoom-in;padding:0;font:inherit;color:inherit}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
+.ph:hover img{transform:scale(1.04)}
+.ph .cap{position:absolute;inset:auto 0 0;padding:22px 10px 8px;font-size:12.5px;line-height:1.4;color:#fff;background:linear-gradient(transparent,rgba(7,20,40,.85));text-align:left}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.empty{padding:28px;border:1px dashed var(--line);border-radius:6px;color:var(--muted);text-align:center;font-size:15px;background:var(--paper)}
+.docs{display:grid;gap:10px;margin-bottom:16px}
+.doc{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--paper);border:1px solid var(--line);border-radius:6px;text-decoration:none}
+.doc:hover{border-color:var(--gold)}
+.doc .ico{width:38px;height:46px;flex:none;border:1px solid var(--gold);border-radius:3px;display:grid;place-items:center;font-size:10px;font-weight:600;color:var(--gold);letter-spacing:.05em}
+.doc span{min-width:0}
+.doc small{display:block;color:var(--muted);font-size:12.5px}
+
+/* Profile strip */
+.profile{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:24px 26px}
+.card h3{font-size:18px;font-weight:600;margin-bottom:12px}
+dl.kv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 18px;margin:0;font-size:15px}
+dl.kv dt{color:var(--muted)}
+dl.kv dd{margin:0}
+.domains{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.domains a{display:grid;grid-template-columns:2.2em minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 0;text-decoration:none;border-bottom:1px solid var(--line);font-size:15px}
+.domains a:hover span{color:var(--gold)}
+.domains b{font-family:var(--f-num);font-size:22px;color:var(--gold);font-weight:600}
+.domains small{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+@media (max-width:860px){.profile{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:var(--on-navy-muted);font-size:13.5px}
+footer .wrap{padding-block:32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--on-navy);font-family:var(--f-display);font-weight:600}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,12,26,.94);display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:calc(env(safe-area-inset-top,0px) + 10px) max(12px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 14px) max(12px,env(safe-area-inset-left,0px));color:#F4F1E8}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:#B9C3D8}
+.lb-fig{display:grid;place-items:center;min-height:0;position:relative}
+.lb-fig img{max-width:100%;max-height:100%;object-fit:contain;border-radius:3px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb-cap{text-align:center;font-size:15px;padding-top:12px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.lb-cap a{color:#D4B26A;font-size:13px}
+.lbb{background:rgba(255,255,255,.08);border:1px solid rgba(212,178,106,.4);color:#F4F1E8;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:20px;display:grid;place-items:center}
+.lbb:hover{background:rgba(212,178,106,.25)}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb-prev{left:0}.lb-next{right:0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home"><span class="seal" aria-hidden="true">ร</span><span><b>ราตรี พิมพ์ศักดิ์</b><small>รองผู้อำนวยการ โรงเรียนบ้านทุ่งใหญ่</small></span></a>
+    <nav class="tabs" id="tabs" aria-label="หมวดผลงาน"></nav>
+  </div>
+</header>
+<div id="app"></div>
+<footer><div class="wrap"><div><b>โรงเรียนบ้านทุ่งใหญ่</b><br>สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุดรธานี เขต 3</div><div>แฟ้มผลงานรองผู้อำนวยการสถานศึกษา · ปีงบประมาณ 2569<br><a href="https://drive.google.com/drive/folders/1zRsEyr2C60IYF3KkC4CVpOqJC5wA-5zu" target="_blank" rel="noopener" style="color:var(--gold-2)">เปิดคลังเอกสารต้นฉบับใน Google Drive</a></div></div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="ดูภาพขยาย">
+  <div class="lb-top"><span id="lbCount"></span><button class="lbb" id="lbClose" aria-label="ปิด">✕</button></div>
+  <div class="lb-fig"><img id="lbImg" alt=""><button class="lbb lb-prev" id="lbPrev" aria-label="ภาพก่อนหน้า">‹</button><button class="lbb lb-next" id="lbNext" aria-label="ภาพถัดไป">›</button></div>
+  <div class="lb-cap"><span id="lbCap"></span><a id="lbLink" target="_blank" rel="noopener">เปิดไฟล์ต้นฉบับใน Google Drive ↗</a></div>
+</div>
+
+<script>
+const DATA = {"portrait": "1RxD8TlKtTew16-O5IsqfuuoVtSFziKLn", "root": "1zRsEyr2C60IYF3KkC4CVpOqJC5wA-5zu", "sections": [{"tab": "pa", "code": "PA1", "folder": "1gav36XevZQebWXzOn9JBLc1e_JpMj7jT", "title": "แผนการพัฒนางานรายบุคคล", "items": [], "docs": [["1pKT2ZBtSyYXEANBzfmD_A2p3dbLpBttf", "รายงานผลการปฏิบัติงานตามข้อตกลง (PA) ปีงบประมาณ 2569"], ["1Ir7dPpb-8T0QhD26frMLjqFu0WOGFJ8A", "แบบข้อตกลงในการพัฒนางาน PA 1"]]}, {"tab": "pa", "code": "PA2", "folder": "1TI83Gw-GTHOFl9dXsx1GH-WyH5GbPtUh", "title": "รายงานผลการพัฒนางาน", "items": [["1MQQpo30FEKSbLakoB8ytyWw8FpQmgh5R", "ปกรายงานผลการพัฒนางาน"]]}, {"tab": "pa", "code": "PA3", "folder": "11DWgNXXex3mDq2QdZ6MHVRqmH_PxFaTp", "title": "เอกสารสะท้อนผล", "items": []}, {"tab": "pa", "code": "2570", "folder": "1B24QnHkjrAW8MTAkg-IgL0ZOvqWsmcA2", "title": "ประเด็นท้าทายในการพัฒนาผลลัพธ์การเรียนรู้ของผู้เรียน ปีงบประมาณ 2570", "items": []}, {"tab": "d1", "code": "1.1", "folder": "1qh9A-Qpa83yQCvRkA7iVR8ibtgjKQiON", "title": "พัฒนามาตรฐานการเรียนรู้ วางแผน ตรวจสอบ ทบทวน จัดทำและพัฒนาหลักสูตร ประสานงานวิชาการ และนำหลักสูตรไปใช้ให้ผู้เรียนได้พัฒนาสมรรถนะเต็มตามศักยภาพ", "items": [["10Ri763KcwQ8mUyvPKUT1V_IlVjXQrJMT", ""], ["1Xei1qr13Y-4Yukiu3NM1NHp5NrH6intk", ""], ["1h94P-0guZttxSBh6fEWoDwNhK8qzGlfg", ""], ["1NqgJOTgFzZOTOdGroaqXiSiEekmOVDz_", ""], ["1666W3XgT2aHtYEkkmd65ggEDGj1icXv5", ""], ["1kggWw0LbDoikwcHCgBdGzU4pqRTpoR_8", ""], ["1DIvyv-174la4DOH_1IGJh4EBvNkDIH_Z", ""], ["17P2LRqvZcuuASLd1MBDKfn1P8mdhmQ0d", ""], ["1SkK87Sl7HQk1KWMbZPDVkXFiepImJUJl", ""], ["1AYw6yO9UIQAH_sdqJv5uGNh5iUJ6u6Xy", ""], ["1vjhn8eXrVet-IVMNk2u6QTRLHFeTDefh", ""], ["1oQ41-lnyrNvY59I7EYq7lbt_LMfjbDAk", ""]]}, {"tab": "d1", "code": "1.2", "folder": "199yUJGlU0U7RdGzEo1QILWZvjF4JBAdf", "title": "ปฏิบัติการสอน พัฒนากระบวนการจัดการเรียนรู้ วัดและประเมินผลที่เน้นผู้เรียนเป็นสำคัญ ให้ผู้เรียนมีสมรรถนะ คุณลักษณะอันพึงประสงค์ และพร้อมดำรงชีวิตในปัจจุบันและอนาคต", "items": [["13xldy7XZN1IXdGWgkaZ3pCfE-5ZHYi6e", ""], ["13Ag7oN6O92KbDqJ72xCIqB-sP509dSwR", ""], ["1KsZyI3UYPT5qETP49h5T5c8mUv6uxPWk", ""], ["1H-nXxsY3u51HBR9JwvQU2wRkr7vkRknY", ""], ["19HZ-9Oe_lYKSNjwatXV-W-5SjGTuswzA", ""], ["1DQg-gquyTa91q8wOfD0yh4-Rq9UtppDz", ""]]}, {"tab": "d1", "code": "1.3", "folder": "1_VytPmKyRygxHo4lmmqMUCzKcJxlErFm", "title": "พัฒนากระบวนการจัดการเรียนรู้ที่เน้นผู้เรียนเป็นสำคัญและปฏิบัติการสอน", "items": [["1syh3HG0dRxxnKIY6TODRNBc_9MAewv9W", "สรุปผลงานตัวชี้วัด 1.3"], ["1eV68PYhfD8Q-9VlfF7O6DS6UfMoyqnYW", "ผลงาน 1.3.1"], ["1r6Ew2m1YJl1oA8IReOIcFCJMqIFxEsVt", "ผลงาน 1.3.2"], ["1xZp9JRUJj-NNtebg9u60c5CdcP_rq0ef", "ผลงาน 1.3.3"], ["1IGXyCPdrY__FTWdnM_PRT1LzCEqxrE9k", "สื่อและนวัตกรรมการเรียนรู้"], ["1TXEHID8saNsFpWwwgYg1-Xbvd9yIZuD9", "การใช้ AI ในการจัดการเรียนรู้"], ["1kjOmqalz4AACtvvF1uUduQwKali5EyLb", "การใช้ AI ในการจัดการเรียนรู้"], ["1Ik6-DTtj_Brd8mG68uz9pVwvu4pHlQo4", "การใช้ AI ในการจัดการเรียนรู้"], ["1d3vfRQJu7Z-4MSY7Gild_6aBaPlnZLvM", "การใช้ AI ในการจัดการเรียนรู้"], ["1XIIBEp9DmjwcBZhQoSvGJJc8VeTTvOIY", "การใช้ AI ในการจัดการเรียนรู้"]]}, {"tab": "d1", "code": "1.4", "folder": "1CQHEpky3RGHdwWzL_H5QwoYW4TVpY3OB", "title": "นิเทศ กำกับ ติดตาม ประเมินผลการจัดการเรียนรู้ของครู ส่งเสริมการแลกเปลี่ยนเรียนรู้ทางวิชาชีพ และสร้างชุมชนแห่งการเรียนรู้ทางวิชาชีพ", "items": [["1jAaTyN-MCk_URedmM6GIFSHolsyv65hE", "สรุปผลงานตัวชี้วัด 1.4"], ["1CtFht7HegmOri4lrQe0NGwf-MK3QknZM", "ผลงาน 1.4.1"], ["1FwrTcQm4YDcJPsb_UcCZmyxYwpzAvTfM", "ผลงาน 1.4.2"], ["1bXDVUhi-Ui1pg9ugx45zn2vFma7hJ0Bx", "ผลงานระดับประเทศ"], ["1LFiGauIZ28O0hAUJGqs-bd5-2w5o8nnk", "ผลงานระดับประเทศ"], ["1L-1y3h4ro-h8aqvagJXrTvOZndOy_Lrq", "สถานศึกษาปลอดภัย"], ["1NWvgvAspzSf5xcM2qT8cNmhQ0rm7WJOs", "การนิเทศการสอน"], ["1P3cIj-SwDJdf-WvkSV-7-vmOpsOQ5kAo", "การนิเทศการสอน"], ["1iR_fabGChZ2aqbWfDV8E9-p_fmjPLE5z", "การนิเทศการสอน"], ["1qU_XPaBKn_QWHPQ9g_IW4P1z7ctM07LJ", "การนิเทศการสอน"], ["1E6PY1pEkqutD9lFmzWGTIhTjDrjLRYFT", "การนิเทศการสอน"], ["1gAcn7NRvFmX3nvWzPmsuzRZkpDjy0WSM", "การนิเทศการสอน"], ["1pyWJStyJMsiCrMeo1VSRl0tp_Hd4GX45", "การนิเทศการสอน"], ["1S4CLnybGusBa4OKMb3MP0uhBCIwT_SMV", "การนิเทศการสอน"], ["1O13EObcwz9DAeNMAocIuPR-6jLnxhd3g", "การนิเทศการสอน"], ["1dJFGPgXGMFRZdy2MARn8hcxAzOR9xK0E", "การนิเทศการสอน"], ["1s0UEIJxCGun6hQGsWtCcXPyMIvi_OIP2", "การนิเทศการสอน"], ["1aWlRP3h9c-a4aZ_tU7IUZY8MBKRDAdvu", "การนิเทศการสอน"], ["1S9b9xOAwYaEzZtw-aLflyryAcsyfj9Tg", "การนิเทศการสอน"], ["1c62LPnFzXkw0z3RsoXhhtAVveL3y658t", "การนิเทศการสอน"], ["1fCpKi4LtzBLMhCytQalvhS0V5zutw1D8", "การนิเทศการสอน"]]}, {"tab": "d1", "code": "1.5", "folder": "1Fb5YOAhMlTHrYzHAq4QUuzgU3uDw-OPj", "title": "ศึกษา วิเคราะห์ สังเคราะห์ และวิจัย เพื่อแก้ปัญหาและพัฒนา ยกระดับคุณภาพการศึกษาของสถานศึกษา", "items": [["16e7uVe3UgbvKnItM02nL5ekqA3J6CBfW", "สรุปผลงานตัวชี้วัด 1.5"], ["1jqAIX_h5_zynA312srg_U0aM8nGLwY8W", "การวิจัยและพัฒนา"], ["1KWUGOqfvQ6UHOa8WGjSBDq3YGGfAFBUq", "การวิจัยและพัฒนา"], ["185T-_Prk-B19ldWsraDnrZtEXnJYjWMv", "การวิจัยและพัฒนา"], ["1V7K2PX0RW4cCkRr3gjqVP3HinxUYv4Bs", "การวิจัยและพัฒนา"], ["1oYTefo7kwVn3OVG7bYknMKMfKDUCDLYk", "การวิจัยและพัฒนา"], ["1OHdC5tfab-gJKBYW1GRECAMMWh_2TGT2", "การวิจัยและพัฒนา"]]}, {"tab": "d1", "code": "1.6", "folder": "1p8CkcaxBRvBn7_ex3c9UFBPb81i12qkK", "title": "จัดให้มีการประกันคุณภาพการศึกษาภายในสถานศึกษา", "items": [["1b9punOorQFL8oLNdcDNCpnPmI7iVGGr7", "ผลงาน 1.6.1"], ["1V3Xi38QOgi_BOjcpnzwwGxqrp1c8ebKA", "ผลงาน 1.6.2"], ["1KaLu21oiMEuO0QiQaDACc9eYfovNQbwy", ""], ["1-zmGwjHjfMpsvZS4PzJWBZ91eGJH4RJD", ""], ["1NMWcz8FuLBdhhAvJNkvbH6Dr5g6qflJg", ""], ["1UDAsrIuAG1c9-WMi0yh_SGTYzKgjmiyc", ""], ["138PTMJxNb7lrwZcW3cD_uhC-WsEbtjPc", ""]]}, {"tab": "d2", "code": "2.1", "folder": "1OGjv0hDjfreoikEiYniPvdYf5Gwn8xoP", "title": "บังคับบัญชาข้าราชการครูและบุคลากรทางการศึกษา และบริหารกิจการของสถานศึกษาให้เป็นไปตามกฎหมาย ระเบียบ และข้อบังคับ", "items": [["1DulXqet2c6F4KVptzSn05v50CUWdGYEN", "คำสั่งมอบหมายงาน 2569 หน้า 1"], ["1Zj66rXbbeGf2msqejfTBpMwgH2OYDGdn", "คำสั่งมอบหมายงาน หน้า 2"], ["1vJSLg1_qse9gK9ApmCGNVjvUVHzTI7f7", "คำสั่งมอบหมายงาน หน้า 3"], ["1xqW6KTmlsjP_TcZqj4gQmJ3CAPn8XocI", "คำสั่งมอบหมายงาน หน้า 4"], ["1RJ3VGKrLMNGzArXQ-CeA0LLvV7TUAa4n", "คำสั่งมอบหมายงาน หน้า 5"], ["1Hf5zcyadEZYe7xzdfvZTm8DW3ve0b7aF", "คำสั่งมอบหมายงาน หน้า 6"], ["1Js7TGVP6zKqhiPUx2no7h3rItzEzK4FV", "คำสั่งมอบหมายงาน หน้า 7"], ["1gO6LgCZKGblwfDe4T88Z3d7vv1Re7xzS", "คำสั่งมอบหมายงาน หน้า 8"], ["1NE7USjgAgm0mD4qV0G8P5I42OymXDhjH", "คำสั่งมอบหมายงาน หน้า 9"], ["17Q8g_9CN09o2cWrwaZktgXPUBNSW2p2H", "คำสั่งมอบหมายงาน หน้า 10"]]}, {"tab": "d2", "code": "2.2", "folder": "1Fmo3dvxVJALhLzecVtTEmWb8l2_uy93m", "title": "บริหารงานบุคคล งบประมาณ และบริหารทั่วไป ตามกฎหมาย ระเบียบ นโยบาย และหลักธรรมาภิบาล", "items": [["1mOQO5WMBRdqHUZ4-uWtayc_87xq99PFs", "สรุปผลงานตัวชี้วัด 2.2"], ["1dIIo5rCzmsVBc6rT2ONbMhOICGQtMCG6", "การวิเคราะห์ข้อมูลเพื่อการบริหาร"], ["1EzKInjMVZTQrP5c2FtG16gfuRQG3RcOI", ""], ["1BUiN95bhJrGnOXwQzHCexmsBxrRLqp_G", ""], ["1M3j60I9kJRzDtarTj5-QbjA9JPpWiRok", ""]]}, {"tab": "d2", "code": "2.3", "folder": "1tePSMsu54zccFjjAyh-9FtS_izWrc56E", "title": "ส่งเสริมและพัฒนาครูและบุคลากรให้มีสมรรถนะเต็มศักยภาพ เน้นทักษะภาษาไทย ภาษาอังกฤษ และเทคโนโลยีดิจิทัล", "items": [["1Wmc_hT8nCyCEkENdu0UAKix-EFCQ1u5-", "การพัฒนาตนเอง: รองผู้อำนวยการ"], ["118KoMfeRb1J3aGEL_WzuWXKUBQJ28XGZ", "การพัฒนาครู: นายจิรพงศ์"], ["1wdGBHkNe1NGgnkRPE5D0sJI3tR-4863e", "การพัฒนาครู: นายมณเฑียร"], ["1CKpvsB3XlAgo5FzHIfjNIgNla4SNb_BF", "การพัฒนาครู: นางสาวนฤมล"], ["1V3qhVm3EqHg4uVc-Iiivxbjoa8q_aQIF", "การพัฒนาครู: นางสาวศิริพร"], ["1vPMvV8idpbiSl_WQAB-aEecjSo4-yec8", "การพัฒนาครู: นางสาวอนัญญา"], ["1epIHPov0HQsCwQEXMmlYJeXrUtIfOV_5", "การพัฒนาครู: นายดนัย"], ["1xaoApWqSxHZGUDa9zFXt7dgsKTvf3ODM", "ผลงานระดับประเทศ"], ["1RuHZSkfNH2dM_yxr8PMRNogzWjBDaSZd", "ผลงานระดับประเทศ"], ["1pNqQH9xZYB5hj77US2h5Ceg73ZPCbHRo", "สถานศึกษาปลอดภัย"], ["10w2oNH_RLA9rIL3GG9o1v94S_d-myKYx", ""], ["19w-uO-ig09ri6uiDj4Jm07PX8eJ1aFAh", ""], ["1_IMEp1CeUmS9glYSEiE8pYquKl4DFETm", ""], ["15yI69gVyUIggy1VIQ5CGZ5UZYzEX9Boq", ""], ["1LzQjXP2snL3CZqlgyhM4GWgjBkhXvGH8", ""], ["1IPJImdO8xnjYSVKNfdW90L-3-wGr2NGv", ""]]}, {"tab": "d2", "code": "2.4", "folder": "1D_vQ3Js5Id92p5iH9c4elSWXF6k_OIGf", "title": "บริหารกิจการผู้เรียน จัดกิจกรรมส่งเสริมและพัฒนาผู้เรียนให้มีสมรรถนะและคุณลักษณะอันพึงประสงค์", "items": [["1mjEWrdeVR8irPTseyzmKOMRZXB9P90pr", "ผลงานระดับประเทศ"], ["1wp9KJqoWdbJwsdfdvSgK6RVNKq181KwG", "ผลงานระดับประเทศ"], ["1NXs6mmFGEMQAT5tXcYWlLmFo5yTdn3-l", "สถานศึกษาปลอดภัย"], ["1iXFgGY-4pJvwu6Lw2QzMHVHJDY4qjMq0", "กิจกรรมวันวิสาขบูชา 2569"], ["1tAXpHuwBFt2sbRe0a5shEiFoXnd-W2EQ", "กิจกรรมเลือกตั้งสภานักเรียน"], ["1b-RdoUNBhhgS_E0g-Fj0K2Gl1Kp_xQyZ", "การลงนามบันทึกความร่วมมือ (MOU)"], ["1iebnNnYwEYgzkNgODx5I3hrFN0OdpBL-", "ประชุมผู้ปกครองเตรียมเปิดภาคเรียน"], ["1VPebcqKxXOC8yXfmTwbGsKh9EEXrPQa6", ""], ["12Gdkb_ge0W1J4yD_njMqqdnguerfkDaa", ""], ["1gdDnB5McTc1sb5rmpmtmWoI0tOTur9XH", ""], ["1XQTIBxsWjTtjjRwpb4LI3eCpRdiX_lUf", ""], ["1CDu3WijWVnwhV3xD0sbKi9K2Wq3s8n9N", ""], ["1XCsZckChHAH_KdYaMjdKDiU1k3vDGEzl", ""]]}, {"tab": "d2", "code": "2.5", "folder": "1R-eSjfY6Z4Ipr75cEK8y127H5fFOCAez", "title": "จัดระบบดูแลช่วยเหลือนักเรียน เพื่อแก้ปัญหาและพัฒนาผู้เรียนให้มีโอกาสและความเสมอภาค ลดความเหลื่อมล้ำทางการศึกษา", "items": [["1M2Pj2390g9CzcIWg1vYGCqw2MYK97p_1", "ประชุมผู้ปกครองเตรียมเปิดภาคเรียน"], ["1tTnO-TavV09_N3U40PwVXNiuwSnYzsA3", "ประชุมผู้ปกครองเตรียมเปิดภาคเรียน"], ["1iatGLyu4C5jjQEnq5-cKqwWRt58MM6Y2", "ประชุมผู้ปกครองเตรียมเปิดภาคเรียน"], ["1-SUvQzZYXMmynHgql0DpXVVtjbxUYJIb", "ประชุมผู้ปกครองเตรียมเปิดภาคเรียน"], ["1DvrooGC31iQ2GgeQY0PU_lAAaSUecwWQ", "ประชุมคณะกรรมการสถานศึกษา"], ["1VEiz8VQRuMZb2Bhk2VMHvw1wyg7xqvGS", "ประชุมคณะกรรมการสถานศึกษา"], ["1xZQkRb2fiixvsJqeJWdUDzTa3D5tk76c", ""], ["1Wncj29roPhyQtDnIO-_F0lPx7oF1WkrR", ""], ["1d-mEPsIy-Z1fyMo8qzkPIrT71JAdNyFs", ""], ["1_g8-8-r5oDXuPInYKPPBiuW4ZksKDWT0", ""], ["1dz5esWo7J7BRsDJ0jaNHMhIgR33oyxPN", ""], ["1iSRGTYN4AAOM-TazeNv_cm8xY_wkkhUa", ""], ["1nMOWnQxDFkVmMnjef3Xeorg684NTQrg-", ""], ["12RbPZ2W5vW2oqPXlB3RXkBCmlEgpiji-", ""], ["1gxxRGW0oVVzHcjmy1SjQkwguaP-EYPdx", ""], ["1kLSyrlse2h7eCpXN8Y0sX1YO4WakL9Pm", ""]]}, {"tab": "d3", "code": "3.1", "folder": "1Ra_rq9OCaB3EzVq5gqAbnb8w5ka4A0ho", "title": "กำหนดนโยบาย แผน กลยุทธ์ ร่วมกับครู คณะกรรมการสถานศึกษา ผู้ปกครอง ชุมชนและเครือข่าย โดยใช้ข้อมูลเชิงประจักษ์เป็นฐาน", "items": [["1bF6Lj2WvZVM7ffaCau9ZOkoGDLHq1cB0", "แผนพัฒนาคุณภาพการศึกษา"], ["1UbX1rqiKDfdub53g08Bt2PMSaNfADHXR", "แผนปฏิบัติการประจำปีงบประมาณ 2569"], ["1m7mvGB1Wndg3DhyvbTlRH5ql5SkEW82t", "QR Code แผนพัฒนาคุณภาพการศึกษา"]]}, {"tab": "d3", "code": "3.2", "folder": "1SyMgdhkM_rz0fpAMh1291bHDaazc1HpQ", "title": "นำนโยบาย แผนกลยุทธ์ไปปฏิบัติ ส่งเสริม สนับสนุน กำกับ และติดตามให้บรรลุวัตถุประสงค์", "items": [["1vesW76vQVIub48V2F2aqAg-Z8g41vsoO", ""], ["1_HKL3M5qqC8oSaxyR6ruoAHWiDDJVOcY", ""], ["13J_Jrmq0fYtaXqltpwtCADYFVwRRJDsu", ""], ["1IOSnIgXU9esgAxSxroxk-6xFa2j-ga8o", ""], ["1U71iT-DqoRKfPrt_ZyJzUE-aF8ARAS-b", ""]]}, {"tab": "d3", "code": "3.3", "folder": "1lPSfv5fhftk0Fj2VcE709BC_SnsFRcvL", "title": "สร้างหรือนำนวัตกรรม เทคโนโลยีดิจิทัลมาใช้พัฒนาสถานศึกษาและผู้เรียน", "items": [["1WRYl5147v_OTTn8ZC598iZw-clgUByWX", "อบรม AI สำหรับนักเรียน"], ["1l9BZSerHRFC-CqkXnp0rxn5XCI-VfV4q", "อบรมนักเรียน"], ["13MlYnKiuaFH2l_vXRFSk6GDltnFArZ9Q", "อบรมนักเรียน"], ["1xKwJYbPNbbG6DJ-r1vmbiGTi_hYYOWBA", "อบรมเทคโนโลยีดิจิทัล"], ["1lsid_IHLlLF_0zJusUGGa_UpXx01hsEh", "รับมอบเครื่องฉายภาพและโทรทัศน์"], ["1E-8mHoWjq-KmQE7MqJiVy3OEuPDbxfYS", "รับมอบเครื่องฉายภาพและโทรทัศน์"]]}, {"tab": "d3", "code": "3.4", "folder": "1y9WZSv-CA-g_WP4ahdGbJDrxvXEHe1Zf", "title": "สร้างการมีส่วนร่วม การทำงานเป็นทีมในการบริหารการเปลี่ยนแปลงและนวัตกรรม เพื่อพัฒนาสถานศึกษาอย่างยั่งยืน", "items": [["1eleMKt7ldtmM_CLDVzfTYYTvgopRfGug", "นิเทศอาหารกลางวัน 1/2569"], ["1OS6JUTHhz377qgJgOclpMFbzCqgvcCbh", ""], ["1M90EY-hmtBkdumx_XbRwk4Ob_v0ACWaw", ""], ["1beIwoxXUEtW2LvbxSIE3H7uxpGrr7grC", ""], ["1qKC7Ac_laeko9Bg4hhU5BD14Q-6v7TH6", ""], ["1OUNJBKHvwonCP9hczLFf7l-9-46bQ33g", ""], ["1Jnu2ZxV1QgcnSOTvCY_n6pUCcDAErqQ8", ""], ["1xl1zJlFUBCCCRkP-lEeJ2Nnt3voTKV9f", ""]]}, {"tab": "d4", "code": "4.1", "folder": "1uLJU-UiZS5VIer75TbawD-832eL1s3-S", "title": "สร้างและพัฒนาเครือข่ายเพื่อพัฒนาการเรียนรู้", "items": [["1qXIpfFqu5zXkJ7EhmdvnNQ_vpQsCK3Yv", "ลงนามบันทึกความร่วมมือ (MOU)"], ["18GSkpRvXCUlJPO8VYxkC2P4gXpA2j6xB", "ลงนามบันทึกความร่วมมือ (MOU)"], ["16L0UaQzaSOOf9BqVOzm9r8bOR6jsdX9c", "ลงนามบันทึกความร่วมมือ (MOU)"], ["1P5zFkkNOQaUTYtGLaacif6fenqKS3M3E", "ลงนามบันทึกความร่วมมือ (MOU)"], ["1qUfBec2hq9N-8kMVjpAs5e4JqIhkWOMx", "นิเทศอาหารกลางวัน 1/2569"], ["1XEAlNTo9zZ6HOtKYRlFJJbDjak8Rn0Hv", "ผลงาน 1.4.1"], ["1D2BkIz_5YZWyChMZ9rd7q1NdwW0ps_W7", "เครือข่ายชุมชนสัมพันธ์"], ["1ce4_qc7aopqOb94ZgBst3XdvpsBJdUGd", "เครือข่ายชุมชนสัมพันธ์"], ["1MpQzK6w4IF8VN-YTwFdB-T97d9CgM81t", "เครือข่ายชุมชนสัมพันธ์"], ["1nEvGBTIiEerBpV3TSuIbbHdqedyYS1x2", "เครือข่ายชุมชนสัมพันธ์"], ["1PwHD_OJA4KZO_DbWT-DoNBvO8b5Vhm4f", "เครือข่ายชุมชนสัมพันธ์"], ["1Oj4NQRjXWsRIMmSCBbTW1DNAWuf2XUtr", "เครือข่ายชุมชนสัมพันธ์"], ["1nLOfp7lVLE6fkquDfrzgHSEM-3IUlN-e", "เครือข่ายชุมชนสัมพันธ์"], ["1p51JaQqW2B3ustbonIGi2W49YBCGN1jI", "เครือข่ายชุมชนสัมพันธ์"], ["1d2plN3CvbrwE_8JivtOy5Ak0lV8E8qId", "เครือข่ายชุมชนสัมพันธ์"], ["1wsVGPLBjzZ7_A6J4m-m3A-bbxw7nE_M0", "เครือข่ายชุมชนสัมพันธ์"], ["1pb6iy-LkjtKXfk970xa5Ztgm0SY4nzev", "เครือข่ายชุมชนสัมพันธ์"], ["1KMmi69BGA0GLUI0FO8o_6mEbUK9aUHao", "เครือข่ายชุมชนสัมพันธ์"], ["1TzgaZGah34_ffg9esl333108WRMTXfsZ", "เครือข่ายชุมชนสัมพันธ์"], ["13dw2FGnYlhsgiQ5GtCqfL1UAFaokKuej", "เครือข่ายชุมชนสัมพันธ์"], ["1thmK7UTRDLzIi-4Pr7BacXP3JIjJ687s", ""], ["1D6zI75YHnTV3G3GgHXpsjtLNH6ze1IqA", ""], ["1CE0IrmRJie78zDU7NKjd1U6D1kCgzpuK", ""], ["1auhmwEiIx7VRJpWWtGVjrghZD1r90GoN", ""], ["1IPzetk3oE5ym8Ytz4m2o3Y1-ArVEs8gY", ""]]}, {"tab": "d4", "code": "4.2", "folder": "1qOggSImXZut5DAzkD5ZwD6nxaliT87lP", "title": "จัดระบบการให้บริการในสถานศึกษา", "items": [["1JBmcfOmOO9iMgMCdviatmhYCUONbyF6n", "บริการชุมชน: ตัดแต่งต้นไม้"], ["1WiYXyUWa3MnWTW-dhHRZnBW3Ke8oAWZ5", ""], ["1wLsXMgIt0bxc3skB14e-lR6ajUy3B5bj", ""], ["18st-q-YTOx6CydYv38mV9Y2WBoTUFK0k", ""], ["1H0TrBZOwX1nNzdhNCnMDahCuwyad3wLY", ""], ["1Kr3A5v7N9Nvoc4yBo3YiOUD_fVxfr7p0", ""], ["1X_xpnG6WyklBNzDSZBMrWWYaRGIVw1P0", ""], ["1JL76A-S1ncr3QaUjvqUqyyT1aZf8kIds", ""]]}, {"tab": "d5", "code": "5.1", "folder": "1NFJyG9Vix-IwfiqjKQxL09e8VgadflFv", "title": "การพัฒนาตนเองและวิชาชีพ", "items": [["1dfrRczTYB0NoI0fqOZPSbY8R2eRVXI_R", "วิทยากรอบรมการสร้างสื่อด้วย AI และ OBEC Content Center"], ["1mlDgUYAP8HNI9J3A778bt9rH1H-LzrTJ", "วิทยากรอบรม AI"], ["1IuLIQWcUNIFUo4cgywDJeX9LKfIBr4Wn", "วิทยากรอบรม AI"], ["1LjbShyvLVZX26UJaKyL_7oIaRgTmppyk", "วิทยากรฝ่ายประเมินผล หลักสูตร D.A.T.C."], ["1FrsfeJOXB37vXZIVOAD5vXudS1NgQIZq", "กรรมการและเลขานุการ งานศิลปหัตถกรรมนักเรียน ครั้งที่ 72"], ["1XY9JXEkkb4OClntH5yQx9Qc6konRvow_", "กรรมการประกวดระเบียบแถวลูกเสือ เนตรนารี"], ["15m4Ll4am45k0JTd37ONmM8kL24LYU6YO", "อบรม OBEC Content Center"], ["1sPgPModzuJHmmh8rjUPzx4RTAnaL2s_j", "คลินิก สพฐ. ครั้งที่ 4"], ["1ws36BdpPXzAddx3qcsrxlguX-rqzyWbe", "อบรมงานแนะแนว Coaching และ SPS"], ["1xQ2eidYmRDjP90XD52ljijX-SJS3UyDW", "อบรม AI"], ["1q28aXz734qLeUhHAaaj3JumlZ9o9SHW8", "อบรม AI"], ["1KdwjlziuY1D_BkVq77wnkdCJKljUyhtU", "อบรม AI"], ["141McXiFzI4O0uuZuO6mViCDVy4kvGTlF", "อบรม AI"], ["10hooWT9BmE9MAR4rDwfvUgMDUx8BP4jF", "อบรม AI"], ["12TwNHAoN13AGkSULAB8LWg9D5idYsHXo", "อบรม AI"], ["1qgsXnaz2eWsr2E33_vaQh_t9nUppA8c2", "อบรม Canva"], ["14M2vRe7MU8qdM7gL4QinJVLr3RGvjPrq", "อบรมภาษาอังกฤษ"], ["18Ehe2PYU7aelEW2t8pYx8VmlLsdasmBq", "อบรมเทคโนโลยีสารสนเทศ"], ["1s8VuVD937v4AZVPwH95oHZIEbzXsaumX", "ประชุม ณ สำนักงานศึกษาธิการจังหวัด"], ["1avUgq927eGVrZobpjMONQu8jD5DFvFWA", "พิธีทบทวนคำปฏิญาณลูกเสือ"], ["1SAIHfOfY2-m5aakyA1OK9Gmax8V2erY2", "Scout Anywhere Anytime"], ["16_Gr7aUr3JrSo_NRRPd7oXJEIUs5RqYp", "รางวัลคุรุชน คนคุณธรรม ระดับดีเยี่ยม"], ["1dS1710AGtqwSoXWMyQMaAn4inn1QUfbq", "ผู้ขับเคลื่อนโรงเรียนต้นแบบกิจกรรมทางกาย ระดับประเทศ"], ["10cCbPZ3bYmuerxYe-xKrwOfkD2Iv44CZ", "โรงเรียนต้นแบบส่งเสริมกิจกรรมทางกาย ระดับประเทศ"], ["1HDEwhAfATXs5Ll7v7gjdAcyKUrqo5w-c", "ขับเคลื่อนตามข้อคิดเห็นสภานักเรียน ระดับประเทศ"], ["1nzp0x9i0sPoVUo1LZOcyeW_qNGPF4ztM", "รองชนะเลิศ โรงเรียนต้นแบบสภานักเรียน"], ["1SEkj2Cq6s8xFSh-0y6y-ii_aWxqQuWzw", "โรงเรียนคุณธรรม สพฐ. ระดับ 3 ดาว"], ["148-YnrtsF9Xe2ioBgglO4dn7cTXPoWjz", "ผู้ขับเคลื่อนโรงเรียนคุณธรรม สพฐ."], ["1Ijm_0SgIQQIBnLCNuX6sE2JoC-Cb9E77", "ผู้ขับเคลื่อนโรงเรียนส่งเสริมกิจกรรมทางกาย"]]}, {"tab": "d5", "code": "5.2", "folder": "1WO0zCBAys6YZBLtZ03kXPv1LZFQ4KNtb", "title": "มีส่วนร่วมและเป็นผู้นำในการแลกเปลี่ยนเรียนรู้ทางวิชาชีพ เพื่อพัฒนาการจัดการเรียนรู้และการจัดการศึกษา", "items": [["1780eDW94kc7MmucOT059MCy8PUiVx_ZI", ""], ["1XonNqDsPWrz5z4Ka1DOkBYyN82U5JqPi", ""]]}, {"tab": "d5", "code": "5.4", "folder": "16y6jqwCX8iKbd56Gooys4rj3ycLuEQZI", "title": "สร้างและสนับสนุนชุมชนการเรียนรู้ทางวิชาชีพ", "items": [["1jt7daOlxj8bDxhPsw4Dui7GLZmtlErjz", "ผลงาน PLC 1.4.1"], ["1B-wTTWiLeNPoecGmWwAPPqUtODuYIpT2", "ผลงาน PLC 1.4.2"], ["1d7cwJfVVrN_H0SquHp5c9IqOtQIORTpU", "ผลงาน 1.5"], ["15zyTnRxD8TB8gqLpgkCc8jgFDMZNRZuh", ""], ["14IK6zzEbSgGaasnku3IaJLlu_48HfVz-", "ประชุมครูและบุคลากรทางการศึกษา"], ["1X4b0SBq8y6f2lut3wxuJwNSQtFRCCsHl", ""]]}]};
+const HAVE = new Set(["1-SUvQzZYXMmynHgql0DpXVVtjbxUYJIb", "1-zmGwjHjfMpsvZS4PzJWBZ91eGJH4RJD", "10Ri763KcwQ8mUyvPKUT1V_IlVjXQrJMT", "10cCbPZ3bYmuerxYe-xKrwOfkD2Iv44CZ", "10hooWT9BmE9MAR4rDwfvUgMDUx8BP4jF", "10w2oNH_RLA9rIL3GG9o1v94S_d-myKYx", "118KoMfeRb1J3aGEL_WzuWXKUBQJ28XGZ", "12Gdkb_ge0W1J4yD_njMqqdnguerfkDaa", "12RbPZ2W5vW2oqPXlB3RXkBCmlEgpiji-", "12TwNHAoN13AGkSULAB8LWg9D5idYsHXo", "138PTMJxNb7lrwZcW3cD_uhC-WsEbtjPc", "13Ag7oN6O92KbDqJ72xCIqB-sP509dSwR", "13J_Jrmq0fYtaXqltpwtCADYFVwRRJDsu", "13MlYnKiuaFH2l_vXRFSk6GDltnFArZ9Q", "13dw2FGnYlhsgiQ5GtCqfL1UAFaokKuej", "13xldy7XZN1IXdGWgkaZ3pCfE-5ZHYi6e", "141McXiFzI4O0uuZuO6mViCDVy4kvGTlF", "148-YnrtsF9Xe2ioBgglO4dn7cTXPoWjz", "14IK6zzEbSgGaasnku3IaJLlu_48HfVz-", "14M2vRe7MU8qdM7gL4QinJVLr3RGvjPrq", "15m4Ll4am45k0JTd37ONmM8kL24LYU6YO", "15yI69gVyUIggy1VIQ5CGZ5UZYzEX9Boq", "15zyTnRxD8TB8gqLpgkCc8jgFDMZNRZuh", "1666W3XgT2aHtYEkkmd65ggEDGj1icXv5", "16L0UaQzaSOOf9BqVOzm9r8bOR6jsdX9c", "16_Gr7aUr3JrSo_NRRPd7oXJEIUs5RqYp", "16e7uVe3UgbvKnItM02nL5ekqA3J6CBfW", "1780eDW94kc7MmucOT059MCy8PUiVx_ZI", "17P2LRqvZcuuASLd1MBDKfn1P8mdhmQ0d", "17Q8g_9CN09o2cWrwaZktgXPUBNSW2p2H", "185T-_Prk-B19ldWsraDnrZtEXnJYjWMv", "18Ehe2PYU7aelEW2t8pYx8VmlLsdasmBq", "18GSkpRvXCUlJPO8VYxkC2P4gXpA2j6xB", "18st-q-YTOx6CydYv38mV9Y2WBoTUFK0k", "19HZ-9Oe_lYKSNjwatXV-W-5SjGTuswzA", "19w-uO-ig09ri6uiDj4Jm07PX8eJ1aFAh", "1AYw6yO9UIQAH_sdqJv5uGNh5iUJ6u6Xy", "1B-wTTWiLeNPoecGmWwAPPqUtODuYIpT2", "1BUiN95bhJrGnOXwQzHCexmsBxrRLqp_G", "1CDu3WijWVnwhV3xD0sbKi9K2Wq3s8n9N", "1CE0IrmRJie78zDU7NKjd1U6D1kCgzpuK", "1CKpvsB3XlAgo5FzHIfjNIgNla4SNb_BF", "1CtFht7HegmOri4lrQe0NGwf-MK3QknZM", "1D2BkIz_5YZWyChMZ9rd7q1NdwW0ps_W7", "1D6zI75YHnTV3G3GgHXpsjtLNH6ze1IqA", "1DIvyv-174la4DOH_1IGJh4EBvNkDIH_Z", "1DQg-gquyTa91q8wOfD0yh4-Rq9UtppDz", "1DulXqet2c6F4KVptzSn05v50CUWdGYEN", "1DvrooGC31iQ2GgeQY0PU_lAAaSUecwWQ", "1E-8mHoWjq-KmQE7MqJiVy3OEuPDbxfYS", "1E6PY1pEkqutD9lFmzWGTIhTjDrjLRYFT", "1EzKInjMVZTQrP5c2FtG16gfuRQG3RcOI", "1FrsfeJOXB37vXZIVOAD5vXudS1NgQIZq", "1FwrTcQm4YDcJPsb_UcCZmyxYwpzAvTfM", "1H-nXxsY3u51HBR9JwvQU2wRkr7vkRknY", "1H0TrBZOwX1nNzdhNCnMDahCuwyad3wLY", "1HDEwhAfATXs5Ll7v7gjdAcyKUrqo5w-c", "1Hf5zcyadEZYe7xzdfvZTm8DW3ve0b7aF", "1IGXyCPdrY__FTWdnM_PRT1LzCEqxrE9k", "1IOSnIgXU9esgAxSxroxk-6xFa2j-ga8o", "1IPJImdO8xnjYSVKNfdW90L-3-wGr2NGv", "1IPzetk3oE5ym8Ytz4m2o3Y1-ArVEs8gY", "1Ijm_0SgIQQIBnLCNuX6sE2JoC-Cb9E77", "1Ik6-DTtj_Brd8mG68uz9pVwvu4pHlQo4", "1IuLIQWcUNIFUo4cgywDJeX9LKfIBr4Wn", "1JBmcfOmOO9iMgMCdviatmhYCUONbyF6n", "1JL76A-S1ncr3QaUjvqUqyyT1aZf8kIds", "1Jnu2ZxV1QgcnSOTvCY_n6pUCcDAErqQ8", "1Js7TGVP6zKqhiPUx2no7h3rItzEzK4FV", "1KMmi69BGA0GLUI0FO8o_6mEbUK9aUHao", "1KWUGOqfvQ6UHOa8WGjSBDq3YGGfAFBUq", "1KaLu21oiMEuO0QiQaDACc9eYfovNQbwy", "1KdwjlziuY1D_BkVq77wnkdCJKljUyhtU", "1Kr3A5v7N9Nvoc4yBo3YiOUD_fVxfr7p0", "1KsZyI3UYPT5qETP49h5T5c8mUv6uxPWk", "1L-1y3h4ro-h8aqvagJXrTvOZndOy_Lrq", "1LFiGauIZ28O0hAUJGqs-bd5-2w5o8nnk", "1LjbShyvLVZX26UJaKyL_7oIaRgTmppyk", "1LzQjXP2snL3CZqlgyhM4GWgjBkhXvGH8", "1M2Pj2390g9CzcIWg1vYGCqw2MYK97p_1", "1M3j60I9kJRzDtarTj5-QbjA9JPpWiRok", "1M90EY-hmtBkdumx_XbRwk4Ob_v0ACWaw", "1MQQpo30FEKSbLakoB8ytyWw8FpQmgh5R", "1MpQzK6w4IF8VN-YTwFdB-T97d9CgM81t", "1NE7USjgAgm0mD4qV0G8P5I42OymXDhjH", "1NMWcz8FuLBdhhAvJNkvbH6Dr5g6qflJg", "1NWvgvAspzSf5xcM2qT8cNmhQ0rm7WJOs", "1NXs6mmFGEMQAT5tXcYWlLmFo5yTdn3-l", "1NqgJOTgFzZOTOdGroaqXiSiEekmOVDz_", "1O13EObcwz9DAeNMAocIuPR-6jLnxhd3g", "1OHdC5tfab-gJKBYW1GRECAMMWh_2TGT2", "1OS6JUTHhz377qgJgOclpMFbzCqgvcCbh", "1OUNJBKHvwonCP9hczLFf7l-9-46bQ33g", "1Oj4NQRjXWsRIMmSCBbTW1DNAWuf2XUtr", "1P3cIj-SwDJdf-WvkSV-7-vmOpsOQ5kAo", "1P5zFkkNOQaUTYtGLaacif6fenqKS3M3E", "1PwHD_OJA4KZO_DbWT-DoNBvO8b5Vhm4f", "1RJ3VGKrLMNGzArXQ-CeA0LLvV7TUAa4n", "1RuHZSkfNH2dM_yxr8PMRNogzWjBDaSZd", "1RxD8TlKtTew16-O5IsqfuuoVtSFziKLn", "1S4CLnybGusBa4OKMb3MP0uhBCIwT_SMV", "1S9b9xOAwYaEzZtw-aLflyryAcsyfj9Tg", "1SAIHfOfY2-m5aakyA1OK9Gmax8V2erY2", "1SEkj2Cq6s8xFSh-0y6y-ii_aWxqQuWzw", "1SkK87Sl7HQk1KWMbZPDVkXFiepImJUJl", "1TXEHID8saNsFpWwwgYg1-Xbvd9yIZuD9", "1TzgaZGah34_ffg9esl333108WRMTXfsZ", "1UDAsrIuAG1c9-WMi0yh_SGTYzKgjmiyc", "1UbX1rqiKDfdub53g08Bt2PMSaNfADHXR", "1V3Xi38QOgi_BOjcpnzwwGxqrp1c8ebKA", "1V3qhVm3EqHg4uVc-Iiivxbjoa8q_aQIF", "1V7K2PX0RW4cCkRr3gjqVP3HinxUYv4Bs", "1VEiz8VQRuMZb2Bhk2VMHvw1wyg7xqvGS", "1VPebcqKxXOC8yXfmTwbGsKh9EEXrPQa6", "1WRYl5147v_OTTn8ZC598iZw-clgUByWX", "1WiYXyUWa3MnWTW-dhHRZnBW3Ke8oAWZ5", "1Wmc_hT8nCyCEkENdu0UAKix-EFCQ1u5-", "1Wncj29roPhyQtDnIO-_F0lPx7oF1WkrR", "1X4b0SBq8y6f2lut3wxuJwNSQtFRCCsHl", "1XCsZckChHAH_KdYaMjdKDiU1k3vDGEzl", "1XEAlNTo9zZ6HOtKYRlFJJbDjak8Rn0Hv", "1XIIBEp9DmjwcBZhQoSvGJJc8VeTTvOIY", "1XQTIBxsWjTtjjRwpb4LI3eCpRdiX_lUf", "1XY9JXEkkb4OClntH5yQx9Qc6konRvow_", "1X_xpnG6WyklBNzDSZBMrWWYaRGIVw1P0", "1Xei1qr13Y-4Yukiu3NM1NHp5NrH6intk", "1XonNqDsPWrz5z4Ka1DOkBYyN82U5JqPi", "1Zj66rXbbeGf2msqejfTBpMwgH2OYDGdn", "1_HKL3M5qqC8oSaxyR6ruoAHWiDDJVOcY", "1_IMEp1CeUmS9glYSEiE8pYquKl4DFETm", "1_g8-8-r5oDXuPInYKPPBiuW4ZksKDWT0", "1aWlRP3h9c-a4aZ_tU7IUZY8MBKRDAdvu", "1auhmwEiIx7VRJpWWtGVjrghZD1r90GoN", "1avUgq927eGVrZobpjMONQu8jD5DFvFWA", "1b-RdoUNBhhgS_E0g-Fj0K2Gl1Kp_xQyZ", "1b9punOorQFL8oLNdcDNCpnPmI7iVGGr7", "1bF6Lj2WvZVM7ffaCau9ZOkoGDLHq1cB0", "1bXDVUhi-Ui1pg9ugx45zn2vFma7hJ0Bx", "1beIwoxXUEtW2LvbxSIE3H7uxpGrr7grC", "1c62LPnFzXkw0z3RsoXhhtAVveL3y658t", "1ce4_qc7aopqOb94ZgBst3XdvpsBJdUGd", "1d-mEPsIy-Z1fyMo8qzkPIrT71JAdNyFs", "1d2plN3CvbrwE_8JivtOy5Ak0lV8E8qId", "1d3vfRQJu7Z-4MSY7Gild_6aBaPlnZLvM", "1d7cwJfVVrN_H0SquHp5c9IqOtQIORTpU", "1dIIo5rCzmsVBc6rT2ONbMhOICGQtMCG6", "1dJFGPgXGMFRZdy2MARn8hcxAzOR9xK0E", "1dS1710AGtqwSoXWMyQMaAn4inn1QUfbq", "1dfrRczTYB0NoI0fqOZPSbY8R2eRVXI_R", "1dz5esWo7J7BRsDJ0jaNHMhIgR33oyxPN", "1eV68PYhfD8Q-9VlfF7O6DS6UfMoyqnYW", "1eleMKt7ldtmM_CLDVzfTYYTvgopRfGug", "1epIHPov0HQsCwQEXMmlYJeXrUtIfOV_5", "1fCpKi4LtzBLMhCytQalvhS0V5zutw1D8", "1gAcn7NRvFmX3nvWzPmsuzRZkpDjy0WSM", "1gO6LgCZKGblwfDe4T88Z3d7vv1Re7xzS", "1gdDnB5McTc1sb5rmpmtmWoI0tOTur9XH", "1gxxRGW0oVVzHcjmy1SjQkwguaP-EYPdx", "1h94P-0guZttxSBh6fEWoDwNhK8qzGlfg", "1iR_fabGChZ2aqbWfDV8E9-p_fmjPLE5z", "1iSRGTYN4AAOM-TazeNv_cm8xY_wkkhUa", "1iXFgGY-4pJvwu6Lw2QzMHVHJDY4qjMq0", "1iatGLyu4C5jjQEnq5-cKqwWRt58MM6Y2", "1iebnNnYwEYgzkNgODx5I3hrFN0OdpBL-", "1jAaTyN-MCk_URedmM6GIFSHolsyv65hE", "1jqAIX_h5_zynA312srg_U0aM8nGLwY8W", "1jt7daOlxj8bDxhPsw4Dui7GLZmtlErjz", "1kLSyrlse2h7eCpXN8Y0sX1YO4WakL9Pm", "1kggWw0LbDoikwcHCgBdGzU4pqRTpoR_8", "1kjOmqalz4AACtvvF1uUduQwKali5EyLb", "1l9BZSerHRFC-CqkXnp0rxn5XCI-VfV4q", "1lsid_IHLlLF_0zJusUGGa_UpXx01hsEh", "1m7mvGB1Wndg3DhyvbTlRH5ql5SkEW82t", "1mOQO5WMBRdqHUZ4-uWtayc_87xq99PFs", "1mjEWrdeVR8irPTseyzmKOMRZXB9P90pr", "1mlDgUYAP8HNI9J3A778bt9rH1H-LzrTJ", "1nEvGBTIiEerBpV3TSuIbbHdqedyYS1x2", "1nLOfp7lVLE6fkquDfrzgHSEM-3IUlN-e", "1nMOWnQxDFkVmMnjef3Xeorg684NTQrg-", "1nzp0x9i0sPoVUo1LZOcyeW_qNGPF4ztM", "1oQ41-lnyrNvY59I7EYq7lbt_LMfjbDAk", "1oYTefo7kwVn3OVG7bYknMKMfKDUCDLYk", "1p51JaQqW2B3ustbonIGi2W49YBCGN1jI", "1pNqQH9xZYB5hj77US2h5Ceg73ZPCbHRo", "1pb6iy-LkjtKXfk970xa5Ztgm0SY4nzev", "1q28aXz734qLeUhHAaaj3JumlZ9o9SHW8", "1qKC7Ac_laeko9Bg4hhU5BD14Q-6v7TH6", "1qU_XPaBKn_QWHPQ9g_IW4P1z7ctM07LJ", "1qUfBec2hq9N-8kMVjpAs5e4JqIhkWOMx", "1qXIpfFqu5zXkJ7EhmdvnNQ_vpQsCK3Yv", "1qgsXnaz2eWsr2E33_vaQh_t9nUppA8c2", "1r6Ew2m1YJl1oA8IReOIcFCJMqIFxEsVt", "1s0UEIJxCGun6hQGsWtCcXPyMIvi_OIP2", "1s8VuVD937v4AZVPwH95oHZIEbzXsaumX", "1sPgPModzuJHmmh8rjUPzx4RTAnaL2s_j", "1syh3HG0dRxxnKIY6TODRNBc_9MAewv9W", "1tAXpHuwBFt2sbRe0a5shEiFoXnd-W2EQ", "1tTnO-TavV09_N3U40PwVXNiuwSnYzsA3", "1thmK7UTRDLzIi-4Pr7BacXP3JIjJ687s", "1vJSLg1_qse9gK9ApmCGNVjvUVHzTI7f7", "1vPMvV8idpbiSl_WQAB-aEecjSo4-yec8", "1vesW76vQVIub48V2F2aqAg-Z8g41vsoO", "1vjhn8eXrVet-IVMNk2u6QTRLHFeTDefh", "1wLsXMgIt0bxc3skB14e-lR6ajUy3B5bj", "1wdGBHkNe1NGgnkRPE5D0sJI3tR-4863e", "1wp9KJqoWdbJwsdfdvSgK6RVNKq181KwG", "1ws36BdpPXzAddx3qcsrxlguX-rqzyWbe", "1wsVGPLBjzZ7_A6J4m-m3A-bbxw7nE_M0", "1xKwJYbPNbbG6DJ-r1vmbiGTi_hYYOWBA", "1xQ2eidYmRDjP90XD52ljijX-SJS3UyDW", "1xZQkRb2fiixvsJqeJWdUDzTa3D5tk76c", "1xZp9JRUJj-NNtebg9u60c5CdcP_rq0ef", "1xaoApWqSxHZGUDa9zFXt7dgsKTvf3ODM", "1xl1zJlFUBCCCRkP-lEeJ2Nnt3voTKV9f", "1xqW6KTmlsjP_TcZqj4gQmJ3CAPn8XocI"]);
+const img = id => `img/${id}.jpg`;
+const fileUrl = id => `https://drive.google.com/file/d/${id}/view`;
+const folderUrl = id => `https://drive.google.com/drive/folders/${id}`;
+const TH = n => String(n).replace(/\d/g,d=>'๐๑๒๓๔๕๖๗๘๙'[d]);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const EXT = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3H3v10h10v-3M9 2h5v5M14 2 7 9"/></svg>';
+
+const TABS = [
+  {key:'home', label:'หน้าแรก'},
+  {key:'pa', label:'PA', folder:'1QW_vYwPiXcCHbQCYm7yViaJmtlZJNqvD', title:'ข้อตกลงในการพัฒนางาน (PA)', sub:'แผนการพัฒนางานรายบุคคล รายงานผล เอกสารสะท้อนผล และประเด็นท้าทาย'},
+  {key:'d1', n:1, label:'วิชาการ', folder:'17iNIMLripZtvqNCIATKy56H7PS77THiU', title:'การบริหารวิชาการและความเป็นผู้นำทางวิชาการ', sub:'หลักสูตร การจัดการเรียนรู้ การนิเทศ การวิจัย และการประกันคุณภาพภายใน'},
+  {key:'d2', n:2, label:'บริหารจัดการ', folder:'1ynWlR5_I3enQeYDATKtpXdbWbLdDc47f', title:'การบริหารจัดการสถานศึกษา', sub:'การบังคับบัญชา งานบุคคล งบประมาณ บริหารทั่วไป กิจการผู้เรียน และระบบดูแลช่วยเหลือนักเรียน'},
+  {key:'d3', n:3, label:'กลยุทธ์และนวัตกรรม', folder:'17FOWJpCJYMneJlQ9HvJIFj3npkngELNZ', title:'การบริหารการเปลี่ยนแปลงเชิงกลยุทธ์และนวัตกรรม', sub:'นโยบาย แผนกลยุทธ์ เทคโนโลยีดิจิทัล และการทำงานเป็นทีมเพื่อการพัฒนาอย่างยั่งยืน'},
+  {key:'d4', n:4, label:'ชุมชนและเครือข่าย', folder:'1_LcUUXRz3QAXHZ7ssDzcl_mFlgAUhYWd', title:'การบริหารงานชุมชนและเครือข่าย', sub:'การสร้างเครือข่ายความร่วมมือและระบบการให้บริการของสถานศึกษา'},
+  {key:'d5', n:5, label:'พัฒนาตนเอง', folder:'1hHoSsYgb5WOBSFYea7yQVd9cPQr2xiWT', title:'การพัฒนาตนเองและวิชาชีพ', sub:'การพัฒนาตนเอง การเป็นวิทยากร การแลกเปลี่ยนเรียนรู้ และชุมชนการเรียนรู้ทางวิชาชีพ'},
+];
+
+const AWARDS = [
+  {id:'1dS1710AGtqwSoXWMyQMaAn4inn1QUfbq', lvl:'ระดับประเทศ', nat:1, t:'ผู้ขับเคลื่อนงานโรงเรียนต้นแบบส่งเสริมกิจกรรมทางกาย ระดับประเทศ ประจำปี 2569', by:'กรมอนามัย กระทรวงสาธารณสุข', d:'1 พฤษภาคม 2569'},
+  {id:'1HDEwhAfATXs5Ll7v7gjdAcyKUrqo5w-c', lvl:'ระดับประเทศ', nat:1, t:'ผลงานขับเคลื่อนตรงตามข้อคิดเห็นสภานักเรียน ระดับประเทศ', by:'สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน', d:'27 สิงหาคม 2569'},
+  {id:'10cCbPZ3bYmuerxYe-xKrwOfkD2Iv44CZ', lvl:'ระดับประเทศ', nat:1, t:'โรงเรียนต้นแบบส่งเสริมกิจกรรมทางกาย ระดับประเทศ', by:'กรมอนามัย กระทรวงสาธารณสุข', d:'1 พฤษภาคม 2569'},
+  {id:'16_Gr7aUr3JrSo_NRRPd7oXJEIUs5RqYp', lvl:'ระดับดีเยี่ยม', t:'ยกย่องเชิดชูเกียรติ “คุรุชน คนคุณธรรม” ประเภทผู้บริหาร', by:'สพป.อุดรธานี เขต 3 · โครงการโรงเรียนคุณธรรม สพฐ.', d:'15 กรกฎาคม 2569'},
+  {id:'1SEkj2Cq6s8xFSh-0y6y-ii_aWxqQuWzw', lvl:'ระดับ 3 ดาว', t:'รับรองคุณภาพโรงเรียนคุณธรรม สพฐ. กิจกรรม “โรงเรียนดีต้องมีที่ยืน”', by:'เขตตรวจราชการที่ 10', d:'17 กันยายน 2569'},
+  {id:'1nzp0x9i0sPoVUo1LZOcyeW_qNGPF4ztM', lvl:'ระดับเขตพื้นที่', t:'รองชนะเลิศ โรงเรียนต้นแบบสภานักเรียน ประเภทโรงเรียนประถมศึกษา', by:'สพป.อุดรธานี เขต 3', d:'27 เมษายน 2569'},
+  {id:'148-YnrtsF9Xe2ioBgglO4dn7cTXPoWjz', lvl:'ผู้ขับเคลื่อน', t:'ผู้ขับเคลื่อนการยกระดับคุณภาพโรงเรียนคุณธรรม สพฐ.', by:'สพป.อุดรธานี เขต 3', d:'29 กันยายน 2569'},
+  {id:'1Ijm_0SgIQQIBnLCNuX6sE2JoC-Cb9E77', lvl:'ผู้ขับเคลื่อน', t:'ผู้ขับเคลื่อนงานโรงเรียนส่งเสริมกิจกรรมทางกาย ประจำปี 2569', by:'กรมอนามัย กระทรวงสาธารณสุข', d:'30 ธันวาคม 2568'},
+];
+
+const DEV = [
+  {id:'1dfrRczTYB0NoI0fqOZPSbY8R2eRVXI_R', k:'วิทยากร', t:'วิทยากรการสร้างสื่อด้วย AI และระบบคลังสื่อ OBEC Content Center', d:'มิถุนายน 2569'},
+  {id:'1LjbShyvLVZX26UJaKyL_7oIaRgTmppyk', k:'วิทยากร', t:'วิทยากรฝ่ายประเมินผล หลักสูตรผู้กำกับลูกเสือวิสามัญ ขั้นความรู้ชั้นสูง (D.A.T.C.)', d:'19–25 ตุลาคม 2569 · นครพนม'},
+  {id:'1mlDgUYAP8HNI9J3A778bt9rH1H-LzrTJ', k:'วิทยากร', t:'วิทยากรอบรมการใช้ AI เพื่อการเรียนรู้', d:'2569'},
+  {id:'1IuLIQWcUNIFUo4cgywDJeX9LKfIBr4Wn', k:'วิทยากร', t:'วิทยากรอบรมการใช้ AI เพื่อการเรียนรู้', d:'2569'},
+  {id:'1FrsfeJOXB37vXZIVOAD5vXudS1NgQIZq', k:'กรรมการ', t:'กรรมการและเลขานุการ กิจกรรมการใช้เข็มทิศ งานศิลปหัตถกรรมนักเรียน ครั้งที่ 72', d:'17–20 กุมภาพันธ์ 2569'},
+  {id:'1XY9JXEkkb4OClntH5yQx9Qc6konRvow_', k:'กรรมการ', t:'กรรมการประกวดระเบียบแถวลูกเสือ เนตรนารี วันสถาปนาคณะลูกเสือแห่งชาติ', d:'1 กรกฎาคม 2569'},
+  {id:'1sPgPModzuJHmmh8rjUPzx4RTAnaL2s_j', k:'อบรมพัฒนา', t:'คลินิก สพฐ. ครั้งที่ 4 “การจัดการศึกษาโดยใช้ภาคีเครือข่ายเป็นฐาน”', d:'28 มกราคม 2569'},
+  {id:'15m4Ll4am45k0JTd37ONmM8kL24LYU6YO', k:'อบรมพัฒนา', t:'อบรมการประยุกต์ใช้สื่อผ่านระบบ OBEC Content Center สู่ Best Practice', d:'29 พฤษภาคม 2569'},
+  {id:'1ws36BdpPXzAddx3qcsrxlguX-rqzyWbe', k:'อบรมพัฒนา', t:'ประชุมเชิงปฏิบัติการงานแนะแนว การชี้แนะ (Coaching) และโรงเรียนส่งเสริมความปลอดภัย (SPS)', d:'26 สิงหาคม 2569'},
+  {id:'1xQ2eidYmRDjP90XD52ljijX-SJS3UyDW', k:'อบรมพัฒนา', t:'อบรมปัญญาประดิษฐ์ (AI) เพื่อการศึกษา', d:'2569'},
+  {id:'1q28aXz734qLeUhHAaaj3JumlZ9o9SHW8', k:'อบรมพัฒนา', t:'อบรมปัญญาประดิษฐ์ (AI) เพื่อการศึกษา', d:'2569'},
+  {id:'1KdwjlziuY1D_BkVq77wnkdCJKljUyhtU', k:'อบรมพัฒนา', t:'อบรมปัญญาประดิษฐ์ (AI) เพื่อการศึกษา', d:'2569'},
+  {id:'141McXiFzI4O0uuZuO6mViCDVy4kvGTlF', k:'อบรมพัฒนา', t:'อบรมปัญญาประดิษฐ์ (AI) เพื่อการศึกษา', d:'2569'},
+  {id:'10hooWT9BmE9MAR4rDwfvUgMDUx8BP4jF', k:'อบรมพัฒนา', t:'อบรมปัญญาประดิษฐ์ (AI) เพื่อการศึกษา', d:'2569'},
+  {id:'12TwNHAoN13AGkSULAB8LWg9D5idYsHXo', k:'อบรมพัฒนา', t:'อบรมปัญญาประดิษฐ์ (AI) เพื่อการศึกษา', d:'2569'},
+  {id:'1qgsXnaz2eWsr2E33_vaQh_t9nUppA8c2', k:'อบรมพัฒนา', t:'อบรมการออกแบบสื่อด้วย Canva', d:'2569'},
+  {id:'14M2vRe7MU8qdM7gL4QinJVLr3RGvjPrq', k:'อบรมพัฒนา', t:'อบรมพัฒนาทักษะภาษาอังกฤษ', d:'2569'},
+  {id:'18Ehe2PYU7aelEW2t8pYx8VmlLsdasmBq', k:'อบรมพัฒนา', t:'อบรมเทคโนโลยีสารสนเทศ', d:'2569'},
+  {id:'1s8VuVD937v4AZVPwH95oHZIEbzXsaumX', k:'อบรมพัฒนา', t:'ประชุม ณ สำนักงานศึกษาธิการจังหวัด', d:'2569'},
+  {id:'1SAIHfOfY2-m5aakyA1OK9Gmax8V2erY2', k:'อบรมพัฒนา', t:'Scout Anywhere Anytime', d:'2569'},
+  {id:'1avUgq927eGVrZobpjMONQu8jD5DFvFWA', k:'อบรมพัฒนา', t:'พิธีทบทวนคำปฏิญาณและสวนสนามลูกเสือ', d:'2569'},
+];
+
+const ISSUES = [
+  {t:'ปลูกฝังความรักในสถาบันหลักของชาติ น้อมนำพระบรมราโชบายด้านการศึกษา และหลักปรัชญาของเศรษฐกิจพอเพียง',
+   li:['ครู บุคลากร และนักเรียนเข้าร่วมกิจกรรม ร้อยละ 100','นักเรียนผ่านการประเมินคุณลักษณะอันพึงประสงค์ระดับดีเยี่ยม ร้อยละ 90','ครูทุกคนจัดทำแผนการเรียนรู้บูรณาการพระบรมราโชบายได้']},
+  {t:'ขับเคลื่อนการจัดการเรียนรู้ภาษาไทยด้านการอ่านออกเขียนได้ เพื่อยกระดับผลสัมฤทธิ์ทางการเรียน',
+   li:['พัฒนาครูผ่านชุมชนการเรียนรู้ทางวิชาชีพ (PLC)','นิเทศ ติดตาม การจัดการเรียนรู้ ป.1–3 อย่างเป็นระบบ','ใช้สื่อและเทคโนโลยีดิจิทัลเสริมการอ่านเขียน']},
+  {t:'ขับเคลื่อนสถานศึกษาปลอดภัยตามมาตรการ 3 ป (ป้องกัน ปลูกฝัง ปราบปราม) เสริมสร้างสุขภาวะที่ดีในการเรียนรู้',
+   li:['จัดทำแผนปฏิบัติการเชิงพื้นที่ความปลอดภัย','อบรมการปฐมพยาบาลเบื้องต้นและ CPR แก่ครูและนักเรียนแกนนำ','ผ่านการพัฒนาตามแนวทางโรงเรียนส่งเสริมความปลอดภัย (SPS)']},
+];
+
+/* ---------- gallery registry for lightbox ---------- */
+let GAL = [];
+function reg(list){ const start = GAL.length; GAL.push(...list); return start; }
+function ph(item, i){
+  const cap = item.c ? `<span class="cap">${esc(item.c)}</span>` : '';
+  return `<button class="ph" data-i="${i}" aria-label="ขยายภาพ ${esc(item.c||'หลักฐาน')}"><img src="${img(item.id)}" alt="${esc(item.c||'ภาพหลักฐาน')}" loading="lazy" decoding="async">${cap}</button>`;
+}
+const usable = items => items.filter(([id])=>HAVE.has(id)).map(([id,c])=>({id,c}));
+
+/* ---------- views ---------- */
+function viewHome(){
+  const tally = k => DATA.sections.filter(s=>s.tab===k).reduce((a,s)=>a+usable(s.items).length,0);
+  const aStart = reg(AWARDS.map(a=>({id:a.id,c:a.t})));
+  const devStart = reg(DEV.map(d=>({id:d.id,c:d.t})));
+  const kinds = ['ทั้งหมด','วิทยากร','กรรมการ','อบรมพัฒนา'];
+  const nat = AWARDS.filter(a=>a.nat).length;
+  return `
+  <section class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">แฟ้มผลงาน · ปีงบประมาณ 2569</div>
+      <h1>นางสาวราตรี พิมพ์ศักดิ์<span>รองผู้อำนวยการสถานศึกษา วิทยฐานะรองผู้อำนวยการชำนาญการพิเศษ</span></h1>
+      <p class="role">โรงเรียนบ้านทุ่งใหญ่<em>สำนักงานเขตพื้นที่การศึกษาประถมศึกษาอุดรธานี เขต 3</em></p>
+      <div class="stats">
+        <div class="stat"><b>${nat}</b><span>เกียรติบัตร<br>ระดับประเทศ</span></div>
+        <div class="stat"><b>${AWARDS.length}</b><span>รางวัลและ<br>การเชิดชูเกียรติ</span></div>
+        <div class="stat"><b>${DEV.length}</b><span>รายการพัฒนาตนเอง<br>และวิทยากร</span></div>
+        <div class="stat"><b>5</b><span>ด้านตามมาตรฐาน<br>ตำแหน่ง</span></div>
+      </div>
+    </div>
+    <div class="portrait"><div class="arch"><img src="${img(DATA.portrait)}" alt="นางสาวราตรี พิมพ์ศักดิ์"></div><div class="plate">รองผู้อำนวยการ ชำนาญการพิเศษ</div></div>
+  </div></section>
+
+  <div class="wrap">
+    <section class="sec" id="awards">
+      <div class="sec-head"><div><div class="kicker">เกียรติประวัติ</div><h2>รางวัลและการเชิดชูเกียรติ</h2></div><p>เกียรติบัตรที่ได้รับในปีงบประมาณ 2569 จากกรมอนามัย สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน และสำนักงานเขตพื้นที่การศึกษา</p></div>
+      <div class="honors">${AWARDS.map((a,i)=>`
+        <button class="honor${i<3?' feature':''}" data-i="${aStart+i}">
+          <div class="img"><img src="${img(a.id)}" alt="${esc(a.t)}" loading="lazy"></div>
+          <div class="body"><span class="lvl${a.nat?' nat':''}">${a.lvl}</span><h3>${esc(a.t)}</h3><div class="meta"><span>${esc(a.by)}</span><span>${a.d}</span></div></div>
+        </button>`).join('')}</div>
+    </section>
+
+    <section class="sec" id="development">
+      <div class="sec-head"><div><div class="kicker">การพัฒนาตนเองและวิชาชีพ</div><h2>เรียนรู้ ถ่ายทอด และร่วมพัฒนา</h2></div><p>บทบาทวิทยากร กรรมการ และการเข้ารับการอบรมพัฒนาเพื่อยกระดับสมรรถนะการบริหารสถานศึกษา</p></div>
+      <div class="filters" role="group" aria-label="กรองประเภท">${kinds.map((k,i)=>`<button class="chip" data-k="${k}" aria-pressed="${i===0}">${k}<span class="c">${i?DEV.filter(d=>d.k===k).length:DEV.length}</span></button>`).join('')}</div>
+      <div class="dev" id="devGrid">${DEV.map((d,i)=>`
+        <button class="devc" data-i="${devStart+i}" data-k="${d.k}">
+          <div class="img"><img src="${img(d.id)}" alt="${esc(d.t)}" loading="lazy"></div>
+          <div class="body"><span class="tag">${d.k}</span><h3>${esc(d.t)}</h3><span class="d">${d.d}</span></div>
+        </button>`).join('')}</div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-head"><div><div class="kicker">ข้อตกลงในการพัฒนางาน</div><h2>ประเด็นท้าทาย ปีงบประมาณ 2569</h2></div><p>ประเด็นที่มุ่งพัฒนาคุณภาพผู้เรียน ครู และสถานศึกษา ตามรายงานผลการปฏิบัติงาน (PA)</p></div>
+      <div class="issues">${ISSUES.map((s,i)=>`<article class="issue"><div class="no">${TH(i+1)}</div><h3>${esc(s.t)}</h3><ul>${s.li.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')}</div>
+    </section>
+
+    <section class="sec">
+      <div class="profile">
+        <div class="card"><h3>ข้อมูลผู้รับการประเมิน</h3><dl class="kv">
+          <dt>ชื่อ</dt><dd>นางสาวราตรี พิมพ์ศักดิ์</dd>
+          <dt>ตำแหน่ง</dt><dd>รองผู้อำนวยการสถานศึกษา</dd>
+          <dt>วิทยฐานะ</dt><dd>รองผู้อำนวยการชำนาญการพิเศษ (คศ. 3)</dd>
+          <dt>สถานศึกษา</dt><dd>โรงเรียนบ้านทุ่งใหญ่ ระดับปฐมวัยและประถมศึกษา</dd>
+          <dt>บริบท</dt><dd>นักเรียน 151 คน · ครูและบุคลากร 14 คน</dd>
+          <dt>สังกัด</dt><dd>สพป.อุดรธานี เขต 3</dd></dl></div>
+        <div class="card"><h3>หลักฐานตามมาตรฐานตำแหน่ง</h3><ul class="domains">${TABS.filter(t=>t.n).map(t=>`<li><a href="#${t.key}"><b>${TH(t.n)}</b><span>${t.title}</span><small>${tally(t.key)} ภาพ</small></a></li>`).join('')}</ul></div>
+      </div>
+    </section>
+  </div>`;
+}
+
+function viewTab(t){
+  const secs = DATA.sections.filter(s=>s.tab===t.key);
+  const total = secs.reduce((a,s)=>a+usable(s.items).length,0);
+  const big = t.n ? TH(t.n) : 'PA';
+  let body = secs.map(s=>{
+    const items = usable(s.items);
+    const start = reg(items);
+    const docs = (s.docs||[]).map(([id,name])=>`<a class="doc" href="${fileUrl(id)}" target="_blank" rel="noopener"><span class="ico">DOCX</span><span>${esc(name)}<small>เปิดใน Google Drive</small></span></a>`).join('');
+    const content = items.length ? `<div class="grid">${items.map((it,i)=>ph(it,start+i)).join('')}</div>`
+      : (docs ? '' : `<div class="empty">ยังไม่มีไฟล์ในโฟลเดอร์นี้ · เปิดโฟลเดอร์ใน Google Drive เพื่อดูเอกสารล่าสุด</div>`);
+    const id = 'i-'+s.code.replace(/\W/g,'');
+    return `<section class="ind" id="${id}">
+      <div class="ind-head"><div class="code">${esc(s.code)}</div><div><h2>${esc(s.title)}</h2><div class="count">${items.length ? items.length+' ภาพหลักฐาน' : (s.docs? s.docs.length+' เอกสาร':'รอเพิ่มเอกสาร')}</div></div>
+      <a class="btn" href="${folderUrl(s.folder)}" target="_blank" rel="noopener">โฟลเดอร์ต้นฉบับ ${EXT}</a></div>
+      ${docs?`<div class="docs">${docs}</div>`:''}${content}</section>`;
+  }).join('');
+  if (t.key==='pa') body += `<section class="ind"><div class="ind-head"><div class="code">69</div><div><h2>ประเด็นท้าทาย ปีงบประมาณ 2569 (สรุปจากรายงาน PA)</h2></div></div>
+    <div class="issues">${ISSUES.map((s,i)=>`<article class="issue"><div class="no">${TH(i+1)}</div><h3>${esc(s.t)}</h3><ul>${s.li.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')}</div></section>`;
+  return `<section class="banner"><div class="wrap"><div class="big" aria-hidden="true">${big}</div><div>
+      <div class="eyebrow">${t.n?'มาตรฐานตำแหน่ง ด้านที่ '+t.n:'Performance Agreement'}</div>
+      <h1 style="margin-top:10px">${t.title}</h1><p>${t.sub}</p>
+      <div class="meta"><span><b>${secs.length}</b>${t.n?'ตัวชี้วัด':'หมวดเอกสาร'}</span><span><b>${total}</b>ภาพหลักฐาน</span><a href="${folderUrl(t.folder)}" target="_blank" rel="noopener">เปิดโฟลเดอร์ใน Google Drive ↗</a></div>
+    </div></div></section>
+    <div class="wrap"><nav class="toc" aria-label="ตัวชี้วัด">${secs.map(s=>`<a href="#${t.key}" data-jump="i-${s.code.replace(/\W/g,'')}"><b>${esc(s.code)}</b>${esc(s.title.length>34?s.title.slice(0,34)+'…':s.title)}</a>`).join('')}</nav>${body}</div>`;
+}
+
+/* ---------- router ---------- */
+const app = document.getElementById('app');
+const tabsEl = document.getElementById('tabs');
+tabsEl.innerHTML = TABS.map(t=>`<a href="#${t.key}" data-k="${t.key}">${t.n?`<span class="n">${TH(t.n)}</span>`:''}${t.n?'ด้าน'+t.label:t.label}</a>`).join('');
+function render(){
+  const key = (location.hash||'#home').slice(1);
+  const t = TABS.find(x=>x.key===key) || TABS[0];
+  GAL = [];
+  app.innerHTML = `<main class="view">${t.key==='home'?viewHome():viewTab(t)}</main>`;
+  tabsEl.querySelectorAll('a').forEach(a=>{ if(a.dataset.k===t.key){a.setAttribute('aria-current','page');a.scrollIntoView({block:'nearest',inline:'center'})} else a.removeAttribute('aria-current'); });
+  window.scrollTo({top:0});
+}
+window.addEventListener('hashchange', render);
+render();
+
+/* ---------- interactions ---------- */
+app.addEventListener('click', e=>{
+  const j = e.target.closest('[data-jump]');
+  if (j){ e.preventDefault(); document.getElementById(j.dataset.jump)?.scrollIntoView({behavior:'smooth'}); return; }
+  const chip = e.target.closest('.chip');
+  if (chip){ const k = chip.dataset.k;
+    app.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===chip));
+    app.querySelectorAll('#devGrid .devc').forEach(c=>c.hidden = !(k==='ทั้งหมด'||c.dataset.k===k)); return; }
+  const b = e.target.closest('[data-i]');
+  if (b) openLB(+b.dataset.i);
+});
+
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
+let cur = 0, lastFocus = null;
+function visibleIdx(){ return [...app.querySelectorAll('[data-i]')].filter(el=>!el.hidden && el.offsetParent!==null).map(el=>+el.dataset.i); }
+function openLB(i){ lastFocus = document.activeElement; cur = i; lb.hidden = false; show(); document.getElementById('lbClose').focus(); document.body.style.overflow='hidden'; }
+function show(){ const it = GAL[cur]; const vis = visibleIdx(); lbImg.src = img(it.id); lbImg.alt = it.c||'ภาพหลักฐาน';
+  document.getElementById('lbCap').textContent = it.c||'ภาพหลักฐาน';
+  document.getElementById('lbLink').href = fileUrl(it.id);
+  document.getElementById('lbCount').textContent = `${vis.indexOf(cur)+1} / ${vis.length}`; }
+function step(d){ const vis = visibleIdx(); const p = vis.indexOf(cur); cur = vis[(p+d+vis.length)%vis.length]; show(); }
+function closeLB(){ lb.hidden = true; document.body.style.overflow=''; lastFocus?.focus(); }
+document.getElementById('lbClose').onclick = closeLB;
+document.getElementById('lbPrev').onclick = ()=>step(-1);
+document.getElementById('lbNext').onclick = ()=>step(1);
+lb.addEventListener('click', e=>{ if(e.target===lb || e.target.classList.contains('lb-fig')) closeLB(); });
+document.addEventListener('keydown', e=>{ if(lb.hidden) return; if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') step(-1); if(e.key==='ArrowRight') step(1); });
+let tx=null; lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{ if(tx==null) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) step(dx<0?1:-1); tx=null; });
+</script>
