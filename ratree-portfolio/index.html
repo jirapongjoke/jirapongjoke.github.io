@@ -149,15 +149,23 @@ main{padding-block:0 80px}
 .toc a{text-decoration:none;font-size:14px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
 .toc a:hover{border-color:var(--gold)}
 .toc a b{font-family:var(--f-num);color:var(--gold);margin-right:6px;font-size:16px}
-.ind{padding-block:48px 0;scroll-margin-top:120px}
-.ind-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:start;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:20px}
-.code{font-family:var(--f-num);font-weight:600;font-size:34px;line-height:1;color:var(--gold);min-width:2.2em}
-.ind-head h2{font-family:var(--f-body);font-size:17px;font-weight:500;line-height:1.6}
-.ind-head .count{font-size:13px;color:var(--muted);margin-top:4px}
+/* Each indicator = its own framed panel: navy header plate + paper body */
+.ind{margin-top:56px;scroll-margin-top:120px;background:var(--paper);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}
+.ind-head{position:relative;overflow:hidden;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;padding:22px 26px;background:var(--navy);color:var(--on-navy);border-radius:10px 10px 0 0;border-bottom:3px solid var(--gold-2)}
+.ind-head::after{content:attr(data-code);position:absolute;right:-6px;bottom:-34px;font-family:var(--f-num);font-style:italic;font-size:150px;line-height:1;color:rgba(212,178,106,.10);pointer-events:none}
+.code{position:relative;z-index:1;display:grid;place-items:center;min-width:88px;height:88px;padding:0 10px;border-radius:50%;font-family:var(--f-num);font-weight:600;font-size:36px;line-height:1;color:#0B1F3A;background:radial-gradient(circle at 35% 30%,#F6E4B0,#D4B26A 55%,#A8812F);box-shadow:0 0 0 3px var(--navy),0 0 0 4px rgba(235,208,143,.7)}
+.ind-head > div:nth-child(2){position:relative;z-index:1}
+.ind-head .lbl{font-size:12px;letter-spacing:.16em;color:var(--gold-2);font-weight:600}
+.ind-head h2{font-family:var(--f-display);font-size:19px;font-weight:600;line-height:1.55;color:var(--on-navy);margin-top:2px}
+.ind-head .count{font-size:13px;color:var(--on-navy-muted);margin-top:6px}
+.ind-body{padding:24px 26px 28px}
+.ind:nth-of-type(even) .ind-body{background:linear-gradient(180deg,var(--gold-soft),transparent 140px);border-radius:0 0 10px 10px}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;text-decoration:none;padding:8px 14px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);white-space:nowrap;background:transparent}
 .btn:hover{background:var(--gold);color:var(--paper)}
 .btn svg{width:14px;height:14px}
-@media (max-width:640px){.ind-head{grid-template-columns:auto minmax(0,1fr)}.ind-head .btn{grid-column:1/-1;justify-self:start}}
+.ind-head .btn{position:relative;z-index:1;border-color:var(--gold-2);color:var(--gold-2)}
+.ind-head .btn:hover{background:var(--gold-2);color:#0B1F3A}
+@media (max-width:640px){.ind{margin-top:40px}.ind-head{grid-template-columns:auto minmax(0,1fr);gap:16px;padding:18px}.ind-head .btn{grid-column:1/-1;justify-self:start}.code{min-width:64px;height:64px;font-size:26px}.ind-head h2{font-size:16.5px}.ind-body{padding:16px}}
 /* Mosaic: mixed-size layered tiles (big 2x2, wide 2x1, tall 1x2, sm 1x1) on a dense 4-col grid */
 .mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:190px;grid-auto-flow:dense;gap:16px;padding:6px 10px 10px 0}
 .mosaic.few{grid-template-columns:repeat(var(--n),minmax(0,1fr));grid-auto-rows:300px;max-width:calc(var(--n) * 460px)}
@@ -434,13 +442,14 @@ function viewTab(t){
     const content = items.length ? mosaic(items, start)
       : (docs ? '' : `<div class="empty">ยังไม่มีไฟล์ในโฟลเดอร์นี้ · เปิดโฟลเดอร์ใน Google Drive เพื่อดูเอกสารล่าสุด</div>`);
     const id = 'i-'+s.code.replace(/\W/g,'');
+    const lbl = t.n ? `ตัวชี้วัดที่ ${esc(s.code)}` : esc(s.code==='2570'?'ปีงบประมาณ 2570':s.code);
     return `<section class="ind" id="${id}">
-      <div class="ind-head"><div class="code">${esc(s.code)}</div><div><h2>${esc(s.title)}</h2><div class="count">${items.length ? items.length+' ภาพหลักฐาน' : (s.docs? s.docs.length+' เอกสาร':'รอเพิ่มเอกสาร')}</div></div>
+      <div class="ind-head" data-code="${esc(s.code)}"><div class="code">${esc(s.code)}</div><div><div class="lbl">${lbl}</div><h2>${esc(s.title)}</h2><div class="count">${items.length ? items.length+' ภาพหลักฐาน' : (s.docs? s.docs.length+' เอกสาร':'รอเพิ่มเอกสาร')}</div></div>
       <a class="btn" href="${folderUrl(s.folder)}" target="_blank" rel="noopener">โฟลเดอร์ต้นฉบับ ${EXT}</a></div>
-      ${docs?`<div class="docs">${docs}</div>`:''}${content}</section>`;
+      <div class="ind-body">${docs?`<div class="docs">${docs}</div>`:''}${content}</div></section>`;
   }).join('');
-  if (t.key==='pa') body += `<section class="ind"><div class="ind-head"><div class="code">69</div><div><h2>ประเด็นท้าทาย ปีงบประมาณ 2569 (สรุปจากรายงาน PA)</h2></div></div>
-    <div class="issues">${ISSUES.map((s,i)=>`<article class="issue"><div class="no">${TH(i+1)}</div><h3>${esc(s.t)}</h3><ul>${s.li.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')}</div></section>`;
+  if (t.key==='pa') body += `<section class="ind"><div class="ind-head" data-code="2569"><div class="code">69</div><div><div class="lbl">ปีงบประมาณ 2569</div><h2>ประเด็นท้าทาย (สรุปจากรายงาน PA)</h2></div></div>
+    <div class="ind-body"><div class="issues">${ISSUES.map((s,i)=>`<article class="issue"><div class="no">${TH(i+1)}</div><h3>${esc(s.t)}</h3><ul>${s.li.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')}</div></div></section>`;
   const pics = secs.flatMap(s=>usable(s.items).filter(x=>!/สรุปผลงาน|ผลงาน \d|คำสั่ง|QR|ปก/.test(x.c))).slice(0,12);
   const pick = [pics[0], pics[Math.floor(pics.length/2)], pics[pics.length-1]].filter(Boolean);
   const collage = pick.length===3 ? `<div class="collage" aria-hidden="true"><span class="ring" data-depth="-.04"></span>
