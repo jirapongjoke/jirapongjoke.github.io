@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="th">
-<meta charset="utf-8">
+<!doctype html><html lang="th"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>พอร์ตโฟลิโอ ราตรี พิมพ์ศักดิ์</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -165,6 +163,15 @@ main{padding-block:0 80px}
 .btn svg{width:14px;height:14px}
 .ind-head .btn{position:relative;z-index:1;border-color:var(--gold-2);color:var(--gold-2)}
 .ind-head .btn:hover{background:var(--gold-2);color:#0B1F3A}
+.summary{position:relative;margin:0 0 26px;padding:20px 24px 20px 26px;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 8px 8px 0}
+.summary .s-lbl{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;color:var(--gold);font-weight:600;margin-bottom:8px}
+.summary .s-lbl::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-2),transparent)}
+.summary p{font-size:16.5px;line-height:1.85;color:var(--fg);text-wrap:pretty}
+.summary p b{display:block;font-family:var(--f-display);font-size:18px;font-weight:600;color:var(--navy);margin-bottom:4px}
+:root[data-theme="dark"] .summary p b{color:var(--gold-2)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .summary p b{color:var(--gold-2)}}
+.ind-body > .summary:last-child{margin-bottom:0}
+@media (max-width:640px){.summary{padding:16px 16px 16px 18px}.summary p{font-size:15.5px}}
 @media (max-width:640px){.ind{margin-top:40px}.ind-head{grid-template-columns:auto minmax(0,1fr);gap:16px;padding:18px}.ind-head .btn{grid-column:1/-1;justify-self:start}.code{min-width:64px;height:64px;font-size:26px}.ind-head h2{font-size:16.5px}.ind-body{padding:16px}}
 /* Mosaic: mixed-size layered tiles (big 2x2, wide 2x1, tall 1x2, sm 1x1) on a dense 4-col grid */
 .mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:190px;grid-auto-flow:dense;gap:16px;padding:6px 10px 10px 0}
@@ -339,6 +346,34 @@ const ISSUES = [
    li:['จัดทำแผนปฏิบัติการเชิงพื้นที่ความปลอดภัย','อบรมการปฐมพยาบาลเบื้องต้นและ CPR แก่ครูและนักเรียนแกนนำ','ผ่านการพัฒนาตามแนวทางโรงเรียนส่งเสริมความปลอดภัย (SPS)']},
 ];
 
+
+/* ---------- indicator summaries (from สรุปผลการปฏิบัติงานตามองค์ประกอบการประเมิน 5 ด้าน.docx) ---------- */
+const DESC = {
+  '1.1':['พัฒนามาตรฐานการเรียนรู้และหลักสูตรสถานศึกษา','พัฒนาหลักสูตรสถานศึกษา 8 กลุ่มสาระฯ ให้มีความทันสมัย สอดคล้องกับบริบทท้องถิ่นและความต้องการของผู้เรียน ส่งผลให้ผลสัมฤทธิ์ทางการเรียนทุกระดับชั้นอยู่ในระดับดีขึ้นไป และนักเรียนผ่านการสอบคัดเลือกเข้าเรียนต่อห้องเรียนพิเศษและได้รับรางวัลในด้านการจัดลำดับการสอบเข้าศึกษาต่อในระดับชั้นมัธยมศึกษาปีที่ 1'],
+  '1.2':['ปฏิบัติการสอนและพัฒนากระบวนการจัดการเรียนรู้','ปฏิบัติหน้าที่สอนและสนับสนุนงานวิชาการไม่น้อยกว่า 10 ชั่วโมง/สัปดาห์ ส่งเสริมการจัดกิจกรรมเชิงรุก (Active Learning) และการนิเทศการสอนแบบเปิดชั้นเรียน (Open Class)'],
+  '1.3':['ส่งเสริมการใช้สื่อ นวัตกรรม และเทคโนโลยี','สนับสนุนการเข้าถึงเทคโนโลยีสารสนเทศ ครูร้อยละ 100 นำดิจิทัลแพลตฟอร์มมาใช้ในการออกแบบการจัดการเรียนรู้และการวัดประเมินผลตามสภาพจริง'],
+  '1.4':['นิเทศ กำกับ ติดตาม และประเมินผล','ขับเคลื่อนกระบวนการนิเทศภายในและการประกันคุณภาพการศึกษาภายในสถานศึกษาอย่างเป็นระบบและต่อเนื่อง'],
+  '1.5':['ศึกษา วิเคราะห์ สังเคราะห์ และวิจัยเพื่อแก้ปัญหา','ส่งเสริมการทำวิจัยในชั้นเรียนและกิจกรรม “วางทุกงาน อ่านทุกคน” เพื่อแก้ปัญหาการอ่านออกเขียนได้ของผู้เรียน'],
+  '1.6':['จัดให้มีการประกันคุณภาพการศึกษาภายใน','บริหารจัดการระบบประกันคุณภาพภายในสถานศึกษาตามกฎกระทรวงฯ โดยผลการประเมินตนเองอยู่ในระดับ ดีเลิศ'],
+  '2.1':['บริหารกิจการตามกฎหมายและระเบียบ','บริหารจัดการงาน 4 ด้าน (วิชาการ งบประมาณ บุคคล ทั่วไป) ตามหลักการบริหารกิจการบ้านเมืองที่ดี โปร่งใส และตรวจสอบได้'],
+  '2.2':['บริหารงานบุคคล งบประมาณ และทั่วไป','จัดสรรอัตรากำลังตามหลัก “Put the right man on the right job” ควบคุมการใช้งบประมาณตาม พ.ร.บ. จัดซื้อจัดจ้างฯ และพัฒนาสภาพแวดล้อมอาคารสถานที่ให้ปลอดภัย'],
+  '2.3':['พัฒนาข้าราชการครูและบุคลากร','ส่งเสริมสมรรถนะด้านภาษา (ไทย/อังกฤษ) และเทคโนโลยีดิจิทัล/AI (Canva AI, E-Portfolio) ส่งผลให้ครูได้รับรางวัลระดับเขตพื้นที่ (Best Practice)'],
+  '2.4':['บริหารกิจการผู้เรียน','จัดทำแผนงานกิจการนักเรียน สภานักเรียน และกิจกรรมเสริมหลักสูตรเพื่อพัฒนาสมรรถนะและคุณลักษณะอันพึงประสงค์'],
+  '2.5':['ระบบดูแลช่วยเหลือนักเรียน','ดำเนินกระบวนการดูแลช่วยเหลือนักเรียน 5 ขั้นตอน (รู้จักรายบุคคล คัดกรอง ส่งเสริม ป้องกัน/แก้ไข ส่งต่อ) เยี่ยมบ้านนักเรียนร้อยละ 100 ลดความเหลื่อมล้ำและป้องกันการออกกลางคัน'],
+  '3.1':['กำหนดนโยบายและแผนกลยุทธ์','ร่วมจัดทำแผนพัฒนาคุณภาพการศึกษา (พ.ศ. 2566–2570) และแผนปฏิบัติการประจำปี โดยใช้ข้อมูลเชิงประจักษ์ (RT, NT, O-NET) เป็นฐาน'],
+  '3.2':['นำแผนกลยุทธ์สู่การปฏิบัติ','ขับเคลื่อนโครงการผ่านนวัตกรรม “THUNGYAI MODEL” และ “คล ขับเคลื่อน Model” พร้อมกำกับติดตามอย่างใกล้ชิด'],
+  '3.3':['นำนวัตกรรมและเทคโนโลยีดิจิทัลมาใช้','ประสบความสำเร็จในการระดมทรัพยากร (ทอดผ้าป่าเพื่อการศึกษา) เพื่อติดตั้ง Smart TV และ Projector พัฒนาห้องเรียนสู่ดิจิทัล'],
+  '3.4':['สร้างการมีส่วนร่วมและการทำงานเป็นทีม','สร้างวัฒนธรรมองค์กรแห่งการร่วมมือร่วมใจทั้งภายในและภายนอกสถานศึกษา'],
+  '4.1':['สร้างความร่วมมือกับชุมชนและเครือข่าย','ประสานความร่วมมือกับคณะกรรมการสถานศึกษา ผู้ปกครอง และจัดทำ MOU กับโรงพยาบาลส่งเสริมสุขภาพตำบล (รพ.สต.) และสถานีตำรวจภูธร เพื่อเฝ้าระวังความปลอดภัยและสุขภาพของผู้เรียน'],
+  '4.2':['จัดระบบการให้บริการในสถานศึกษา','พัฒนางานบริการอาคารสถานที่ แหล่งเรียนรู้ น้ำดื่มสะอาด และเปิดใช้พื้นที่โรงเรียนเพื่อประโยชน์สาธารณะของชุมชนอย่างคุ้มค่า'],
+  '5.1':['พัฒนาตนเองอย่างเป็นระบบและต่อเนื่อง','เข้ารับการอบรมพัฒนาตนเองด้านเทคโนโลยีดิจิทัล AI (เช่น Canva AI Training, Blooket 2026, Grok AI) และทักษะภาษาอังกฤษ (Phonetics & Phonology) ได้รับเกียรติบัตรจำนวนมาก'],
+  '5.2':['เป็นผู้นำในการแลกเปลี่ยนเรียนรู้ (PLC)','ปฏิบัติหน้าที่เป็นวิทยากรขยายผลและผู้นำการเปลี่ยนแปลงในการจัดอบรมทั้งในและนอกสถานศึกษา'],
+  '5.3':['นำความรู้มาพัฒนาระบบบริหารและนวัตกรรม','นำองค์ความรู้ด้านดิจิทัลและการบริหารมาต่อยอดพัฒนาระบบงานของโรงเรียนและยกระดับคุณภาพครู–นักเรียน'],
+  '5.4':['สร้างและสนับสนุนชุมชนการเรียนรู้ทางวิชาชีพ','ขับเคลื่อนวง PLC ภายในสถานศึกษาอย่างเข้มแข็ง จนเกิดเป็นวัฒนธรรมองค์กรแห่งการเรียนรู้ (Learning Organization)'],
+};
+/* indicators with a summary but no Drive folder (text-only panels) */
+const EXTRA = [{tab:'d5', code:'5.3', title:'นำความรู้ ความสามารถ และทักษะที่ได้จากการพัฒนาตนเองและวิชาชีพมาพัฒนาการบริหารจัดการสถานศึกษา', items:[]}];
+
 /* ---------- gallery registry for lightbox ---------- */
 let GAL = [];
 function reg(list){ const start = GAL.length; GAL.push(...list); return start; }
@@ -432,21 +467,24 @@ function viewHome(){
 }
 
 function viewTab(t){
-  const secs = DATA.sections.filter(s=>s.tab===t.key);
+  const secs = DATA.sections.concat(EXTRA.filter(x=>!DATA.sections.some(s=>s.code===x.code))).filter(s=>s.tab===t.key)
+    .sort((a,b)=> t.n ? parseFloat(a.code)-parseFloat(b.code) : 0);
   const total = secs.reduce((a,s)=>a+usable(s.items).length,0);
   const big = t.n ? TH(t.n) : 'PA';
   let body = secs.map(s=>{
     const items = usable(s.items);
     const start = reg(items);
     const docs = (s.docs||[]).map(([id,name])=>`<a class="doc" href="${fileUrl(id)}" target="_blank" rel="noopener"><span class="ico">DOCX</span><span>${esc(name)}<small>เปิดใน Google Drive</small></span></a>`).join('');
+    const d = DESC[s.code];
+    const sum = d ? `<div class="summary"><div class="s-lbl"><span>ผลการปฏิบัติงาน</span></div><p><b>${esc(d[0])}</b>${esc(d[1])}</p></div>` : '';
     const content = items.length ? mosaic(items, start)
-      : (docs ? '' : `<div class="empty">ยังไม่มีไฟล์ในโฟลเดอร์นี้ · เปิดโฟลเดอร์ใน Google Drive เพื่อดูเอกสารล่าสุด</div>`);
+      : (docs || d ? '' : `<div class="empty">ยังไม่มีไฟล์ในโฟลเดอร์นี้ · เปิดโฟลเดอร์ใน Google Drive เพื่อดูเอกสารล่าสุด</div>`);
     const id = 'i-'+s.code.replace(/\W/g,'');
     const lbl = t.n ? `ตัวชี้วัดที่ ${esc(s.code)}` : esc(s.code==='2570'?'ปีงบประมาณ 2570':s.code);
     return `<section class="ind" id="${id}">
-      <div class="ind-head" data-code="${esc(s.code)}"><div class="code">${esc(s.code)}</div><div><div class="lbl">${lbl}</div><h2>${esc(s.title)}</h2><div class="count">${items.length ? items.length+' ภาพหลักฐาน' : (s.docs? s.docs.length+' เอกสาร':'รอเพิ่มเอกสาร')}</div></div>
-      <a class="btn" href="${folderUrl(s.folder)}" target="_blank" rel="noopener">โฟลเดอร์ต้นฉบับ ${EXT}</a></div>
-      <div class="ind-body">${docs?`<div class="docs">${docs}</div>`:''}${content}</div></section>`;
+      <div class="ind-head" data-code="${esc(s.code)}"><div class="code">${esc(s.code)}</div><div><div class="lbl">${lbl}</div><h2>${esc(s.title)}</h2><div class="count">${items.length ? items.length+' ภาพหลักฐาน' : (s.docs? s.docs.length+' เอกสาร': d ? 'สรุปผลการปฏิบัติงาน' : 'รอเพิ่มเอกสาร')}</div></div>
+      ${s.folder?`<a class="btn" href="${folderUrl(s.folder)}" target="_blank" rel="noopener">โฟลเดอร์ต้นฉบับ ${EXT}</a>`:''}</div>
+      <div class="ind-body">${sum}${docs?`<div class="docs">${docs}</div>`:''}${content}</div></section>`;
   }).join('');
   if (t.key==='pa') body += `<section class="ind"><div class="ind-head" data-code="2569"><div class="code">69</div><div><div class="lbl">ปีงบประมาณ 2569</div><h2>ประเด็นท้าทาย (สรุปจากรายงาน PA)</h2></div></div>
     <div class="ind-body"><div class="issues">${ISSUES.map((s,i)=>`<article class="issue"><div class="no">${TH(i+1)}</div><h3>${esc(s.t)}</h3><ul>${s.li.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')}</div></div></section>`;
