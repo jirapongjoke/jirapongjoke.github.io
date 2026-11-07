@@ -34,6 +34,8 @@
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+html{font-variant-numeric:lining-nums}
+.stat b{font-variant-numeric:lining-nums tabular-nums!important}
 body{margin:0}
 img{max-width:100%}
 body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
@@ -112,17 +114,12 @@ main{padding-block:0 80px}
 .chip{font:inherit;font-size:14px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--fg);cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
 .chip .c{font-family:var(--f-num);font-weight:600;margin-left:6px;color:var(--gold)}
-.dev{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.devc{background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:zoom-in;font:inherit;color:inherit;text-align:left;padding:0;display:flex;flex-direction:column;transition:box-shadow .25s,border-color .25s}
-.devc:hover{box-shadow:var(--shadow);border-color:var(--gold-2)}
-.devc .img{aspect-ratio:4/3;overflow:hidden;background:var(--gold-soft)}
-.devc .img img{width:100%;height:100%;object-fit:cover;display:block}
-.devc .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
-.devc .tag{font-size:11.5px;letter-spacing:.08em;color:var(--gold);font-weight:600}
-.devc h3{font-family:var(--f-body);font-size:15px;font-weight:500;line-height:1.5}
-.devc .d{font-size:12.5px;color:var(--muted)}
-@media (max-width:980px){.dev{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:680px){.dev{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dv .ov{position:absolute;inset:auto 0 0;display:flex;flex-direction:column;gap:4px;padding:40px 16px 14px;color:#fff;background:linear-gradient(transparent,rgba(7,20,40,.92) 55%);border-radius:0 0 4px 4px}
+.dv .ov b{font-weight:500;font-size:14px;line-height:1.45}
+.dv.big .ov b{font-family:var(--f-display);font-size:19px;font-weight:600}
+.dv .ov small{font-size:12px;color:#C9D2E4}
+.dv .tag{position:absolute;top:12px;left:12px;font-size:11.5px;font-weight:600;letter-spacing:.06em;padding:3px 10px;border-radius:999px;background:linear-gradient(180deg,#EBD08F,#C49A45);color:#0B1F3A;z-index:2}
+@media (max-width:560px){.dv .ov b{font-size:12.5px}.dv.big .ov b{font-size:15px}.dv:not(.big):not(.wide) .ov small{display:none}}
 
 /* Challenge issues */
 .issues{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;counter-reset:i}
@@ -137,14 +134,15 @@ main{padding-block:0 80px}
 /* Domain banner */
 .banner{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
 .banner::before{content:"";position:absolute;inset:0;opacity:.14;background:repeating-radial-gradient(circle at 92% 50%,transparent 0 18px,rgba(212,178,106,.6) 18px 19px);pointer-events:none}
-.banner .wrap{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:32px;align-items:center;padding-block:48px}
-.banner .big{font-family:var(--f-display);font-size:clamp(64px,9vw,112px);line-height:.9;color:var(--gold-2);font-weight:500}
+.banner .wrap{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,420px);gap:32px;align-items:center;padding-block:48px}
+@media (max-width:860px){.banner .wrap{grid-template-columns:auto minmax(0,1fr)}.banner .collage{grid-column:1/-1;width:100%;justify-self:center}}
+.banner .big{font-family:var(--f-num);font-size:clamp(80px,11vw,150px);line-height:.85;color:var(--gold-2);font-weight:500;font-style:italic}
 .banner h1{font-size:clamp(24px,3.4vw,38px);font-weight:600}
 .banner p{margin:10px 0 0;color:var(--on-navy-muted);font-size:15px;max-width:46em}
 .banner .meta{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
 .banner .meta b{font-family:var(--f-num);font-size:22px;color:var(--gold-2);margin-right:6px}
 .banner .meta a{color:var(--gold-2);text-underline-offset:3px}
-@media (max-width:600px){.banner .wrap{grid-template-columns:1fr;gap:6px}}
+@media (max-width:600px){.banner .wrap{grid-template-columns:1fr;gap:6px}.banner .collage{margin-top:22px}}
 
 /* Indicator index + blocks */
 .toc{display:flex;flex-wrap:wrap;gap:8px;padding-block:22px 0}
@@ -160,12 +158,60 @@ main{padding-block:0 80px}
 .btn:hover{background:var(--gold);color:var(--paper)}
 .btn svg{width:14px;height:14px}
 @media (max-width:640px){.ind-head{grid-template-columns:auto minmax(0,1fr)}.ind-head .btn{grid-column:1/-1;justify-self:start}}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
-.ph{position:relative;aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:var(--gold-soft);border:1px solid var(--line);cursor:zoom-in;padding:0;font:inherit;color:inherit}
-.ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
-.ph:hover img{transform:scale(1.04)}
-.ph .cap{position:absolute;inset:auto 0 0;padding:22px 10px 8px;font-size:12.5px;line-height:1.4;color:#fff;background:linear-gradient(transparent,rgba(7,20,40,.85));text-align:left}
-@media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Mosaic: mixed-size layered tiles (big 2x2, wide 2x1, tall 1x2, sm 1x1) on a dense 4-col grid */
+.mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:190px;grid-auto-flow:dense;gap:16px;padding:6px 10px 10px 0}
+.mosaic.few{grid-template-columns:repeat(var(--n),minmax(0,1fr));grid-auto-rows:300px;max-width:calc(var(--n) * 460px)}
+.ph{position:relative;isolation:isolate;padding:0;border:0;background:none;font:inherit;color:inherit;cursor:zoom-in;min-width:0;text-align:left}
+.ph .fr{position:absolute;inset:0;overflow:hidden;border-radius:4px;background:var(--gold-soft);box-shadow:0 1px 2px rgba(11,31,58,.08),0 10px 24px rgba(11,31,58,.10)}
+.ph .fr img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}
+.ph .fr::after{content:"";position:absolute;inset:8px;border:1px solid rgba(235,208,143,0);border-radius:2px;transition:border-color .4s,inset .4s;pointer-events:none}
+.ph:hover .fr img{transform:scale(1.07)}
+.ph:hover .fr::after{border-color:rgba(235,208,143,.85);inset:12px}
+.ph.big::before,.ph.tall::before{content:"";position:absolute;inset:0;transform:translate(10px,10px);border:1px solid var(--gold-2);border-radius:4px;z-index:-1;transition:transform .5s}
+.ph.big:hover::before,.ph.tall:hover::before{transform:translate(14px,14px)}
+.ph.big{grid-column:span 2;grid-row:span 2}
+.ph.wide{grid-column:span 2}
+.ph.tall{grid-row:span 2}
+.ph .cap{position:absolute;inset:auto 0 0;padding:34px 14px 12px;font-size:13px;line-height:1.45;color:#fff;background:linear-gradient(transparent,rgba(7,20,40,.88));border-radius:0 0 4px 4px;transform:translateY(4px);opacity:.92;transition:transform .4s,opacity .4s}
+.ph:hover .cap{transform:none;opacity:1}
+.ph.big .cap{font-size:15px;padding:48px 20px 16px;font-family:var(--f-display)}
+.ph .zoom{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(7,20,40,.55);color:#EBD08F;font-size:15px;opacity:0;transform:scale(.8);transition:opacity .3s,transform .3s;backdrop-filter:blur(4px)}
+.ph:hover .zoom{opacity:1;transform:none}
+@media (max-width:900px){.mosaic{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:170px}}
+@media (max-width:560px){.mosaic,.mosaic.few{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:140px;gap:12px}.mosaic.few{grid-auto-rows:200px}.ph.big::before,.ph.tall::before{transform:translate(6px,6px)}}
+
+/* Banner collage: three layered photos with parallax */
+.collage{position:relative;height:330px}
+.collage figure{position:absolute;margin:0;overflow:hidden;border-radius:4px;border:4px solid #F6F2E6;box-shadow:0 18px 40px rgba(0,0,0,.45);background:#13294A;will-change:transform}
+.collage img{width:100%;height:100%;object-fit:cover;display:block}
+.collage .c1{inset:6% 6% 14% 14%;transform:rotate(-1.5deg);z-index:1}
+.collage .c1::after{content:"";position:absolute;inset:6px;border:1px solid rgba(235,208,143,.7);pointer-events:none}
+.collage .c2{left:0;bottom:0;width:44%;height:44%;transform:rotate(-6deg);z-index:2}
+.collage .c3{right:0;top:0;width:38%;height:40%;transform:rotate(5deg);z-index:2}
+.collage .ring{position:absolute;right:8%;bottom:4%;width:90px;height:90px;border-radius:50%;border:1px solid rgba(212,178,106,.6);z-index:0}
+@media (max-width:860px){.collage{height:240px;max-width:420px}}
+
+/* Hero floating certificates */
+.portrait .float{position:absolute;margin:0;width:44%;aspect-ratio:4/3;background:#FBF7EC;border:3px solid #F6F2E6;border-radius:4px;box-shadow:0 18px 36px rgba(0,0,0,.45);overflow:hidden;z-index:3;cursor:zoom-in;padding:0}
+.portrait .float img{width:100%;height:100%;object-fit:contain;display:block;padding:4px}
+.portrait .f1{left:-26%;bottom:16%;transform:rotate(-8deg)}
+.portrait .f2{right:-22%;top:10%;transform:rotate(6deg);width:38%}
+.portrait .float:hover{z-index:4;box-shadow:0 0 0 2px var(--gold-2),0 22px 44px rgba(0,0,0,.5)}
+@media (max-width:860px){.portrait .f1{left:-30%}.portrait .f2{right:-28%}}
+
+/* Photo strip marquee */
+.strip{position:relative;overflow:hidden;padding-block:26px 40px;margin-top:64px;background:var(--navy);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.strip-head{text-align:center;color:var(--on-navy);padding-bottom:18px}
+.strip-head .kicker{font-size:12.5px;letter-spacing:.16em;color:var(--gold-2);font-weight:600}
+.strip-head h2{font-size:clamp(22px,2.6vw,30px);font-weight:600;margin-top:4px}
+.track{display:flex;gap:18px;width:max-content;align-items:center;animation:slide 90s linear infinite}
+.strip:hover .track{animation-play-state:paused}
+.track .ph{flex:none;width:240px;height:180px}
+.track .ph:nth-child(3n+1){width:300px;height:230px}
+.track .ph:nth-child(3n+2){transform:translateY(22px)}
+.track .ph:nth-child(4n){width:180px;height:240px;transform:translateY(-14px)}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}.strip{overflow-x:auto}}
 .empty{padding:28px;border:1px dashed var(--line);border-radius:6px;color:var(--muted);text-align:center;font-size:15px;background:var(--paper)}
 .docs{display:grid;gap:10px;margin-bottom:16px}
 .doc{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--paper);border:1px solid var(--line);border-radius:6px;text-decoration:none}
@@ -227,7 +273,7 @@ const HAVE = new Set(["1-SUvQzZYXMmynHgql0DpXVVtjbxUYJIb", "1-zmGwjHjfMpsvZS4PzJ
 const img = id => `img/${id}.jpg`;
 const fileUrl = id => `https://drive.google.com/file/d/${id}/view`;
 const folderUrl = id => `https://drive.google.com/drive/folders/${id}`;
-const TH = n => String(n).replace(/\d/g,d=>'๐๑๒๓๔๕๖๗๘๙'[d]);
+const TH = n => String(n); /* numerals: Arabic throughout */
 const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const EXT = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3H3v10h10v-3M9 2h5v5M14 2 7 9"/></svg>';
 
@@ -288,9 +334,18 @@ const ISSUES = [
 /* ---------- gallery registry for lightbox ---------- */
 let GAL = [];
 function reg(list){ const start = GAL.length; GAL.push(...list); return start; }
-function ph(item, i){
+function ph(item, i, size=''){
   const cap = item.c ? `<span class="cap">${esc(item.c)}</span>` : '';
-  return `<button class="ph" data-i="${i}" aria-label="ขยายภาพ ${esc(item.c||'หลักฐาน')}"><img src="${img(item.id)}" alt="${esc(item.c||'ภาพหลักฐาน')}" loading="lazy" decoding="async">${cap}</button>`;
+  return `<button class="ph ${size}" data-i="${i}" aria-label="ขยายภาพ ${esc(item.c||'หลักฐาน')}"><span class="fr"><img src="${img(item.id)}" alt="${esc(item.c||'ภาพหลักฐาน')}" loading="lazy" decoding="async"></span>${cap}<span class="zoom" aria-hidden="true">⤢</span></button>`;
+}
+/* rhythm of tile sizes; dense grid packs them without holes */
+const PAT = ['big','sm','tall','sm','sm','wide','sm','sm','tall','wide','sm','sm','big','sm','sm','wide','tall','sm','sm','sm'];
+function mosaic(items, start){
+  const n = items.length;
+  if (n <= 3) return `<div class="mosaic few" style="--n:${n}">${items.map((it,i)=>ph(it,start+i)).join('')}</div>`;
+  const sizes = items.map((_,i)=>PAT[i%PAT.length]);
+  if (n < 8) { sizes.fill('sm'); sizes[0]='big'; if(n>=6) sizes[n-1]='wide'; if(n===5) sizes[n-1]='wide'; }
+  return `<div class="mosaic">${items.map((it,i)=>ph(it,start+i,sizes[i])).join('')}</div>`;
 }
 const usable = items => items.filter(([id])=>HAVE.has(id)).map(([id,c])=>({id,c}));
 
@@ -299,6 +354,8 @@ function viewHome(){
   const tally = k => DATA.sections.filter(s=>s.tab===k).reduce((a,s)=>a+usable(s.items).length,0);
   const aStart = reg(AWARDS.map(a=>({id:a.id,c:a.t})));
   const devStart = reg(DEV.map(d=>({id:d.id,c:d.t})));
+  const stripItems = DATA.sections.filter(s=>/^d[1-4]$/.test(s.tab)).flatMap(s=>usable(s.items).filter(x=>!/สรุปผลงาน|ผลงาน \d|คำสั่ง|QR|แผน/.test(x.c)).slice(0,2));
+  const sStart = reg(stripItems);
   const kinds = ['ทั้งหมด','วิทยากร','กรรมการ','อบรมพัฒนา'];
   const nat = AWARDS.filter(a=>a.nat).length;
   return `
@@ -314,7 +371,9 @@ function viewHome(){
         <div class="stat"><b>5</b><span>ด้านตามมาตรฐาน<br>ตำแหน่ง</span></div>
       </div>
     </div>
-    <div class="portrait"><div class="arch"><img src="${img(DATA.portrait)}" alt="นางสาวราตรี พิมพ์ศักดิ์"></div><div class="plate">รองผู้อำนวยการ ชำนาญการพิเศษ</div></div>
+    <div class="portrait"><div class="arch"><img src="${img(DATA.portrait)}" alt="นางสาวราตรี พิมพ์ศักดิ์"></div><div class="plate">รองผู้อำนวยการ ชำนาญการพิเศษ</div>
+      <button class="float f1" data-i="${aStart}" aria-label="ขยายเกียรติบัตร ${esc(AWARDS[0].t)}"><img src="${img(AWARDS[0].id)}" alt=""></button>
+      <button class="float f2" data-i="${aStart+1}" aria-label="ขยายเกียรติบัตร ${esc(AWARDS[1].t)}"><img src="${img(AWARDS[1].id)}" alt=""></button></div>
   </div></section>
 
   <div class="wrap">
@@ -326,15 +385,22 @@ function viewHome(){
           <div class="body"><span class="lvl${a.nat?' nat':''}">${a.lvl}</span><h3>${esc(a.t)}</h3><div class="meta"><span>${esc(a.by)}</span><span>${a.d}</span></div></div>
         </button>`).join('')}</div>
     </section>
+  </div>
 
+  <section class="strip" aria-label="บันทึกภาพผลงาน">
+    <div class="strip-head"><div class="kicker">บันทึกภาพผลงาน</div><h2>ภาพเด่นจากการปฏิบัติงานทั้ง 5 ด้าน</h2></div>
+    <div class="track">${[...stripItems, ...stripItems].map((it,k)=>ph(it, sStart + (k % stripItems.length))).join('')}</div>
+  </section>
+
+  <div class="wrap">
     <section class="sec" id="development">
       <div class="sec-head"><div><div class="kicker">การพัฒนาตนเองและวิชาชีพ</div><h2>เรียนรู้ ถ่ายทอด และร่วมพัฒนา</h2></div><p>บทบาทวิทยากร กรรมการ และการเข้ารับการอบรมพัฒนาเพื่อยกระดับสมรรถนะการบริหารสถานศึกษา</p></div>
       <div class="filters" role="group" aria-label="กรองประเภท">${kinds.map((k,i)=>`<button class="chip" data-k="${k}" aria-pressed="${i===0}">${k}<span class="c">${i?DEV.filter(d=>d.k===k).length:DEV.length}</span></button>`).join('')}</div>
-      <div class="dev" id="devGrid">${DEV.map((d,i)=>`
-        <button class="devc" data-i="${devStart+i}" data-k="${d.k}">
-          <div class="img"><img src="${img(d.id)}" alt="${esc(d.t)}" loading="lazy"></div>
-          <div class="body"><span class="tag">${d.k}</span><h3>${esc(d.t)}</h3><span class="d">${d.d}</span></div>
-        </button>`).join('')}</div>
+      <div class="mosaic" id="devGrid">${DEV.map((d,i)=>{
+        const size = i===0?'big': d.k==='วิทยากร'?'wide': d.k==='กรรมการ'?'tall': (i===8||i===15)?'wide':'sm';
+        return `<button class="ph dv ${size}" data-i="${devStart+i}" data-k="${d.k}" aria-label="ขยายภาพ ${esc(d.t)}">
+          <span class="fr"><img src="${img(d.id)}" alt="${esc(d.t)}" loading="lazy"></span><span class="tag">${d.k}</span>
+          <span class="ov"><b>${esc(d.t)}</b><small>${d.d}</small></span></button>`;}).join('')}</div>
     </section>
 
     <section class="sec">
@@ -365,7 +431,7 @@ function viewTab(t){
     const items = usable(s.items);
     const start = reg(items);
     const docs = (s.docs||[]).map(([id,name])=>`<a class="doc" href="${fileUrl(id)}" target="_blank" rel="noopener"><span class="ico">DOCX</span><span>${esc(name)}<small>เปิดใน Google Drive</small></span></a>`).join('');
-    const content = items.length ? `<div class="grid">${items.map((it,i)=>ph(it,start+i)).join('')}</div>`
+    const content = items.length ? mosaic(items, start)
       : (docs ? '' : `<div class="empty">ยังไม่มีไฟล์ในโฟลเดอร์นี้ · เปิดโฟลเดอร์ใน Google Drive เพื่อดูเอกสารล่าสุด</div>`);
     const id = 'i-'+s.code.replace(/\W/g,'');
     return `<section class="ind" id="${id}">
@@ -375,11 +441,17 @@ function viewTab(t){
   }).join('');
   if (t.key==='pa') body += `<section class="ind"><div class="ind-head"><div class="code">69</div><div><h2>ประเด็นท้าทาย ปีงบประมาณ 2569 (สรุปจากรายงาน PA)</h2></div></div>
     <div class="issues">${ISSUES.map((s,i)=>`<article class="issue"><div class="no">${TH(i+1)}</div><h3>${esc(s.t)}</h3><ul>${s.li.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')}</div></section>`;
+  const pics = secs.flatMap(s=>usable(s.items).filter(x=>!/สรุปผลงาน|ผลงาน \d|คำสั่ง|QR|ปก/.test(x.c))).slice(0,12);
+  const pick = [pics[0], pics[Math.floor(pics.length/2)], pics[pics.length-1]].filter(Boolean);
+  const collage = pick.length===3 ? `<div class="collage" aria-hidden="true"><span class="ring" data-depth="-.04"></span>
+      <figure class="c1" data-depth=".03"><img src="${img(pick[0].id)}" alt=""></figure>
+      <figure class="c2" data-depth=".09" data-rot="-6"><img src="${img(pick[1].id)}" alt=""></figure>
+      <figure class="c3" data-depth="-.07" data-rot="5"><img src="${img(pick[2].id)}" alt=""></figure></div>` : '';
   return `<section class="banner"><div class="wrap"><div class="big" aria-hidden="true">${big}</div><div>
       <div class="eyebrow">${t.n?'มาตรฐานตำแหน่ง ด้านที่ '+t.n:'Performance Agreement'}</div>
       <h1 style="margin-top:10px">${t.title}</h1><p>${t.sub}</p>
       <div class="meta"><span><b>${secs.length}</b>${t.n?'ตัวชี้วัด':'หมวดเอกสาร'}</span><span><b>${total}</b>ภาพหลักฐาน</span><a href="${folderUrl(t.folder)}" target="_blank" rel="noopener">เปิดโฟลเดอร์ใน Google Drive ↗</a></div>
-    </div></div></section>
+    </div>${collage}</div></section>
     <div class="wrap"><nav class="toc" aria-label="ตัวชี้วัด">${secs.map(s=>`<a href="#${t.key}" data-jump="i-${s.code.replace(/\W/g,'')}"><b>${esc(s.code)}</b>${esc(s.title.length>34?s.title.slice(0,34)+'…':s.title)}</a>`).join('')}</nav>${body}</div>`;
 }
 
@@ -412,7 +484,13 @@ app.addEventListener('click', e=>{
 
 const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
 let cur = 0, lastFocus = null;
-function visibleIdx(){ return [...app.querySelectorAll('[data-i]')].filter(el=>!el.hidden && el.offsetParent!==null).map(el=>+el.dataset.i); }
+function visibleIdx(){ return [...new Set([...app.querySelectorAll('[data-i]')].filter(el=>!el.hidden && el.offsetParent!==null).map(el=>+el.dataset.i))].sort((a,b)=>a-b); }
+/* gentle parallax on banner collage layers */
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let ticking = false;
+addEventListener('scroll', ()=>{ if (calm || ticking) return; ticking = true; requestAnimationFrame(()=>{ const y = scrollY;
+  app.querySelectorAll('[data-depth]').forEach(el=>{ const d = +el.dataset.depth, r = el.dataset.rot||(el.classList.contains('c1')?-1.5:0); el.style.transform = `translateY(${(y*d).toFixed(1)}px) rotate(${r}deg)`; });
+  ticking = false; }); }, {passive:true});
 function openLB(i){ lastFocus = document.activeElement; cur = i; lb.hidden = false; show(); document.getElementById('lbClose').focus(); document.body.style.overflow='hidden'; }
 function show(){ const it = GAL[cur]; const vis = visibleIdx(); lbImg.src = img(it.id); lbImg.alt = it.c||'ภาพหลักฐาน';
   document.getElementById('lbCap').textContent = it.c||'ภาพหลักฐาน';
